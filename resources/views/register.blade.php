@@ -493,7 +493,29 @@
           </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+          <div class="form-floating">
+            <select class="form-control" id="internet_package" name="internet_package">
+              <option selected value="internet">50 Mbps 1months</option>
+              <option value="internet">50 Mbps 3months</option>
+              <option value="internet">50 Mbps 6months</option>
+              <option value="internet">50 Mbps 12months</option>
+              <option value="internet">150 Mbps 12months</option>
+            </select>
+            <label for="internet_package">Select Internet Package</label>
+          </div>
+        </div>
+        <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+          <div class="form-floating">
+            <select class="form-control" id="iptv_package" name="iptv_package">
+              <option selected value="none">None</option>
+              <option value="iptv">With TV</option>
+            </select>
+            <label for="internet_package">Select Internet Package</label>
+          </div>
+        </div>
+
+        {{-- <div class="col-12">
           <ol type="1" class="row p-0" id="">
             <div id="serviceList1" class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
               <li class="border border-2 border-secondary p-2">
@@ -519,7 +541,7 @@
         <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
           <a type="button" class="form-control btn btn-outline-dark" id="add_service">Add Service</a>
           <a type="button" class="form-control btn btn-outline-danger" id="remove_service" hidden>remove Service</a>
-        </div>
+        </div> --}}
 
       </div>
 
