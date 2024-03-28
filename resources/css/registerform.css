@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#subscriberType {
+    margin-bottom: 20px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button{
+    width: 100px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+input[type="file"] {
+    margin-top: 5px;
+}
+
+
+
+
+.form-section {
+    width: 100%;
+}
+/* .tab{
+    display: none;
+} */
+
+.hidden {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Additional styling for better layout */
+ form > div {
+    margin-bottom: 20px;
+}
+
+
+/* Styling for gender radio buttons in the same row */
+.gender-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.gender-options label {
+    width: auto;
+}
+
+/* Styling for file input */
+.form-section input[type="file"] {
+    width: calc(70% - 10px);
+}
+
+.form-section .file-upload-button {
+    width: 30%;
+}
+
+/* .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+    gap: .25em;
+  }
+  
+  .form-group:last-child {
+    margin: 0;
+  }
+  
+  .form-group > label {
+    font-weight: bold;
+    font-size: .8em;
+    color: #333;
+  }
+  
+  .form-group > input {
+    border: 1px solid #333;
+    border-radius: .25em;
+    font-size: 1rem;
+    padding: .25em;
+  } */
