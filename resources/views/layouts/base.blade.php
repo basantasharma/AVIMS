@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/5afc3c7c1e.js" crossorigin="anonymous"></script>
     @yield('scripts-top')
     @vite('resources/css/app.css')
+    @vite('resources/css/registerform.css')
     @vite('resources/js/app.js')
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
