@@ -49,8 +49,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
         'organization_name',
         'organization_pan',
-        'organization_phone',
-        'organization_cellphone_number',
         'organization_email',
         'organization_registration_number',
 
