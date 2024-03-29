@@ -16,7 +16,7 @@
 
    
     
-    <form action="/register" method="post" id="formgroup">
+    <form action="/subscriberregister" method="post" id="formgroup">
       @csrf
       @method('post')
 
