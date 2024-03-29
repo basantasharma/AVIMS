@@ -539,8 +539,8 @@
             
       
     <div class="buttons" style="display: flex; justify-content: space-between" >
-      <button type="button" id="prevbtn" class="btn btn-outline-danger">Previous</button>
-      <button type="button" id="nxtbtn" class="btn btn-outline-secondary px-4">Next</button>
+      {{-- <button type="button" id="prevbtn" class="btn btn-outline-danger">Previous</button>
+      <button type="button" id="nxtbtn" class="btn btn-outline-secondary px-4">Next</button> --}}
       <button type="submit" id="submitbtn" class="btn btn-outline-success" >Submit</button>
     </div>
 
