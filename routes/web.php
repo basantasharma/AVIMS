@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SubscriberRegistrationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersRolesController;
@@ -47,6 +48,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
 Route::get('/addnas', [RegisterController::class, 'showRegisternasPage'])->name('register');
 Route::post('/register', [RegisterController::class, 'startRegistration'])->name('register');
+Route::post('/subscriberregister', [SubscriberRegistrationController::class, 'registerSubscriber'])->name('registerSubscriber');
 
 
 Route::get('/offers', [OffersController::class, 'showOffersPage'])->name('offers');
