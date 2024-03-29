@@ -76,8 +76,8 @@
   
           <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
             <div class="form-floating">
-              <input type="text" class="form-control" id="portal_user_name" name="portal_user_name" placeholder="Portal Username">
-              <label for="portal_user_name">Portal Username:</label>
+              <input type="text" class="form-control" id="portal_username" name="portal_username" placeholder="Portal Username">
+              <label for="portal_username">Portal Username:</label>
             </div>
           </div>
   
