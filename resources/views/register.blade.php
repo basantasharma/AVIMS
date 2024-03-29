@@ -146,21 +146,35 @@
           <div class="row mt-2">
             <h4>Subscriber Information</h4><hr>
             
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="orgname" style="display: none" >
+              <div class="form-floating">
+                <input type="text" class="form-control" id="Subscriber_orgname" name="Subscriber_orgname" placeholder="Organization Name">
+                <label for="Subscriber_orgname">Organization Name</label><br>
+              </div>
+            </div>
+
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="orgreg" style="display: none"  >
+              <div class="form-floating">
+                <input type="text" class="form-control" id="Subscriber_orgreg" name="Subscriber_orgreg" placeholder="Organization Registration">
+                <label for="Subscriber_orgreg">Registration Number</label><br>
+              </div>
+            </div>
+
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="firstname">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_firstname" name="Subscriber_firstname" placeholder="First Name">
                 <label for="Subscriber_firstname">First Name</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="middlename">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_middlename" name="Subscriber_middlename" placeholder="Middle Name">
                 <label for="Subscriber_username">Middle Name</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="lastname">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_lastname" name="Subscriber_lastname" placeholder="Last Name">
                 <label for="Subscriber_lastname">Last Name</label><br>
@@ -168,7 +182,7 @@
             </div>
           
       
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3 form-group">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3 form-group" id="gender">
               <h6>Gender:</h6>
               <input type="radio" id="male" name="gender" value="male">
               <label for="male">Male</label>
@@ -179,35 +193,35 @@
             </div>
     
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="occupation">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_occupation" name="Subscriber_occupation" placeholder="occupation">
                 <label for="Subscriber_occupation">occupation</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" >
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_pan" name="Subscriber_pan" placeholder="pan">
                 <label for="Subscriber_pan">PAN</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="fatherdiv">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_fathername" name="Subscriber_fathername" placeholder="fathername">
                 <label for="Subscriber_fathername">Father's Full Name</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="motherdiv">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_mothername" name="Subscriber_mothername" placeholder="mothername">
                 <label for="Subscriber_mothername">Mother's Full Name</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="grandparentdiv">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_grandparentname" name="Subscriber_grandparentname" placeholder="grandparentname">
                 <label for="Subscriber_grandparentname">Grandparent's Full Name</label><br>
@@ -215,7 +229,7 @@
             </div>
     
             
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="spousediv">
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_spousename" name="Subscriber_spousename" placeholder="spouseName">
                 <label for="Subscriber_spousename">Spouse's Full Name</label><br>
@@ -223,7 +237,7 @@
             </div>
     
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3" id="identity">
               <div class="form-floating">
               <select class="form-control" id="identity_proof_type" name="identity_proof_type">
                 <option selected>Document Type </option>
@@ -243,7 +257,7 @@
             </div>
     
     
-            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" >
               <div class="form-floating">
                 <input type="text" class="form-control" id="Subscriber_email" name="Subscriber_email" placeholder="subscriberemail">
                 <label for="Subscriber_email">Subscriber's Email</label><br>
