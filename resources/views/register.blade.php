@@ -348,8 +348,8 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_streetname" name="Subscriber_streetname" placeholder="streetname">
-                <label for="Subscriber_lastname">Street Name</label><br>
+                <input type="text" class="form-control" id="Subscriber_permanent_streetname" name="Subscriber_permanent_streetname" placeholder="Subscriber_permanent_streetname">
+                <label for="Subscriber_permanent_streetname">Street Name</label><br>
               </div>
             </div>
           
@@ -358,14 +358,14 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_streetnumber" name="Subscriber_streetnumber" placeholder="streetnumber">
-                <label for="Subscriber_occupation">Street Number</label><br>
+                <input type="text" class="form-control" id="Subscriber_permanent_streetnumber" name="Subscriber_permanent_streetnumber" placeholder="Subscriber_permanent_streetnumber">
+                <label for="Subscriber_permanent_streetnumber">Street Number</label><br>
               </div>
             </div>
         
           
-            <h4>Current Address</h4>
-            
+            <h4>Current Address</h4> <span><input type="checkbox" id="copy-address"> Same as above
+            </span> 
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
               <select class="form-control" id="current_state" name="current_state">
@@ -394,7 +394,7 @@
                 <option value="Karnali">Karnali</option>
                 <option value="Sudurpashchim">Sudurpashchim</option>
               </select>
-              <label for="current_state">District</label>
+              <label for="current_district">District</label>
         
             </div></div>
         
@@ -433,8 +433,8 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_streetname" name="Subscriber_streetname" placeholder="streetname">
-                <label for="Subscriber_lastname">Street Name</label><br>
+                <input type="text" class="form-control" id="Subscriber_current_streetname" name="Subscriber_current_streetname" placeholder="Subscriber_current_streetname">
+                <label for="Subscriber_current_streetname">Street Name</label><br>
               </div>
             </div>
           
@@ -443,8 +443,8 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_streetnumber" name="Subscriber_streetnumber" placeholder="streetnumber">
-                <label for="Subscriber_occupation">Street Number</label><br>
+                <input type="text" class="form-control" id="Subscriber_current_streetnumber" name="Subscriber_current_streetnumber" placeholder="Subscriber_current_streetnumber">
+                <label for="Subscriber_current_streetnumber">Street Number</label><br>
               </div>
             </div>
         
