@@ -283,67 +283,67 @@
             
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="permanent_state" name="permanent_state">
-                <option selected>Select State</option>
-                <option value="Koshi">Koshi</option>
-                <option value="Madhesh">Madhesh</option>
-                <option value="Bagmati">Bagmati</option>
-                <option value="Gandaki">Gandaki</option>
-                <option value="Lumbini">Lumbini</option>
-                <option value="Karnali">Karnali</option>
-                <option value="Sudurpashchim">Sudurpashchim</option>
-              </select>
-              <label for="permanent_state">State</label>
-        
-            </div></div>
-        
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-              <div class="form-floating">
-              <select class="form-control" id="permanent_district" name="permanent_district">
-                <option selected>Select District</option>
-                <option value="Koshi">Koshi</option>
-                <option value="Madhesh">Madhesh</option>
-                <option value="Bagmati">Bagmati</option>
-                <option value="Gandaki">Gandaki</option>
-                <option value="Lumbini">Lumbini</option>
-                <option value="Karnali">Karnali</option>
-                <option value="Sudurpashchim">Sudurpashchim</option>
-              </select>
-              <label for="permanent_state">District</label>
-        
-            </div></div>
+                <select class="form-control" id="permanent_state" name="permanent_state">
+                  <option selected>Select State</option>
+                  <option value="Koshi">Koshi</option>
+                  <option value="Madhesh">Madhesh</option>
+                  <option value="Bagmati">Bagmati</option>
+                  <option value="Gandaki">Gandaki</option>
+                  <option value="Lumbini">Lumbini</option>
+                  <option value="Karnali">Karnali</option>
+                  <option value="Sudurpashchim">Sudurpashchim</option>
+                </select>
+                <label for="permanent_state">State</label>
+              </div>
+            </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="permanent_vdcmun" name="permanent_vdcmun">
-                <option selected>Select VDC/Municipality</option>
-                <option value="Koshi">Koshi</option>
-                <option value="Madhesh">Madhesh</option>
-                <option value="Bagmati">Bagmati</option>
-                <option value="Gandaki">Gandaki</option>
-                <option value="Lumbini">Lumbini</option>
-                <option value="Karnali">Karnali</option>
-                <option value="Sudurpashchim">Sudurpashchim</option>
-              </select>
-              <label for="permanent_vdcmun">VDC/MUNICIPALITY</label>
-        
-            </div></div>
+                <select class="form-control" id="permanent_district" name="permanent_district">
+                  <option selected>Select District</option>
+                  <option value="Koshi">Koshi</option>
+                  <option value="Madhesh">Madhesh</option>
+                  <option value="Bagmati">Bagmati</option>
+                  <option value="Gandaki">Gandaki</option>
+                  <option value="Lumbini">Lumbini</option>
+                  <option value="Karnali">Karnali</option>
+                  <option value="Sudurpashchim">Sudurpashchim</option>
+                </select>
+                <label for="permanent_state">District</label>
+              </div>
+            </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="permanent_ward" name="permanent_ward">
-                <option selected>Select Ward</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-              </select>
-              <label for="permanent_ward">Ward</label></label>
+                <select class="form-control" id="permanent_vdcmun" name="permanent_vdcmun">
+                  <option selected>Select VDC/Municipality</option>
+                  <option value="Koshi">Koshi</option>
+                  <option value="Madhesh">Madhesh</option>
+                  <option value="Bagmati">Bagmati</option>
+                  <option value="Gandaki">Gandaki</option>
+                  <option value="Lumbini">Lumbini</option>
+                  <option value="Karnali">Karnali</option>
+                  <option value="Sudurpashchim">Sudurpashchim</option>
+                </select>
+                <label for="permanent_vdcmun">VDC/MUNICIPALITY</label>
+              </div>
+            </div>
         
-            </div></div>
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <select class="form-control" id="permanent_ward" name="permanent_ward">
+                  <option selected>Select Ward</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+                <label for="permanent_ward">Ward</label></label>
+              </div>
+            </div>
         
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
@@ -353,81 +353,77 @@
               </div>
             </div>
           
-        
-        
-        
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_permanent_streetnumber" name="Subscriber_permanent_streetnumber" placeholder="Subscriber_permanent_streetnumber">
-                <label for="Subscriber_permanent_streetnumber">Street Number</label><br>
+                <input type="text" class="form-control" id="Subscriber_permanent_housenumber" name="Subscriber_permanent_housenumber" placeholder="Subscriber_permanent_housenumber">
+                <label for="Subscriber_permanent_housenumber">House Number</label><br>
               </div>
             </div>
             <h4>Current Address <input type="checkbox" class="form-check-input ms-4 fs-5" id="copy-address" name="same_as_permanent" placeholder="Same As permanent">
               <label for="copy-address" class="fs-5">same as permanent</label></h4>
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="current_state" name="current_state">
-                <option selected>Select State</option>
-                <option value="Koshi">Koshi</option>
-                <option value="Madhesh">Madhesh</option>
-                <option value="Bagmati">Bagmati</option>
-                <option value="Gandaki">Gandaki</option>
-                <option value="Lumbini">Lumbini</option>
-                <option value="Karnali">Karnali</option>
-                <option value="Sudurpashchim">Sudurpashchim</option>
-              </select>
-              <label for="current_state">State</label>
-        
-            </div></div>
-        
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-              <div class="form-floating">
-              <select class="form-control" id="current_district" name="current_district">
-                <option selected>Select District</option>
-                <option value="Koshi">Koshi</option>
-                <option value="Madhesh">Madhesh</option>
-                <option value="Bagmati">Bagmati</option>
-                <option value="Gandaki">Gandaki</option>
-                <option value="Lumbini">Lumbini</option>
-                <option value="Karnali">Karnali</option>
-                <option value="Sudurpashchim">Sudurpashchim</option>
-              </select>
-              <label for="current_district">District</label>
-        
-            </div></div>
+                <select class="form-control" id="current_state" name="current_state">
+                  <option selected>Select State</option>
+                  <option value="Koshi">Koshi</option>
+                  <option value="Madhesh">Madhesh</option>
+                  <option value="Bagmati">Bagmati</option>
+                  <option value="Gandaki">Gandaki</option>
+                  <option value="Lumbini">Lumbini</option>
+                  <option value="Karnali">Karnali</option>
+                  <option value="Sudurpashchim">Sudurpashchim</option>
+                </select>
+                <label for="current_state">State</label>
+              </div>
+            </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="current_vdcmun" name="current_vdcmun">
-                <option selected>Select VDC/Municipality</option>
-                <option value="Koshi">Koshi</option>
-                <option value="Madhesh">Madhesh</option>
-                <option value="Bagmati">Bagmati</option>
-                <option value="Gandaki">Gandaki</option>
-                <option value="Lumbini">Lumbini</option>
-                <option value="Karnali">Karnali</option>
-                <option value="Sudurpashchim">Sudurpashchim</option>
-              </select>
-              <label for="current_vdcmun">VDC/MUNICIPALITY</label>
-        
-            </div></div>
+                <select class="form-control" id="current_district" name="current_district">
+                  <option selected>Select District</option>
+                  <option value="Koshi">Koshi</option>
+                  <option value="Madhesh">Madhesh</option>
+                  <option value="Bagmati">Bagmati</option>
+                  <option value="Gandaki">Gandaki</option>
+                  <option value="Lumbini">Lumbini</option>
+                  <option value="Karnali">Karnali</option>
+                  <option value="Sudurpashchim">Sudurpashchim</option>
+                </select>
+                <label for="current_district">District</label>
+              </div>
+            </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="current_ward" name="current_ward">
-                <option selected>Select Ward</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-              </select>
-              <label for="current_ward">Ward</label></label>
+                <select class="form-control" id="current_vdcmun" name="current_vdcmun">
+                  <option selected>Select VDC/Municipality</option>
+                  <option value="Koshi">Koshi</option>
+                  <option value="Madhesh">Madhesh</option>
+                  <option value="Bagmati">Bagmati</option>
+                  <option value="Gandaki">Gandaki</option>
+                  <option value="Lumbini">Lumbini</option>
+                  <option value="Karnali">Karnali</option>
+                  <option value="Sudurpashchim">Sudurpashchim</option>
+                </select>
+                <label for="current_vdcmun">VDC/MUNICIPALITY</label>
+              </div>
+            </div>
         
-            </div></div>
-        
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <select class="form-control" id="current_ward" name="current_ward">
+                  <option selected>Select Ward</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+                <label for="current_ward">Ward</label>
+              </div>
+            </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
@@ -435,105 +431,106 @@
                 <label for="Subscriber_current_streetname">Street Name</label><br>
               </div>
             </div>
-          
-        
-        
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_current_streetnumber" name="Subscriber_current_streetnumber" placeholder="Subscriber_current_streetnumber">
-                <label for="Subscriber_current_streetnumber">Street Number</label><br>
+                <input type="text" class="form-control" id="Subscriber_current_housenumber" name="Subscriber_current_housenumber" placeholder="Subscriber_current_housenumber">
+                <label for="Subscriber_current_housenumber">House Number</label><br>
               </div>
             </div>
-        
-        
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="current_latitude" name="current_latitude" placeholder="Current Latitude">
+                <label for="current_latitude">Current Latitude</label><br>
+              </div>
+            </div>
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="current_longitude" name="current_longitude" placeholder="Current Longitude">
+                <label for="current_longitude">Current Longitude</label><br>
+              </div>
+            </div>
           </div>
         
-              
-     
+          <div class="row mt-2">
+            <h4>Installation Information</h4><hr>
             
-        
-              <div class="row mt-2">
-                <h4>Installation Information</h4><hr>
-                
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="installername" name="installername" placeholder="installername">
-                    <label for="installername">Installer's Name</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="accesspoint" name="accesspoint" placeholder="accesspoint">
-                    <label for="accesspoint">Access Point's Name</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="dropwire" name="dropwire" placeholder="dropwire">
-                    <label for="dropwire">Drop-wire Serial Number</label><br>
-                  </div>
-                </div>
-        
-                
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                  <select class="form-control" id="iptype" name="iptype">
-                    <option selected>Select IP Type</option>
-                      <option value="static">static</option>
-                    <option value="dynamic">Dynamic</option>
-                    
-                  </select>
-                  <label for="iptype">IP Type</label></label>
-        
-                </div></div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ipadd" name="ipadd" placeholder="ipadd">
-                    <label for="ipadd">IP Address</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="vlanid" name="vlanid" placeholder="vlanid">
-                    <label for="vlanid">VLAN ID</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="cpemodel" name="cpemodel" placeholder="cpemodel">
-                    <label for="cpemodel">CPE Model</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="cpemacadd" name="cpemacadd" placeholder="cpemacadd">
-                    <label for="cpemacadd">CPE Mac Address</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="leadid" name="leadid" placeholder="leadid">
-                    <label for="leadid">Lead ID</label><br>
-                  </div>
-                </div>
-        
-                <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="orgname" name="orgname" placeholder="orgname">
-                    <label for="orgname">Organization's Name</label><br>
-                  </div>
-                </div>
-        
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="installername" name="installername" placeholder="installername">
+                <label for="installername">Installer's Name</label><br>
               </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="accesspoint" name="accesspoint" placeholder="accesspoint">
+                <label for="accesspoint">Access Point's Name</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="dropwire" name="dropwire" placeholder="dropwire">
+                <label for="dropwire">Drop-wire Serial Number</label><br>
+              </div>
+            </div>
+
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+              <select class="form-control" id="iptype" name="iptype">
+                <option selected>Select IP Type</option>
+                  <option value="static">static</option>
+                <option value="dynamic">Dynamic</option>
+                
+              </select>
+              <label for="iptype">IP Type</label>
+    
+            </div></div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="ipadd" name="ipadd" placeholder="ipadd">
+                <label for="ipadd">IP Address</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="vlanid" name="vlanid" placeholder="vlanid">
+                <label for="vlanid">VLAN ID</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="cpemodel" name="cpemodel" placeholder="cpemodel">
+                <label for="cpemodel">CPE Model</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="cpemacadd" name="cpemacadd" placeholder="cpemacadd">
+                <label for="cpemacadd">CPE Mac Address</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="leadid" name="leadid" placeholder="leadid">
+                <label for="leadid">Lead ID</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="orgname" name="orgname" placeholder="orgname">
+                <label for="orgname">Organization's Name</label><br>
+              </div>
+            </div>
+    
+          </div>
             
       
     <div class="buttons" style="display: flex; justify-content: space-between" >
