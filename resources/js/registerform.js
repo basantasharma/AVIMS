@@ -26,11 +26,11 @@ document.getElementById('copy-address').addEventListener('change', function() {
     let grandparentNameDiv = document.getElementById('grandparentdiv');
     let organizationNameDiv = document.getElementById('orgname');
     let organizationreg = document.getElementById('orgreg');
-    let firstnamediv = document.getElementById('firstname');
-    let middlenamediv = document.getElementById('middlename');
-    let lastnamediv = document.getElementById('lastname');
+    let firstnamediv = document.getElementById('subscriber_firstname');
+    let middlenamediv = document.getElementById('subscriber_middlename');
+    let lastnamediv = document.getElementById('subscriber_lastname');
     let gender = document.getElementById('gender');
-    let occupation = document.getElementById('occupation');
+    let occupation = document.getElementById('subscriber_occupation');
     let spousediv = document.getElementById('spousediv');
     
 

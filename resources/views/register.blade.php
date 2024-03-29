@@ -27,15 +27,15 @@
   
           <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
             <div class="form-floating">
-              <input type="text" class="form-control"  id="Subscriber_username" name="Subscriber_username" placeholder="User Name">
-              <label for="Subscriber_username">User Name</label><br>
+              <input type="text" class="form-control"  id="subscriber_username" name="subscriber_username" placeholder="User Name">
+              <label for="subscriber_username">User Name</label><br>
             </div>
           </div>
   
           <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
             <div class="form-floating">
-              <input type="text" class="form-control" id="Subscriber_password" name="Subscriber_password" placeholder="User Password">
-              <label for="Subscriber_password">User Password</label><br>
+              <input type="text" class="form-control" id="subscriber_password" name="subscriber_password" placeholder="User Password">
+              <label for="subscriber_password">User Password</label><br>
             </div>
           </div>
   
@@ -52,9 +52,9 @@
           <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="connectionType">
             <div class="form-floating">
               <select class="form-control" id="connection_type" name="connection_type">
-                <option selected value="ppoe">PPOE</option>
+                <option selected value="pppoe">PPPOE</option>
                 <option value="ipoe">IPoE</option>
-                <option value="static">Static IP</option>
+                <option value="static_ip">Static IP</option>
               </select>
               <label for="connection_type" id="connectionSelectPlaceholder" class="">Select Connection Type</label>
             </div>
@@ -148,36 +148,36 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="orgname" style="display: none" >
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_orgname" name="Subscriber_orgname" placeholder="Organization Name">
-                <label for="Subscriber_orgname">Organization Name</label><br>
+                <input type="text" class="form-control" id="organization_name" name="organization_name" placeholder="Organization Name">
+                <label for="organization_name">Organization Name</label><br>
               </div>
             </div>
 
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="orgreg" style="display: none"  >
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_orgreg" name="Subscriber_orgreg" placeholder="Organization Registration">
-                <label for="Subscriber_orgreg">Registration Number</label><br>
+                <input type="text" class="form-control" id="organization_registration_number" name="organization_registration_number" placeholder="Organization Registration">
+                <label for="organization_registration_number">Organization Registration Number</label><br>
               </div>
             </div>
 
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="firstname">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_firstname">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_firstname" name="Subscriber_firstname" placeholder="First Name">
-                <label for="Subscriber_firstname">First Name</label><br>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+                <label for="first_name">First Name</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="middlename">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_middlename">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_middlename" name="Subscriber_middlename" placeholder="Middle Name">
-                <label for="Subscriber_username">Middle Name</label><br>
+                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name">
+                <label for="middle_name">Middle Name</label><br>
               </div>
             </div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="lastname">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_lastname">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_lastname" name="Subscriber_lastname" placeholder="Last Name">
-                <label for="Subscriber_lastname">Last Name</label><br>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                <label for="last_name">Last Name</label><br>
               </div>
             </div>
           
@@ -193,46 +193,46 @@
             </div>
     
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="occupation">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_occupation">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_occupation" name="Subscriber_occupation" placeholder="occupation">
-                <label for="Subscriber_occupation">occupation</label><br>
+                <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
+                <label for="occupation">occupation</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" >
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_pan" name="Subscriber_pan" placeholder="pan">
-                <label for="Subscriber_pan">PAN</label><br>
+                <input type="text" class="form-control" id="pan" name="pan" placeholder="pan">
+                <label for="pan">PAN</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="fatherdiv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_fathername" name="Subscriber_fathername" placeholder="fathername">
-                <label for="Subscriber_fathername">Father's Full Name</label><br>
+                <input type="text" class="form-control" id="father_full_name" name="father_full_name" placeholder="Father Full Name">
+                <label for="father_full_name">Father's Full Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="motherdiv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_mothername" name="Subscriber_mothername" placeholder="mothername">
-                <label for="Subscriber_mothername">Mother's Full Name</label><br>
+                <input type="text" class="form-control" id="mother_full_name" name="mother_full_name" placeholder="Mother full Name">
+                <label for="mother_full_name">Mother's Full Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="grandparentdiv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_grandparentname" name="Subscriber_grandparentname" placeholder="grandparentname">
-                <label for="Subscriber_grandparentname">Grandparent's Full Name</label><br>
+                <input type="text" class="form-control" id="grand_father_full_name" name="grand_father_full_name" placeholder="Grand Father Full Name">
+                <label for="grand_father_full_name">Grandparent's Full Name</label><br>
               </div>
             </div>
     
             
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="spousediv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_spousename" name="Subscriber_spousename" placeholder="spouseName">
-                <label for="Subscriber_spousename">Spouse's Full Name</label><br>
+                <input type="text" class="form-control" id="spouse_full_name" name="spouse_full_name" placeholder="Spouse Full Name">
+                <label for="spouse_full_name">Spouse's Full Name</label><br>
               </div>
             </div>
     
@@ -259,15 +259,15 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" >
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_email" name="Subscriber_email" placeholder="subscriberemail">
-                <label for="Subscriber_email">Subscriber's Email</label><br>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Subscriber Email">
+                <label for="email">Subscriber's Email</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_referedby" name="Subscriber_referedby" placeholder="subscriberreferedby">
-                <label for="Subscriber_referedby">Referred By</label><br>
+                <input type="text" class="form-control" id="refered_by" name="refered_by" placeholder="Refered By">
+                <label for="refered_by">Referred By</label><br>
               </div>
             </div>
     
@@ -281,15 +281,15 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="tel" class="form-control" id="Subscriber_contact" name="Subscriber_contact" placeholder="contact">
-                <label for="Subscriber_contact">Phone Number</label><br>
+                <input type="tel" class="form-control" id="Phone_number" name="Phone_number" placeholder="Phone Number">
+                <label for="Phone_number">Phone Number</label><br>
               </div>
             </div>
         
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="tel" class="form-control" id="Subscriber_cellcontact" name="Subscriber_cellcontact" placeholder="cellcontact">
-                <label for="Subscriber_cellcontact">Cell Phone Number</label><br>
+                <input type="tel" class="form-control" id="cellphone_number" name="cellphone_number" placeholder="cellcontact">
+                <label for="cellphone_number">Cell Phone Number</label><br>
               </div>
             </div>
         
@@ -329,7 +329,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="permanent_vdcmun" name="permanent_vdcmun">
+                <select class="form-control" id="permanent_vdc/mun" name="permanent_vdcmun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>
@@ -409,7 +409,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="current_vdcmun" name="current_vdcmun">
+                <select class="form-control" id="current_vdc/mun" name="current_vdcmun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>
@@ -471,76 +471,82 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="installername" name="installername" placeholder="installername">
-                <label for="installername">Installer's Name</label><br>
+                <input type="text" class="form-control" id="installed_by" name="installed_by" placeholder="installername">
+                <label for="installed_by">Installer's Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="accesspoint" name="accesspoint" placeholder="accesspoint">
-                <label for="accesspoint">Access Point's Name</label><br>
+                <input type="text" class="form-control" id="access_point" name="access_point" placeholder="accesspoint">
+                <label for="access_point">Access Point's Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="dropwire" name="dropwire" placeholder="dropwire">
-                <label for="dropwire">Drop-wire Serial Number</label><br>
+                <input type="text" class="form-control" id="drop_wire_used_serial_number" name="drop_wire_used_serial_number" placeholder="dropwire Serial Number">
+                <label for="drop_wire_used_serial_number">Drop-wire Serial Number</label><br>
               </div>
             </div>
 
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-              <select class="form-control" id="iptype" name="iptype">
+              <select class="form-control" id="ip_type" name="ip_type">
                 <option selected>Select IP Type</option>
                   <option value="static">static</option>
                 <option value="dynamic">Dynamic</option>
                 
               </select>
-              <label for="iptype">IP Type</label>
+              <label for="ip_type">IP Type</label>
     
             </div></div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="ipadd" name="ipadd" placeholder="ipadd">
-                <label for="ipadd">IP Address</label><br>
+                <input type="text" class="form-control" id="ip_address" name="ip_address" placeholder="ipadd">
+                <label for="ip_address">IP Address</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="vlanid" name="vlanid" placeholder="vlanid">
-                <label for="vlanid">VLAN ID</label><br>
+                <input type="text" class="form-control" id="vlan_id" name="vlan_id" placeholder="vlanid">
+                <label for="vlan_id">VLAN ID</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="cpemodel" name="cpemodel" placeholder="cpemodel">
-                <label for="cpemodel">CPE Model</label><br>
+                <input type="text" class="form-control" id="cpe_model_name" name="cpe_model_name" placeholder="cpemodel">
+                <label for="cpe_model_name">CPE Model</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="cpemacadd" name="cpemacadd" placeholder="cpemacadd">
-                <label for="cpemacadd">CPE Mac Address</label><br>
+                <input type="text" class="form-control" id="cpe_mac_address" name="cpe_mac_address" placeholder="cpemacadd">
+                <label for="cpe_mac_address">CPE Mac Address</label><br>
+              </div>
+            </div>
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="cpe_serial_number" name="cpe_serial_number" placeholder="CPE Serial Number">
+                <label for="cpe_serial_number">CPE Serial Number</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="leadid" name="leadid" placeholder="leadid">
-                <label for="leadid">Lead ID</label><br>
+                <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="leadid">
+                <label for="lead_id">Lead ID</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="orgname" name="orgname" placeholder="orgname">
-                <label for="orgname">Organization's Name</label><br>
+                <input type="text" class="form-control" id="lead_organization" name="lead_organization" placeholder="Lead Organization">
+                <label for="lead_organization">Lead Organization</label><br>
               </div>
             </div>
     

@@ -43,14 +43,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'portal_enabled',
         'portal_username',
         'portal_password',
-        'subscriber_email',
+        'email',
         'portal_password',
         'refered_by',
 
         'organization_name',
-        'organization_pan',
         'organization_email',
         'organization_registration_number',
+        'organization_pan',
 
         'Phone_number',
         'cellphone_number',
@@ -78,7 +78,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'cpe_model_name',
         'cpe_serial_number',
         'cpe_mac_address',
-        'plan_id',
     ];
 
     /**
