@@ -35,12 +35,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'spouse_full_name',
         'identity_proof_type',
         'identity_proof_photo',
+        'account_enabled',
         'portal_enabled',
         'portal_username',
+        'portal_password',
         'subscriber_email',
         'portal_password',
-        'router_serial_no',
-        'router_model_name',
         'refered_by',
 
         'organization_name',
@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'organization_phone',
         'organization_cellphone_number',
         'organization_email',
-        'organization_reg_number',
+        'organization_registration_number',
 
         'Phone_number',
         'cellphone_number',
@@ -64,9 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'current_ward_number',
         'current_street',
         'current_house_number',
-        'current_house_number',
-        'latitude',
-        'longitude',
+        'current_latitude',
+        'current_longitude',
         
         'installed_by',
         'access_point',
@@ -74,9 +73,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'ip_type',
         'ip_address',
         'vlan_id',
-        'cpe_model',
+        'cpe_model_name',
         'cpe_serial_number',
-        'cpe_mac',
+        'cpe_mac_address',
         'plan_id',
     ];
 
