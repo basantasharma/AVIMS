@@ -9,83 +9,89 @@
 
     <div class="row justify-content-center">
         <div class=" col-12 col-xxl-6 col-xl-8 col-lg-8 col-md-8 col-sm-12">
-    <div class="serviceform">
-        <div class="row justify-content-start">
-            <h3 class="mb-1 text-center">Internet Package</h3>
-            <h4>Add Internet Packages</h4><hr>
-    
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-              <div class="form-floating">
-                <input type="text" class="form-control"  id="service_name" name="service_name" placeholder="Service Name">
-                <label for="service_name">Service Name</label><br>
-              </div>
-            </div>
-
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_price" name="service_price" placeholder="Service Price">
-                  <label for="service_price">Service Price</label><br>
-                </div>
-              </div>
-
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-                <label for="service_isactive">Service Enabled:</label>
-                <div class="form-switch fs-4">
-                  <input type="checkbox" id="service_isactive" class="form-check-input" role="switch" name="service_isactive" checked>
-                </div>
-              </div>
-                       
-
-
-            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_upload_bandwidth" name="service_upload_bandwidth" placeholder="Service Upload Bandwidth">
-                  <label for="service_upload_bandwidth">Service Upload Bandwidth</label><br>
-                </div>
-              </div>
-
-              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_download_bandwidth" name="service_download_bandwidth" placeholder="Service Download Bandwidth">
-                  <label for="service_download_bandwidth">Service Download Bandwidth</label><br>
-                </div>
-              </div>
-
-              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_limit_daily" name="service_limit_daily" placeholder="Service Limit/day">
-                  <label for="service_limit_daily">Service Limit/day</label><br>
-                </div>
-              </div>
-
+            <form action="/addinternetpackage" method="post"  >
+            @csrf
+      @method('post')
+      
+                <div class="serviceform">
+                    <div class="row justify-content-start">
+                        <h3 class="mb-1 text-center">Internet Package</h3>
+                        <h4>Add Internet Packages</h4><hr>
+                
+                        <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="text" class="form-control"  id="service_name" name="service_name" placeholder="Service Name">
+                            <label for="service_name">Service Name</label><br>
+                          </div>
+                        </div>
             
-              
-              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_limit_monthly" name="service_limit_monthly" placeholder="Service Limit/month">
-                  <label for="service_limit_monthly">Service Limit/month</label><br>
+                        <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_price" name="service_price" placeholder="Service Price">
+                              <label for="service_price">Service Price</label><br>
+                            </div>
+                          </div>
+            
+                        <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+                            <label for="service_isactive">Service Enabled:</label>
+                            <div class="form-switch fs-4">
+                              <input type="checkbox" id="service_isactive" class="form-check-input" role="switch" name="service_isactive" checked>
+                            </div>
+                          </div>
+                                   
+            
+            
+                        <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_upload_bandwidth" name="service_upload_bandwidth" placeholder="Service Upload Bandwidth">
+                              <label for="service_upload_bandwidth">Service Upload Bandwidth</label><br>
+                            </div>
+                          </div>
+            
+                          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_download_bandwidth" name="service_download_bandwidth" placeholder="Service Download Bandwidth">
+                              <label for="service_download_bandwidth">Service Download Bandwidth</label><br>
+                            </div>
+                          </div>
+            
+                          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_limit_daily" name="service_limit_daily" placeholder="Service Limit/day">
+                              <label for="service_limit_daily">Service Limit/day</label><br>
+                            </div>
+                          </div>
+            
+                        
+                          
+                          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_limit_monthly" name="service_limit_monthly" placeholder="Service Limit/month">
+                              <label for="service_limit_monthly">Service Limit/month</label><br>
+                            </div>
+                          </div>
+            
+                          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_limit_scope" name="service_limit_scope" placeholder="Service Limit Scope">
+                              <label for="service_limit_scope">Service Limit Scope</label><br>
+                            </div>
+                          </div>
+            
+                          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="service_description" name="service_description" placeholder="Service Description">
+                              <label for="service_description">Service Description</label><br>
+                            </div>
+                          </div>
+            
+                          
+                      </div>
+                      <div class="row justify-content-center">
+                      <button type="submit" class="btn btn-outline-dark col-12 col-xxl-3 col-xl-2 col-lg-6 col-md-6 col-sm-6 mb-3 ">Add Package</button></div>
                 </div>
-              </div>
-
-              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_limit_scope" name="service_limit_scope" placeholder="Service Limit Scope">
-                  <label for="service_limit_scope">Service Limit Scope</label><br>
-                </div>
-              </div>
-
-              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="service_description" name="service_description" placeholder="Service Description">
-                  <label for="service_description">Service Description</label><br>
-                </div>
-              </div>
-
-              
-          </div>
-          <div class="row justify-content-center">
-          <button type="submit" class="btn btn-outline-dark col-12 col-xxl-3 col-xl-2 col-lg-6 col-md-6 col-sm-6 mb-3 ">Add Package</button></div>
-    </div>
+            </form>
+    
 </div>
 </div>
 
