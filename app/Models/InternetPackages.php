@@ -26,7 +26,7 @@ class InternetPackages extends Model
         'service_price',
         'service_duration',
         'service_upload_bandwidth',
-        'service_download_bandthwidth',
+        'service_download_bandwidth',
         'service_limit_daily',
         'service_limit_monthly',
         'service_limit_scope',
