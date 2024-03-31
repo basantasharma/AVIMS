@@ -12,6 +12,8 @@ class SubscriberRegistrationController extends Controller
         $subscriber_password = $request['subscriber_password'];
         $subscriber_type = $request['subscriber_type'];
         $connection_type = $request['connection_type'];
+        //packages details is to get
+
         $first_name = $request['first_name'];
         $middle_name = $request['middle_name'];
         $last_name = $request['last_name'];
