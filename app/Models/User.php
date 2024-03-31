@@ -23,6 +23,10 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
+        'subscriber_username',
+        'subscriber_password',
+        'subscriber_type',
+        'connection_type',
         'first_name',
         'middle_name',
         'last_name',
@@ -39,16 +43,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'portal_enabled',
         'portal_username',
         'portal_password',
-        'subscriber_email',
+        'email',
         'portal_password',
         'refered_by',
 
         'organization_name',
-        'organization_pan',
-        'organization_phone',
-        'organization_cellphone_number',
         'organization_email',
         'organization_registration_number',
+        'organization_pan',
 
         'Phone_number',
         'cellphone_number',
@@ -76,7 +78,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'cpe_model_name',
         'cpe_serial_number',
         'cpe_mac_address',
-        'plan_id',
     ];
 
     /**
