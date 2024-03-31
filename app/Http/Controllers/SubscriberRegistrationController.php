@@ -8,11 +8,12 @@ class SubscriberRegistrationController extends Controller
 {
     public function registerSubscriber(Request $request)
     {
-        // dd($request);
         $subscriber_username = $request['subscriber_username'];
         $subscriber_password = $request['subscriber_password'];
         $subscriber_type = $request['subscriber_type'];
         $connection_type = $request['connection_type'];
+        //packages details is to get
+
         $first_name = $request['first_name'];
         $middle_name = $request['middle_name'];
         $last_name = $request['last_name'];
@@ -33,7 +34,7 @@ class SubscriberRegistrationController extends Controller
         $refered_by = $request['refered_by'];
 
         $organization_name = $request['organization_name'];
-        $organization_email = $request['email'];
+        // $organization_email = $request['email'];
         $organization_registration_number = $request['organization_registration_number'];
 
         $Phone_number = $request['Phone_number'];
@@ -64,10 +65,95 @@ class SubscriberRegistrationController extends Controller
         $cpe_mac_address = $request['cpe_mac_address'];
         $lead_id = $request['lead_id'];
         $lead_organization = $request['lead_organization'];
+        if($request['account_enabled'])
+        {
+            $request['account_enabled'] = true;
+        }
+        else
+        {
+            $request['account_enabled'] = false;
+        }
+        if($request['portal_enabled'])
+        {
+            $request['portal_enabled'] = true;
+        }
+        else
+        {
+            $request['portal_enabled'] = false;
+        }
+        dd(getType($request['portal_enabled']));
         if($subscriber_type === 'organization')
         {
+            $request['organization_email'] = $request['email'];
             $request['organization_pan'] = $request['pan'];
+            $request->validate([
+                'organization_name' => 'required|string|max:50',
+                'organization_registration_number' => 'required|string|max:50',
+                'organization_pan' => 'required|string|max:50',
+            ]);
         }
+        if($subscriber_type === 'home')
+        {
+            $request->validate([
+                'first_name' => 'required|string|max:50',
+                'middle_name' => 'required|string|max:50',
+                'last_name' => 'required|string|max:50',
+                'gender' => 'required|string|max:50',
+                'occupation' => 'required|string|max:50',
+                'father_full_name' => 'required|string|max:50',
+                'mother_full_name' => 'required|string|max:50',
+                'grand_father_full_name' => 'required|string|max:50',
+                // 'spouse_full_name', this is optional so
+                'refered_by' => 'required|string|max:50',
+            ]);
+        }
+        $request->validate([
+            'subscriber_username' => 'required|string|max:50',
+            'subscriber_password' => 'required|string|max:50',
+            'subscriber_type' => 'required|string|',
+            'connection_type' => 'required|string',
+            'pan',
+            
+            'identity_proof_type',
+            // 'identity_proof_photo',
+            'account_enabled',
+            'portal_enabled',
+            'portal_username',
+            'portal_password',
+            'email',
+
+            // 'organization_email', yo database ma xaina email bhanekai organization email ho
+
+            'Phone_number',
+            'cellphone_number',
+            'permanent_state',
+            'permanent_district',
+            'permanent_vdc/mun',
+            'permanent_ward_number',
+            'permanent_street',
+            'permanent_house_number',
+            'current_state',
+            'current_district',
+            'current_vdc/mun',
+            'current_ward_number',
+            'current_street',
+            'current_house_number',
+            'current_latitude',
+            'current_longitude',
+            
+            'installed_by',
+            'access_point',
+            'drop_wire_used_serial_number',
+            'ip_type',
+            'ip_address',
+            'vlan_id',
+            'cpe_model_name',
+            'cpe_serial_number',
+            'cpe_mac_address',
+            'lead_id',
+            'lead_organization'
+
+        ]);
         dd($request);
     }
 }

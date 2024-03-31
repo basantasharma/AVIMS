@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
 
 
-document.getElementById('copy_address').addEventListener('change', function() {
-    if (this.checked) {
-       let selectedDistrict = document.getElementById('permanent_district').value;
-       let selectedState = document.getElementById('permanent_state').value;
-       let selectedVdcMuni = document.getElementById('permanent_vdcmun').value;
-       let selectedWard =  document.getElementById('permanent_ward').value;
-       let selectedStreetName = document.getElementById('Subscriber_permanent_streetname').value;
-       let selectedhousenumber = document.getElementById('Subscriber_permanent_housenumber').value;
-       
-       document.getElementById('current_district').value = selectedDistrict;
-       document.getElementById('current_state').value = selectedState ;
-       document.getElementById('current_vdcmun').value = selectedVdcMuni;
-       document.getElementById('current_ward').value = selectedWard;
-       document.getElementById('Subscriber_current_streetname').value = selectedStreetName;
-       document.getElementById('Subscriber_current_housenumber').value = selectedhousenumber;
-    }
+
+   document.getElementById('copy-address').addEventListener('change', function() {
+      if (this.checked) {
+         let selectedState = document.getElementById('permanent_state').value;
+         let selectedDistrict = document.getElementById('permanent_district').value;
+         let selectedVdcMuni = document.getElementById('permanent_vdcmun').value;
+         let selectedWard =  document.getElementById('permanent_ward').value;
+         let selectedStreetName = document.getElementById('Subscriber_permanent_streetname').value;
+         let selectedhousenumber = document.getElementById('Subscriber_permanent_housenumber').value;
+         document.getElementById('current_state').value = selectedState ;
+         document.getElementById('current_district').value = selectedDistrict;
+         document.getElementById('current_vdcmun').value = selectedVdcMuni;
+         document.getElementById('current_ward').value = selectedWard;
+         document.getElementById('Subscriber_current_streetname').value = selectedStreetName;
+         document.getElementById('Subscriber_current_housenumber').value = selectedhousenumber;
+      }
    });
 
 
@@ -27,11 +27,11 @@ document.getElementById('copy_address').addEventListener('change', function() {
     let grandparentNameDiv = document.getElementById('grandparentdiv');
     let organizationNameDiv = document.getElementById('orgname');
     let organizationreg = document.getElementById('orgreg');
-    let firstnamediv = document.getElementById('firstname');
-    let middlenamediv = document.getElementById('middlename');
-    let lastnamediv = document.getElementById('lastname');
+    let firstnamediv = document.getElementById('subscriber_firstname');
+    let middlenamediv = document.getElementById('subscriber_middlename');
+    let lastnamediv = document.getElementById('subscriber_lastname');
     let gender = document.getElementById('gender');
-    let occupation = document.getElementById('occupation');
+    let occupation = document.getElementById('subscriber_occupation');
     let spousediv = document.getElementById('spousediv');
     
 
