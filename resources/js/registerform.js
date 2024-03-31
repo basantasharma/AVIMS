@@ -26,11 +26,11 @@ document.getElementById('copy-address').addEventListener('change', function() {
     let grandparentNameDiv = document.getElementById('grandparentdiv');
     let organizationNameDiv = document.getElementById('orgname');
     let organizationreg = document.getElementById('orgreg');
-    let firstnamediv = document.getElementById('subscriber_firstname');
-    let middlenamediv = document.getElementById('subscriber_middlename');
-    let lastnamediv = document.getElementById('subscriber_lastname');
+    let firstnamediv = document.getElementById('firstname');
+    let middlenamediv = document.getElementById('middlename');
+    let lastnamediv = document.getElementById('lastname');
     let gender = document.getElementById('gender');
-    let occupation = document.getElementById('subscriber_occupation');
+    let occupation = document.getElementById('occupation');
     let spousediv = document.getElementById('spousediv');
     
 
@@ -71,5 +71,35 @@ document.getElementById('copy-address').addEventListener('change', function() {
 
     }
    });
+
+
+// const steps = Array.from(document.querySelectorAll("form .step"));
+// const nextBtn = document.querySelectorAll("form .nxtbtn");
+// const prevBtn = document.querySelectorAll("form .prevbtn");
+
+// nextBtn.forEach((button) => {
+//  button.addEventListener("click", () => {
+//     changeStep("next");
+//  });
+// });
+
+// prevBtn.forEach((button) => {
+//  button.addEventListener("click", () => {
+//     changeStep("prev");
+//  });
+// });
+
+// function changeStep(btn) {
+//  let index = 0;
+//  const active = document.querySelector(".active");
+//  index = steps.indexOf(active);
+//  steps[index].classList.remove("active");
+//  if (btn === "next") {
+//     index++;
+//  } else if (btn === "prev") {
+//     index--;
+//  }
+//  steps[index].classList.add("active");
+// }
 
 });
