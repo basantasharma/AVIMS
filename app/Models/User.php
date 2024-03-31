@@ -44,11 +44,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'portal_username',
         'portal_password',
         'email',
-        'portal_password',
         'refered_by',
 
         'organization_name',
-        'organization_email',
         'organization_registration_number',
         'organization_pan',
 
