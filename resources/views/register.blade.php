@@ -20,129 +20,132 @@
       @csrf
       @method('post')
 
-      
-        <h3 class="mb-1 text-center">Subscriber Registration</h3>
-        <div class="row justify-content-start">
-          <h4>Basic Information</h4><hr>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-            <div class="form-floating">
-              <input type="text" class="form-control"  id="Subscriber_username" name="Subscriber_username" placeholder="User Name">
-              <label for="Subscriber_username">User Name</label><br>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
-            <div class="form-floating">
-              <input type="text" class="form-control" id="Subscriber_password" name="Subscriber_password" placeholder="User Password">
-              <label for="Subscriber_password">User Password</label><br>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriberType">
-            <div class="form-floating">
-              <select class="form-control" id="subscriber_type" name="subscriber_type">
-                <option selected value="home">Home User</option>
-                <option value="organization">Organization User</option>
-              </select>
-              <label for="subscriber_type" id="typeSelectPlaceholder" class="">Select Subscriber Type</label>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="connectionType">
-            <div class="form-floating">
-              <select class="form-control" id="connection_type" name="connection_type">
-                <option selected value="ppoe">PPOE</option>
-                <option value="ipoe">IPoE</option>
-                <option value="static">Static IP</option>
-              </select>
-              <label for="connection_type" id="connectionSelectPlaceholder" class="">Select Connection Type</label>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <label for="account_enabled">Account Enabled:</label>
-            <div class="form-switch fs-4">
-              <input type="checkbox" id="account_enabled" class="form-check-input" role="switch" name="account_enabled" checked>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <label for="portal_enabled">Portal Enabled:</label>
-            <div class="form-switch fs-4">
-              <input type="checkbox" id="portal_enabled" class="form-check-input" role="switch" name="portal_enabled" checked>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <div class="form-floating">
-              <input type="text" class="form-control" id="portal_user_name" name="portal_user_name" placeholder="Portal Username">
-              <label for="portal_user_name">Portal Username:</label>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <div class="form-floating">
-              <input type="password" class="form-control" id="portal_password" name="portal_password" placeholder="Portal Password">
-              <label for="portal_password">Portal Password:</label>
-            </div>
-          </div>
-  
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <div class="form-floating">
-              <select class="form-control" id="internet_package" name="internet_package">
-                <option selected value="internet">50 Mbps 1months</option>
-                <option value="internet">50 Mbps 3months</option>
-                <option value="internet">50 Mbps 6months</option>
-                <option value="internet">50 Mbps 12months</option>
-                <option value="internet">150 Mbps 12months</option>
-              </select>
-              <label for="internet_package">Select Internet Package</label>
-            </div>
-          </div>
-          <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <div class="form-floating">
-              <select class="form-control" id="iptv_package" name="iptv_package">
-                <option selected value="none">None</option>
-                <option value="iptv">With TV</option>
-              </select>
-              <label for="internet_package">Select Internet Package</label>
-            </div>
-          </div>
-  
-          {{-- <div class="col-12">
-            <ol type="1" class="row p-0" id="">
-              <div id="serviceList1" class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
-                <li class="border border-2 border-secondary p-2">
-                    <label for="service_table">Select service Table</label>
-                    <select class="form-control" id="service_table" name="service_table">
-                      <option selected>Select Service table</option>
-                      <option value="internet">Internet</option>
-                      <option value="ip_tv">IP TV</option>
-                      <option value="netflix">Netflix</option>
-                    </select>
-          
-                    <label for="package_id">Select service Id</label>
-                    <select class="form-control" id="package_id" name="package_id">
-                      <option selected>Select Service Id</option>
-                      <option value="123">sda122s2</option>
-                      <option value="456">hhr12kg3</option>
-                      <option value="135">asd223</option>
-                    </select>
-                </li>
+     
+
+        <div class="step step-1 active">
+          <div class="row justify-content-start">
+            <h3 class="mb-1 text-center">Subscriber Registration</h3>
+            <h4>Basic Information</h4><hr>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control"  id="Subscriber_username" name="Subscriber_username" placeholder="User Name">
+                <label for="Subscriber_username">User Name</label><br>
               </div>
-            </ol>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="Subscriber_password" name="Subscriber_password" placeholder="User Password">
+                <label for="Subscriber_password">User Password</label><br>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriberType">
+              <div class="form-floating">
+                <select class="form-control" id="subscriber_type" name="subscriber_type">
+                  <option selected value="home">Home User</option>
+                  <option value="organization">Organization User</option>
+                </select>
+                <label for="subscriber_type" id="typeSelectPlaceholder" class="">Select Subscriber Type</label>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="connectionType">
+              <div class="form-floating">
+                <select class="form-control" id="connection_type" name="connection_type">
+                  <option selected value="ppoe">PPOE</option>
+                  <option value="ipoe">IPoE</option>
+                  <option value="static">Static IP</option>
+                </select>
+                <label for="connection_type" id="connectionSelectPlaceholder" class="">Select Connection Type</label>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <label for="account_enabled">Account Enabled:</label>
+              <div class="form-switch fs-4">
+                <input type="checkbox" id="account_enabled" class="form-check-input" role="switch" name="account_enabled" checked>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <label for="portal_enabled">Portal Enabled:</label>
+              <div class="form-switch fs-4">
+                <input type="checkbox" id="portal_enabled" class="form-check-input" role="switch" name="portal_enabled" checked>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="portal_user_name" name="portal_user_name" placeholder="Portal Username">
+                <label for="portal_user_name">Portal Username:</label>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <input type="password" class="form-control" id="portal_password" name="portal_password" placeholder="Portal Password">
+                <label for="portal_password">Portal Password:</label>
+              </div>
+            </div>
+    
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <select class="form-control" id="internet_package" name="internet_package">
+                  <option selected value="internet">50 Mbps 1months</option>
+                  <option value="internet">50 Mbps 3months</option>
+                  <option value="internet">50 Mbps 6months</option>
+                  <option value="internet">50 Mbps 12months</option>
+                  <option value="internet">150 Mbps 12months</option>
+                </select>
+                <label for="internet_package">Select Internet Package</label>
+              </div>
+            </div>
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <div class="form-floating">
+                <select class="form-control" id="iptv_package" name="iptv_package">
+                  <option selected value="none">None</option>
+                  <option value="iptv">With TV</option>
+                </select>
+                <label for="internet_package">Select Internet Package</label>
+              </div>
+            </div>
+    
+            {{-- <div class="col-12">
+              <ol type="1" class="row p-0" id="">
+                <div id="serviceList1" class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
+                  <li class="border border-2 border-secondary p-2">
+                      <label for="service_table">Select service Table</label>
+                      <select class="form-control" id="service_table" name="service_table">
+                        <option selected>Select Service table</option>
+                        <option value="internet">Internet</option>
+                        <option value="ip_tv">IP TV</option>
+                        <option value="netflix">Netflix</option>
+                      </select>
+            
+                      <label for="package_id">Select service Id</label>
+                      <select class="form-control" id="package_id" name="package_id">
+                        <option selected>Select Service Id</option>
+                        <option value="123">sda122s2</option>
+                        <option value="456">hhr12kg3</option>
+                        <option value="135">asd223</option>
+                      </select>
+                  </li>
+                </div>
+              </ol>
+            </div>
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+              <a type="button" class="form-control btn btn-outline-dark" id="add_service">Add Service</a>
+              <a type="button" class="form-control btn btn-outline-danger" id="remove_service" hidden>remove Service</a>
+            </div> --}}
+    
           </div>
-          <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
-            <a type="button" class="form-control btn btn-outline-dark" id="add_service">Add Service</a>
-            <a type="button" class="form-control btn btn-outline-danger" id="remove_service" hidden>remove Service</a>
-          </div> --}}
-  
+
         </div>
-      
-      
-      
         
+      
+        <div class="step step-2">
           <div class="row mt-2">
             <h4>Subscriber Information</h4><hr>
             
@@ -272,10 +275,10 @@
             </div>
     
           </div>
-        
-     
+        </div>
+          
 
-        
+        <div class="step step-3">
           <div class="row mt-2">
             <h4>Contact Information</h4><hr>
             
@@ -465,7 +468,9 @@
               </div>
             </div>
           </div>
-        
+        </div>
+          
+        <div class="step step-4">
           <div class="row mt-2">
             <h4>Installation Information</h4><hr>
             
@@ -545,11 +550,13 @@
             </div>
     
           </div>
+        </div>
+          
             
       
     <div class="buttons" style="display: flex; justify-content: space-between" >
-      {{-- <button type="button" id="prevbtn" class="btn btn-outline-danger">Previous</button>
-      <button type="button" id="nxtbtn" class="btn btn-outline-secondary px-4">Next</button> --}}
+      <button type="button" id="prevbtn" class="btn btn-outline-danger">Previous</button>
+      <button type="button" id="nxtbtn" class="btn btn-outline-secondary px-4">Next</button>
       <button type="submit" id="submitbtn" class="btn btn-outline-success" >Submit</button>
     </div>
 
