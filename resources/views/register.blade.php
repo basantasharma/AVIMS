@@ -240,7 +240,7 @@
             </div>
     
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3" id="identity">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="identity">
               <div class="form-floating">
               <select class="form-control" id="identity_proof_type" name="identity_proof_type">
                 <option selected>Document Type </option>
@@ -254,7 +254,7 @@
     
             </div></div>
     
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <label for="identity_proof_photo">Identity Proof Photo:</label>
               <input type="file" class="form-control" id="identity_proof_photo" name="identity_proof_photo">
             </div>
@@ -298,7 +298,7 @@
         
             <h4>Permanent Address</h4>
             
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_state" name="permanent_state">
                   <option selected>Select State</option>
@@ -314,7 +314,7 @@
               </div>
             </div>
         
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_district" name="permanent_district">
                   <option selected>Select District</option>
@@ -330,9 +330,9 @@
               </div>
             </div>
         
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="permanent_vdcmun" name="permanent_vdcmun">
+                <select class="form-control" id="permanent_vdcmun" name="permanent_vdc/mun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>
@@ -346,9 +346,9 @@
               </div>
             </div>
         
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="permanent_ward" name="permanent_ward">
+                <select class="form-control" id="permanent_ward" name="permanent_ward_number">
                   <option selected>Select Ward</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -365,7 +365,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_permanent_streetname" name="Subscriber_permanent_streetname" placeholder="Subscriber_permanent_streetname">
+                <input type="text" class="form-control" id="Subscriber_permanent_streetname" name="permanent_street" placeholder="Subscriber_permanent_streetname">
                 <label for="Subscriber_permanent_streetname">Street Name</label><br>
               </div>
             </div>
@@ -376,11 +376,9 @@
                 <label for="Subscriber_permanent_housenumber">House Number</label><br>
               </div>
             </div>
-
-            <h4>Current Address 
-            <span> <input type="checkbox"   class="form-check-input ms-4 fs-5" id="copy_address" name="same_as_permanent" placeholder="Same As permanent">
-              <label for="copy-address" class="fs-5">same as permanent</label></span></h4>
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <h4>Current Address <input type="checkbox" class="form-check-input ms-4 fs-5" id="copy-address" name="same_as_permanent" placeholder="Same As permanent">
+              <label for="copy-address" class="fs-5">same as permanent</label></h4>
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_state" name="current_state">
                   <option selected>Select State</option>
@@ -396,7 +394,7 @@
               </div>
             </div>
         
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_district" name="current_district">
                   <option selected>Select District</option>
@@ -412,9 +410,9 @@
               </div>
             </div>
         
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="current_vdcmun" name="current_vdcmun">
+                <select class="form-control" id="current_vdcmun" name="current_vdc/mun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>
@@ -428,7 +426,7 @@
               </div>
             </div>
         
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_ward" name="current_ward">
                   <option selected>Select Ward</option>
@@ -497,7 +495,7 @@
               </div>
             </div>
 
-            <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+            <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
               <select class="form-control" id="ip_type" name="ip_type">
                 <option selected>Select IP Type</option>
@@ -577,5 +575,5 @@
 
 @section('script-end')
 @vite("resources/js/registerform.js")
-@vite("resources/js/selectservice.js")
+{{-- @vite("resources/js/selectservice.js") --}}
 @endsection
