@@ -332,7 +332,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="permanent_vdc/mun" name="permanent_vdcmun">
+                <select class="form-control" id="permanent_vdcmun" name="permanent_vdcmun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>
@@ -376,8 +376,10 @@
                 <label for="Subscriber_permanent_housenumber">House Number</label><br>
               </div>
             </div>
-            <h4>Current Address <input type="checkbox" class="form-check-input ms-4 fs-5" id="copy-address" name="same_as_permanent" placeholder="Same As permanent">
-              <label for="copy-address" class="fs-5">same as permanent</label></h4>
+
+            <h4>Current Address 
+            <span> <input type="checkbox"   class="form-check-input ms-4 fs-5" id="copy_address" name="same_as_permanent" placeholder="Same As permanent">
+              <label for="copy-address" class="fs-5">same as permanent</label></span></h4>
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_state" name="current_state">
@@ -412,7 +414,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="current_vdc/mun" name="current_vdcmun">
+                <select class="form-control" id="current_vdcmun" name="current_vdcmun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>

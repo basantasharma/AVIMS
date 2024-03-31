@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
 
-document.getElementById('copy-address').addEventListener('change', function() {
+document.getElementById('copy_address').addEventListener('change', function() {
     if (this.checked) {
        let selectedDistrict = document.getElementById('permanent_district').value;
        let selectedState = document.getElementById('permanent_state').value;
@@ -9,8 +9,9 @@ document.getElementById('copy-address').addEventListener('change', function() {
        let selectedWard =  document.getElementById('permanent_ward').value;
        let selectedStreetName = document.getElementById('Subscriber_permanent_streetname').value;
        let selectedhousenumber = document.getElementById('Subscriber_permanent_housenumber').value;
-       document.getElementById('current_state').value = selectedState ;
+       
        document.getElementById('current_district').value = selectedDistrict;
+       document.getElementById('current_state').value = selectedState ;
        document.getElementById('current_vdcmun').value = selectedVdcMuni;
        document.getElementById('current_ward').value = selectedWard;
        document.getElementById('Subscriber_current_streetname').value = selectedStreetName;
