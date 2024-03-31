@@ -81,7 +81,7 @@ class SubscriberRegistrationController extends Controller
         {
             $request['portal_enabled'] = false;
         }
-        dd(getType($request['portal_enabled']));
+        // dd(getType($request['portal_enabled']));
         if($subscriber_type === 'organization')
         {
             $request['organization_email'] = $request['email'];
@@ -114,44 +114,43 @@ class SubscriberRegistrationController extends Controller
             'connection_type' => 'required|string',
             'pan',
             
-            'identity_proof_type',
-            // 'identity_proof_photo',
-            'account_enabled',
-            'portal_enabled',
-            'portal_username',
-            'portal_password',
-            'email',
+            'identity_proof_type' => 'required|string',
+            'identity_proof_photo' => 'required|file|mimes:jpg,jpeg,png|max:1024',            'account_enabled' => 'required|boolean',
+            'portal_enabled' => 'required|boolean',
+            'portal_username' => 'required|string|max:50',
+            'portal_password' => 'required|string|max:50',
+            'email' => 'required|string|max:75',
 
             // 'organization_email', yo database ma xaina email bhanekai organization email ho
 
-            'Phone_number',
-            'cellphone_number',
-            'permanent_state',
-            'permanent_district',
-            'permanent_vdc/mun',
-            'permanent_ward_number',
-            'permanent_street',
-            'permanent_house_number',
-            'current_state',
-            'current_district',
-            'current_vdc/mun',
-            'current_ward_number',
-            'current_street',
-            'current_house_number',
-            'current_latitude',
-            'current_longitude',
+            'Phone_number' => 'required|Integer|max:50',
+            'cellphone_number' => 'required|integer|max:50',
+            'permanent_state' => 'required|string|max:50',
+            'permanent_district' => 'required|string|max:50',
+            'permanent_vdc/mun' => 'required|string|max:50',
+            'permanent_ward_number' => 'required|string|max:50',
+            'permanent_street' => 'required|string|max:50',
+            'permanent_house_number' => 'required|string|max:50',
+            'current_state' => 'required|string|max:50',
+            'current_district' => 'required|string|max:50',
+            'current_vdc/mun' => 'required|string|max:50',
+            'current_ward_number' => 'required|string|max:50',
+            'current_street' => 'required|string|max:50',
+            'current_house_number' => 'required|string|max:50',
+            'current_latitude' => 'required|string|max:50',
+            'current_longitude' => 'required|string|max:50',
             
-            'installed_by',
-            'access_point',
-            'drop_wire_used_serial_number',
-            'ip_type',
-            'ip_address',
-            'vlan_id',
-            'cpe_model_name',
-            'cpe_serial_number',
-            'cpe_mac_address',
-            'lead_id',
-            'lead_organization'
+            'installed_by' => 'required|string|max:50',
+            'access_point' => 'required|string|max:50',
+            'drop_wire_used_serial_number' => 'required|string|max:50',
+            'ip_type' => 'required|string|max:50',
+            'ip_address' => 'required|string|max:50',
+            'vlan_id' => 'required|integer|max:50',
+            'cpe_model_name' => 'required|string|max:50',
+            'cpe_serial_number' => 'required|string|max:50',
+            'cpe_mac_address' => 'required|string|max:50',
+            'lead_id' => 'required|string|max:50',
+            'lead_organization' => 'required|string|max:50'
 
         ]);
         dd($request);
