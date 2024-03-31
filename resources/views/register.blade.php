@@ -412,7 +412,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="current_vdc/mun" name="current_vdcmun">
+                <select class="form-control" id="current_vdcmun" name="current_vdc/mun">
                   <option selected>Select VDC/Municipality</option>
                   <option value="Koshi">Koshi</option>
                   <option value="Madhesh">Madhesh</option>
