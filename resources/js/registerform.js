@@ -74,33 +74,69 @@ document.addEventListener("DOMContentLoaded", function () {
    });
 
 
-// const steps = Array.from(document.querySelectorAll("form .step"));
-// const nextBtn = document.querySelectorAll("form .nxtbtn");
-// const prevBtn = document.querySelectorAll("form .prevbtn");
+   "use strict";
 
-// nextBtn.forEach((button) => {
-//  button.addEventListener("click", () => {
-//     changeStep("next");
-//  });
-// });
 
-// prevBtn.forEach((button) => {
-//  button.addEventListener("click", () => {
-//     changeStep("prev");
-//  });
-// });
+const steps = document.querySelectorAll('.step');
+const prevBtn = document.getElementById('prevbtn');
+const nextBtn = document.getElementById('nxtbtn');
+const submitBtn = document.getElementById('submitbtn');
 
-// function changeStep(btn) {
-//  let index = 0;
-//  const active = document.querySelector(".active");
-//  index = steps.indexOf(active);
-//  steps[index].classList.remove("active");
-//  if (btn === "next") {
-//     index++;
-//  } else if (btn === "prev") {
-//     index--;
-//  }
-//  steps[index].classList.add("active");
-// }
+submitBtn.style.display = 'none';
+
+let currentStep = 0;
+
+
+// Show the current step and hide others
+function showStep(step) {
+ steps.forEach((s, index) => {
+    s.style.display = index === step ? 'block' : 'none';
+console.log(currentStep);
+
+ });
+}
+
+// Next button click
+nextBtn.addEventListener('click', () => {
+ currentStep++;
+ if (currentStep >= steps.length -1) {
+    // Hide the next button and show the submit button on the last step
+    nextBtn.style.display = 'none';
+    submitBtn.style.display = 'inline-block';
+ }
+ showStep(currentStep);
+
+ if (currentStep === 0) {
+   prevBtn.disabled = true;
+} else {
+   prevBtn.disabled = false;
+}
+});
+
+// Previous button click
+prevBtn.addEventListener('click', () => {
+ currentStep--;
+
+ if (currentStep < steps.length - 1) {
+    // Show the next button and hide the submit button
+    nextBtn.style.display = 'inline-block';
+    submitBtn.style.display = 'none';
+ }
+ showStep(currentStep);
+
+ if (currentStep > 0) {
+   prevBtn.disabled = false;
+} else {
+   prevBtn.disabled = true;
+}
+});
+
+// Initially show the first step
+showStep(currentStep);
+if (currentStep === 0) {
+    prevBtn.disabled = true;
+} else {
+    prevBtn.disabled = false;
+}
 
 });
