@@ -10,66 +10,101 @@
 
 @section('body')
 
-<form id= "nasForm" action="#" method="post">
-  @csrf
-  @method('post')
-<div class="row justify-content-center">
-  <div class=" col-12 col-xxl-6 col-xl-8 col-lg-8 col-md-8 col-sm-12">
-      <h3 class="mb-1 text-center">NAS Form</h3>
-        <div class="row">
-          <div class="col-auto">
-            <label for="nasId">ID<span>*</span></label>
+<div class="container-fluid">
+  <div class="row justify-content-center">  
+      <div class="col-12 col-xxl-6 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+        <form id= "nasForm" method="post">
+          @csrf
+          @method('post')
+
+          <div class="nasform">
+
+            <div class="row justify-content-start">
+              <h3 class="mb-1 text-center">Nas Form</h3>
+
+              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasId" name="nasId" placeholder="Nas ID">
+                  <label for="nasId">Nas ID</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasName" name="nasName" placeholder="Nas Name">
+                  <label for="nasName">Nas Name</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-xxl-6  col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasShortName" name="nasShortName" placeholder="Nas Short Name">
+                  <label for="nasShortName">Short Name</label>
+                </div>
+              </div>
+
+              
+              <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <select class="form-control" id="nasType" name="nasType">
+                    <option selected value="">Select Nas Type</option>
+                    <option value="type1">Generic</option>
+                    <option value="type2">Mikrotik</option>
+                    <option value="Custom">CISCO</option>
+                    <option value="Custom">UBNT Access point</option>
+                  </select>
+                  <label for="nasType">Select Internet Package</label>
+                </div>
+              </div>
+              
+
+              <div class="col-12 col-xxl-6  col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasPorts" name="nasPorts" placeholder="Nas Ports">
+                  <label for="nasPorts">Ports (comma Separated)</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-xxl-6  col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="password" class="form-control"  id="nasSecret" name="nasSecret" placeholder="Nas Secret">
+                  <label for="nasSecret">Secret</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-xxl-6  col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasServer" name="nasServer" placeholder="Nas server">
+                  <label for="nasServer">Server</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-xxl-6  col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasCommunity" name="nasCommunity" placeholder="Nas Community">
+                  <label for="nasCommunity">Community</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-xxl-12  col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="nasdescription" name="nasdescription" placeholder="Nas Description">
+                  <label for="nasdescription">Description</label>
+                </div>
+              </div><br>
+
+            
+              
+            </div>  
+            <div class="row justify-content-center">
+              <button type="submit" class="btn btn-outline-dark col-12 col-xxl-3 col-xl-2 col-lg-6 col-md-6 col-sm-6 mb-3 ">Submit</button></div>
           </div>
-          <div class="col-auto">
-            <input class="form-control" type="text" id="nasId" name="nasId" required><br>
-          </div>
-          <div class="col-auto">
-            <label for="nasName">NAS-Name<span>*</span></label>
-          </div>
-          <div class="col-auto">
-            <input class="form-control" type="text" id="nasName" name="nasName" required><br>
-          </div>
-          <div class="col-auto">
-            <label for="nasShortName">Short Name<span>*</span></label>
-          </div>
-          <div class="col-auto">
-            <input class="form-control" type="text" id="nasShortName" name="nasShortName" required><br>
-          </div>
-
-          <label for="nasType">Type<span>*</span></label>
-          <select id="nasType" name="nasType" required>
-              <option value="">Select Type</option>
-              <option value="type1">Generic</option>
-              <option value="type2">Mikrotik</option>
-              <option value="custom">CISCO</option>
-              <option value="custom">UBNT Access point</option>
-              <option value="custom">Ubiquiti</option>
-              <option value="custom">Juniper</option>  
-          </select><br>
-          <!-- <input type="text" id="customTypeInput" name="customTypeInput" style="display: none;" placeholder="Enter Custom Type"><br> -->
-
-          <label for="nasPorts">Ports (comma separated)<span>*</span></label>
-          <input type="text" id="nasPorts" name="nasPorts" required><br>
-
-          <label for="nasSecret">Secret<span>*</span></label>
-          <input type="password" id="nasSecret" name="nasSecret" required><br>
-
-          <label for="nasServer">Server</label>
-          <input type="text" id="nasServer" name="nasServer"><br>
-
-          <label for="nasCommunity">Community</label>
-          <input type="text" id="nasCommunity" name="nasCommunity"><br>
-
-          <label for="nasCommunity">Description</label>
-          <input type="text" id="nasdescription" name="nasdescription"><br>
-
-          <input type="submit" value="Submit">
-        </div>
-      <div class="error"> Please Fill out the required Field</div>
-  
-    </div>
+       
+        </form>
+      </div>
+   
   </div>
-</form>
+</div>
 @endsection
 
 
