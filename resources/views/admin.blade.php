@@ -12,7 +12,7 @@
     hello {{ \Auth::user()->username }} your id is : {{ \Auth::user()->id }}
       <br>
       
-      <div class="btn-group m-2">
+      <div class="btn-group m-2 mb-4">
         <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">All roles</button>
         <ol class="dropdown-menu" style="background: #e3f2fd" aria-labelledby="dropdownMenuButton2">
           @foreach($registeredroles as $roles)
@@ -20,7 +20,7 @@
           @endforeach
         </ol>
       </div>
-      <div class="btn-group dropdown m-2">
+      <div class="btn-group dropdown m-2 mb-4">
         <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">All users</button>
         <ol class="dropdown-menu" style="background: #e3f2fd" aria-labelledby="dropdownMenuButton2">
           @foreach($registeredusers as $users)
@@ -31,11 +31,18 @@
 
       @role('admin')
       <div class="row text-start mb-4">
-        <div class="col">
+        <div class="col-auto">
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addinternetpackage">
                 Add Internet Package
               </button>
         </div>
+
+
+        <div class="col-auto">
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addiptvpackage">
+              Add IPTV Package
+            </button>
+      </div>
       </div>
 
       <form class="needs-validation" novalidate action="/addinternetpackage" method="post">
@@ -134,6 +141,93 @@
                           </div>
                         </div>
                       </div>
+                      <div class="modal-footer">
+                      <button type="submit" class="btn btn-outline-dark">Submit</button>
+                      <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+      <form class="needs-validation" novalidate action="#" method="post">
+        <div class="modal modal-lg" id="addiptvpackage">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+        
+              <!-- Modal Header -->
+              <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title">Add IPTV Package</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+      
+              <!-- Modal body -->
+              <div class="modal-body">
+                @csrf
+                @method('post')
+                <div class="serviceform">
+                    <div class="row justify-content-start">
+                        {{-- <h3 class="mb-1 text-center">Internet Package</h3> --}}
+                        <h4 class="text-center">IPTV Package</h4><hr>
+                
+                        <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="text" class="form-control"  id="service_name" name="service_name" placeholder="Service Name">
+                            <label for="service_name">Service Name</label>
+                          </div>
+                        </div>
+            
+                        
+
+                        <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+                          <label for="service_isactive">Service Enabled:</label>
+                          <div class="form-switch fs-4">
+                            <input type="checkbox" id="service_isactive" class="form-check-input" role="switch" name="service_isactive" checked>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="number" class="form-control" id="service_duration" name="service_duration" placeholder="Service Duration">
+                            <label for="service_duration">Service Duration</label>
+                          </div>
+                        </div>
+                        
+                                   
+                        <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="text" class="form-control" id="service_price" name="service_price" placeholder="Service Price">
+                            <label for="service_price">Service Price</label>
+                          </div>
+                        </div>
+            
+            
+                        <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="text" class="form-control" id="no_of_HD_channels" name="no_of_HD_channels" placeholder="No of HD Channels">
+                            <label for="no_of_HD_channels">Number of HD Channels</label>
+                          </div>
+                        </div>
+            
+                        <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="text" class="form-control" id="no_of_SD_channels" name="no_of_SD_channels" placeholder="No of SD Channels">
+                            <label for="no_of_SD_channels">Number of SD Channels</label>
+                          </div>
+                        </div>
+            
+                        <div class="col-12 col-xxl-12 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                          <div class="form-floating">
+                            <input type="text" class="form-control" id="service_description" name="service_description" placeholder="Service Description">
+                            <label for="service_description">Service Description</label>
+                          </div>
+                        </div>
+            
+                      </div>
+
                       <div class="modal-footer">
                       <button type="submit" class="btn btn-outline-dark">Submit</button>
                       <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button>
