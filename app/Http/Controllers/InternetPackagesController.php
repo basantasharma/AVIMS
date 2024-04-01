@@ -53,7 +53,8 @@ class InternetPackagesController extends Controller
         {
             $packages[] = $package;
         }
-        dd($packages);
+        return $packages;
+        // dd($packages);
         
     }
 }

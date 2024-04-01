@@ -93,11 +93,9 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="internet_package" name="internet_package">
-                  <option selected value="internet">50 Mbps 1months</option>
-                  <option value="internet">50 Mbps 3months</option>
-                  <option value="internet">50 Mbps 6months</option>
-                  <option value="internet">50 Mbps 12months</option>
-                  <option value="internet">150 Mbps 12months</option>
+                  @foreach($availablePackages as $package)
+                    <option value="{{ $package->id }}">{{ $package->service_download_bandwidth }} Mbps for {{ $package->service_duration }} months</option>
+                  @endforeach
                 </select>
                 <label for="internet_package">Select Internet Package</label>
               </div>

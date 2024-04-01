@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Auth\Events\Registered;
 
+use App\Http\Controllers\InternetPackagesController;
 
 class RegisterController extends Controller
 {
@@ -23,7 +24,8 @@ class RegisterController extends Controller
      
         //     $request->session()->regenerateToken();
         // }
-        return view('register');
+        $registeredPackages = (new InternetPackagesController())->getInternetPackages();
+        return view('register')->with('availablePackages',$registeredPackages);
     }
 
     public function showRegisternasPage()
