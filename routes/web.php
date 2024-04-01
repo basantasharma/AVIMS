@@ -121,3 +121,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     //Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     //Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 });
+
+Route::get('getPackages', [InternetPackagesController::class, 'getInternetPackages'])->name('getInternetPackages');
