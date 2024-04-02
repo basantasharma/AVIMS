@@ -93,7 +93,7 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="internet_package" name="internet_package">
-                  @foreach($availablePackages as $package)
+                  @foreach($availableInternetPackages as $package)
                     <option value="{{ $package->id }}">{{ $package->service_download_bandwidth }} Mbps for {{ $package->service_duration }} months</option>
                   @endforeach
                 </select>
@@ -104,8 +104,9 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="iptv_package" name="iptv_package">
-                  <option selected value="none">None</option>
-                  <option value="iptv">With TV</option>
+                  @foreach($availableIptvPackages as $package)
+                    <option value="{{ $package->id }}">{{ $package->service_download_bandwidth }} Mbps for {{ $package->service_duration }} months</option>
+                  @endforeach
                 </select>
                 <label for="internet_package">Select Internet Package</label>
               </div>

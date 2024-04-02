@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 
 use App\Http\Controllers\InternetPackagesController;
+use App\Http\Controllers\IptvPackagesController;
 
 class RegisterController extends Controller
 {
@@ -24,8 +25,9 @@ class RegisterController extends Controller
      
         //     $request->session()->regenerateToken();
         // }
-        $registeredPackages = (new InternetPackagesController())->getInternetPackages();
-        return view('register')->with('availablePackages',$registeredPackages);
+        $registeredInternetPackages = (new InternetPackagesController())->getInternetPackages();
+        $registeredIptvPackages = (new IptvPackagesController())->getIptvPackages();
+        return view('register')->with('availableInternetPackages',$registeredInternetPackages)->with('availableIptvPackages', $registeredIptvPackages);
     }
 
     public function showRegisternasPage()
