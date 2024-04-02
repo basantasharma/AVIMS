@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\InternetPackages;
+use App\Models\IptvPackages;
 
-class InternetPackagesController extends Controller
+class IptvPackagesController extends Controller
 {
     //
     public function addInternetPackage(Request $request)
@@ -26,15 +26,12 @@ class InternetPackagesController extends Controller
             'service_isactive' => 'required|boolean',
             'service_price' => 'required|integer',
             'service_duration' => 'required|integer|min:1|max:12',
-            'service_upload_bandwidth' => 'required|integer',
-            'service_download_bandwidth' => 'required|integer',
-            'service_limit_daily' => 'required|integer',
-            'service_limit_monthly' => 'required|integer',
-            'service_limit_scope' => 'required|integer',
+            'no_of_HD_channels' => 'required|integer',
+            'no_of_SD_channels' => 'required|integer',
             'service_description' => 'required|string|max:250',
         ]);
-        $internetPackage = InternetPackages::create($request->all());
-        if($internetPackage)
+        $iptvPackage = IptvPackages::create($request->all());
+        if($iptvPackage)
         {
             return redirect()->back()->with('success', 'package added successfully');
         }
@@ -45,10 +42,10 @@ class InternetPackagesController extends Controller
         // dd($request);
     }
 
-    public function getInternetPackages()
+    public function getIptvPackages()
     {
         $packages = array();
-        $registeredPackages = InternetPackages::get();
+        $registeredPackages = IptvPackages::get();
         foreach($registeredPackages as $package)
         {
             $packages[] = $package;
