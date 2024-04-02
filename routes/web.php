@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubscriberRegistrationController;
 use App\Http\Controllers\InternetPackagesController;
+use App\Http\Controllers\IptvPackagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersRolesController;
@@ -102,6 +103,7 @@ Route::middleware(['auth', 'notrole:admin', 'notrole:technician'])->group(functi
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin');
     Route::post('/addinternetpackage', [InternetPackagesController::class, 'addInternetPackage'])->name('addInternetPackage');
+    Route::post('/addiptvpackage', [IptvPackagesController::class, 'addIptvPackage'])->name('addIptvPackage');
 
     Route::get('/deleteallusers', [UserController::class, 'deleteAllUsers'])->name('deleteAllusers');
     Route::get('/getallusers', [UserController::class, 'getAllUsers'])->name('getAllusers');

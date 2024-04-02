@@ -153,7 +153,7 @@
       </form>
 
 
-      <form class="needs-validation" novalidate action="#" method="post">
+      <form class="needs-validation" novalidate action="/addtptvpackage" method="post">
         <div class="modal modal-lg" id="addiptvpackage">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
