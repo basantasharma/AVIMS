@@ -9,7 +9,7 @@ use App\Models\IptvPackages;
 class IptvPackagesController extends Controller
 {
     //
-    public function addInternetPackage(Request $request)
+    public function addIptvPackage(Request $request)
     {
         $request['created_by'] = auth()->user()->username;
         $request['updated_by'] = auth()->user()->username;
