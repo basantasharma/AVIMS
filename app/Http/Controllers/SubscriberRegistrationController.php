@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\SubscriberService;
+use App\Models\SubscribersDetails;
+
+
 class SubscriberRegistrationController extends Controller
 {
     public function registerSubscriber(Request $request)
     {
-        dd($request['iptv_package']);
         
         if($request['account_enabled'])
         {
@@ -27,9 +30,10 @@ class SubscriberRegistrationController extends Controller
             $request['portal_enabled'] = false;
         }
         // dd(getType($request['portal_enabled']));
-        if($subscriber_type === 'organization')
+        if($request['subscriber_type'] === 'organization')
         {
             $request['organization_email'] = $request['email'];
+            $request['gender'] = null;
             $request['organization_pan'] = $request['pan'];
             $request->validate([
                 'organization_name' => 'required|string|max:50',
@@ -37,7 +41,7 @@ class SubscriberRegistrationController extends Controller
                 'organization_pan' => 'required|string|max:50',
             ]);
         }
-        if($subscriber_type === 'home')
+        if($request['subscriber_type'] === 'home')
         {
             $request->validate([
                 'first_name' => 'required|string|max:50',
@@ -50,6 +54,12 @@ class SubscriberRegistrationController extends Controller
                 'grand_father_full_name' => 'required|string|max:50',
                 // 'spouse_full_name', this is optional so
                 'refered_by' => 'required|string|max:50',
+            ]);
+        }
+        if($request['iptv_package'])
+        {
+            $request->validate([
+            'iptv_package' => 'required|exists:iptv_packages,id'
             ]);
         }
         $request->validate([
@@ -68,8 +78,8 @@ class SubscriberRegistrationController extends Controller
 
             // 'organization_email', yo database ma xaina email bhanekai organization email ho
 
-            'Phone_number' => 'required|Integer|max:50',
-            'cellphone_number' => 'required|integer|max:50',
+            'Phone_number' => 'required|integer',
+            'cellphone_number' => 'required|integer',
             'permanent_state' => 'required|string|max:50',
             'permanent_district' => 'required|string|max:50',
             'permanent_vdc/mun' => 'required|string|max:50',
@@ -94,13 +104,28 @@ class SubscriberRegistrationController extends Controller
             'cpe_model_name' => 'required|string|max:50',
             'cpe_serial_number' => 'required|string|max:50',
             'cpe_mac_address' => 'required|string|max:50',
-            'lead_id' => 'required|string|max:50',
+            'lead_id' => 'required|integer',
             'lead_organization' => 'required|string|max:50',
-            //validate package 
-            // 'iptv_package' => 'required|exists:iptv_packages,id',
+            //validate internet package 
             'internet_package' => 'required|exists:internet_packages,id'
 
         ]);
+        // Identity proof photo has to be processed
+        $imageName = time().'.'.$request->identity_proof_photo->getClientOriginalExtension();
+        $request['identity_proof_photo'] = $imageName;
+        dd(auth()->user());
+        $request['created_by'] = auth()->user()->username;
+        $request['updated_by'] = auth()->user()->username;
+        $user = SubscribersDetails::create($request->all());
+        $path = $request->identity_proof_photo->storeAs('public/images/registeredDocuments', $imageName);
+        if($path)
+        {
+            $identity_proof_photo = $request['identity_proof_photo'];
+            if($user)
+            {
+                
+            }
+        }
         $subscriber_username = $request['subscriber_username'];
         $subscriber_password = $request['subscriber_password'];
         $subscriber_type = $request['subscriber_type'];
@@ -118,16 +143,7 @@ class SubscriberRegistrationController extends Controller
         $grand_father_full_name = $request['grand_father_full_name'];
         $spouse_full_name = $request['spouse_full_name'];
         $identity_proof_type = $request['identity_proof_type'];
-        // Identity proof photo has to be processed
-        $imageName = time().'.'.$request->identity_proof_photo->getClientOriginalExtension();
-        $path = $request->identity_proof_photo->storeAs('public/images/registeredDocuments', $imageName);
-        dd($path);
-        if($path)
-        {
-            $request['identity_proof_type'] = $imageName;
-            $identity_proof_type = $request['identity_proof_type'];
-        }
-        $identity_proof_photo = $request['identity_proof_photo'];
+        
         $account_enabled = $request['account_enabled'];
         $portal_enabled = $request['portal_enabled'];
         $portal_username = $request['portal_username'];

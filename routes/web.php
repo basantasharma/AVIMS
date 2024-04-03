@@ -46,12 +46,12 @@ use App\Http\Controllers\EmailVarificationController;
 // Route::get('/adduser', [UserController::class, 'showAddUserPage'])->name('adduser')->middleware(['auth', 'verified']);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
-Route::get('/addnas', [RegisterController::class, 'showRegisternasPage'])->name('register');
-Route::post('/register', [RegisterController::class, 'startRegistration'])->name('register');
-Route::post('/subscriberregister', [SubscriberRegistrationController::class, 'registerSubscriber'])->name('registerSubscriber');
-
+Route::middleware(['auth', 'role:technician,admin'])->group(function () {
+    Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
+    Route::get('/addnas', [RegisterController::class, 'showRegisternasPage'])->name('registernas');
+    Route::post('/register', [RegisterController::class, 'startRegistration'])->name('startregister');
+    Route::post('/subscriberregister', [SubscriberRegistrationController::class, 'registerSubscriber'])->name('registerSubscriber');
+});
 
 Route::get('/offers', [OffersController::class, 'showOffersPage'])->name('offers');
 Route::get('/services', [ServicesController::class, 'showServicesPage'])->name('services');
