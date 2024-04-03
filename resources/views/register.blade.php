@@ -29,14 +29,14 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control"  id="Subscriber_username" name="Subscriber_username" placeholder="User Name">
+                <input type="text" class="form-control"  id="Subscriber_username" name="subscriber_username" placeholder="User Name">
                 <label for="Subscriber_username">User Name</label>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_password" name="Subscriber_password" placeholder="User Password">
+                <input type="text" class="form-control" id="Subscriber_password" name="subscriber_password" placeholder="User Password">
                 <label for="Subscriber_password">User Password</label>
               </div>
             </div>
@@ -78,7 +78,7 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="portal_user_name" name="portal_user_name" placeholder="Portal Username">
+                <input type="text" class="form-control" id="portal_user_name" name="portal_username" placeholder="Portal Username">
                 <label for="portal_user_name">Portal Username:</label>
               </div>
             </div>
@@ -285,14 +285,14 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="tel" class="form-control" id="Phone_number" name="Phone_number" placeholder="Phone Number">
+                <input type="number" class="form-control" id="Phone_number" name="Phone_number" placeholder="Phone Number">
                 <label for="Phone_number">Phone Number</label><br>
               </div>
             </div>
         
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="tel" class="form-control" id="cellphone_number" name="cellphone_number" placeholder="cellcontact">
+                <input type="number" class="form-control" id="cellphone_number" name="cellphone_number" placeholder="cellcontact">
                 <label for="cellphone_number">Cell Phone Number</label><br>
               </div>
             </div>
@@ -373,7 +373,7 @@
           
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_permanent_housenumber" name="Subscriber_permanent_housenumber" placeholder="Subscriber_permanent_housenumber">
+                <input type="text" class="form-control" id="Subscriber_permanent_housenumber" name="permanent_house_number" placeholder="Subscriber_permanent_housenumber">
                 <label for="Subscriber_permanent_housenumber">House Number</label><br>
               </div>
             </div>
@@ -429,7 +429,7 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <select class="form-control" id="current_ward" name="current_ward">
+                <select class="form-control" id="current_ward" name="current_ward_number">
                   <option selected>Select Ward</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -445,14 +445,14 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_current_streetname" name="Subscriber_current_streetname" placeholder="Subscriber_current_streetname">
+                <input type="text" class="form-control" id="Subscriber_current_streetname" name="current_street" placeholder="Subscriber_current_streetname">
                 <label for="Subscriber_current_streetname">Street Name</label><br>
               </div>
             </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_current_housenumber" name="Subscriber_current_housenumber" placeholder="Subscriber_current_housenumber">
+                <input type="text" class="form-control" id="Subscriber_current_housenumber" name="current_house_number" placeholder="Subscriber_current_housenumber">
                 <label for="Subscriber_current_housenumber">House Number</label><br>
               </div>
             </div>
@@ -544,7 +544,7 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="leadid">
+                <input type="number" class="form-control" id="lead_id" name="lead_id" placeholder="leadid">
                 <label for="lead_id">Lead ID</label><br>
               </div>
             </div>
