@@ -28,6 +28,9 @@ class LoginController extends Controller
         {
             return redirect('/login')->with('failed', 'Failed to Login. Bad credentials');
         }
+        // if (auth()->guard('sub')->attempt(['email' => $email, 'password' => $password])) {
+        //     // Company is logged in
+        // }
 
 
     }
