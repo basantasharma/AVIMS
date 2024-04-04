@@ -11,7 +11,7 @@ class SubscriberService extends Model
     protected $table = 'subscriber_service';
 
     protected $fillable = [
-        'user_id', 'service_table_name', 'service_id', 'service_name', 'service_isactive', 'created_by', 'updated_by', 'created_at', 'updated_at', 'expires_at'
+        'user_id', 'service_table_name', 'service_id', 'created_by', 'updated_by', 'created_at', 'updated_at', 'expires_at'
     ];
 
     protected $dates = [

@@ -57,4 +57,18 @@ class InternetPackagesController extends Controller
         // dd($packages);
         
     }
+    public function getInternetPackageById($id)
+    {
+        $package = array();
+        $registeredPackages = InternetPackages::get()->where('id', $id);
+        dd($registeredPackages);
+        foreach($registeredPackages as $package)
+        {
+            $packages[] = $package;
+        }
+        return $packages;
+        // dd($packages);
+        
+    }
+
 }

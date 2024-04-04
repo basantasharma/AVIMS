@@ -257,7 +257,7 @@
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <label for="identity_proof_photo">Identity Proof Photo:</label>
-              <input type="file" class="form-control" id="identity_proof_photo" name="identity_proof_photo">
+              <input type="file" class="form-control" id="identity_proof_photo" name="identity_photo">
             </div>
     
     

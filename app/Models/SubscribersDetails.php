@@ -79,7 +79,9 @@ class SubscribersDetails extends Authenticatable implements MustVerifyEmail
         'cpe_serial_number',
         'cpe_mac_address',
         'lead_id',
-        'lead_organization'
+        'lead_organization',
+        'created_by', 
+        'updated_by'
     ];
 
     /**
@@ -101,7 +103,7 @@ class SubscribersDetails extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($value)
+    public function setPortalPasswordAttribute($value)
     {
         $this->attributes['portal_password'] = bcrypt($value);
     }

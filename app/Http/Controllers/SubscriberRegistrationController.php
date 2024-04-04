@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\SubscriberService;
 use App\Models\SubscribersDetails;
+use App\Models\InternetPackages;
+
+use App\Http\Controller\InternetPackagesController;
 
 
 class SubscriberRegistrationController extends Controller
@@ -33,7 +36,7 @@ class SubscriberRegistrationController extends Controller
         if($request['subscriber_type'] === 'organization')
         {
             $request['organization_email'] = $request['email'];
-            $request['gender'] = null;
+            // $request['gender'] = null;
             $request['organization_pan'] = $request['pan'];
             $request->validate([
                 'organization_name' => 'required|string|max:50',
@@ -56,12 +59,6 @@ class SubscriberRegistrationController extends Controller
                 'refered_by' => 'required|string|max:50',
             ]);
         }
-        if($request['iptv_package'])
-        {
-            $request->validate([
-            'iptv_package' => 'required|exists:iptv_packages,id'
-            ]);
-        }
         $request->validate([
             'subscriber_username' => 'required|string|max:50',
             'subscriber_password' => 'required|string|max:50',
@@ -70,7 +67,8 @@ class SubscriberRegistrationController extends Controller
             'pan',
             
             'identity_proof_type' => 'required|string',
-            'identity_proof_photo' => 'required|file|mimes:jpg,jpeg,png|max:1024',            'account_enabled' => 'required|boolean',
+            'identity_photo' => 'required|file|mimes:jpg,jpeg,png|max:1024',
+            'account_enabled' => 'required|boolean',
             'portal_enabled' => 'required|boolean',
             'portal_username' => 'required|string|max:50',
             'portal_password' => 'required|string|max:50',
@@ -111,19 +109,46 @@ class SubscriberRegistrationController extends Controller
 
         ]);
         // Identity proof photo has to be processed
-        $imageName = time().'.'.$request->identity_proof_photo->getClientOriginalExtension();
+        $imageName = time().'.'.$request->identity_photo->getClientOriginalExtension();
         $request['identity_proof_photo'] = $imageName;
-        dd(auth()->user());
         $request['created_by'] = auth()->user()->username;
         $request['updated_by'] = auth()->user()->username;
+        // dd($request);
         $user = SubscribersDetails::create($request->all());
-        $path = $request->identity_proof_photo->storeAs('public/images/registeredDocuments', $imageName);
+        $path = $request->identity_photo->storeAs('public/images/registeredDocuments', $imageName);
+        // dd($path);
         if($path)
         {
-            $identity_proof_photo = $request['identity_proof_photo'];
+            $identity_proof_photo = $imageName;
             if($user)
             {
-                
+                $request['user_id'] = $user->id;
+                $request['service_table_name'] = 'internet_packages';
+                $request['service_id'] = $request['internet_package'];
+                $months = (InternetPackages::select('service_duration'))->where('id', $request['internet_package'])->get()->pluck('service_duration');
+                // dd($months[0]);
+                $addingTime = now()->addMonths($months[0]);
+                $request['expires_at'] = $addingTime;
+                $subscriberService = SubscriberService::create($request->all());
+                // $request['expires_at'] = SubscriberService::get('expires_at') +((new InternetPackagesController())->getInternetPackageById($request['internet_package']))[''] ;
+                if($subscriberService)
+                {
+                    if($request['iptv_package'])
+                    {
+                        $request->validate([
+                        'iptv_package' => 'required|exists:iptv_packages,id'
+                        ]);
+                        $request['service_table_name'] = 'iptv_packages';
+                        $request['service_id'] = $request['iptv_package'];
+                        $subscriberService = SubscriberService::create($request->all());
+                        if($subscriberService)
+                        {
+                            dd('user, subscriberService added');
+                        }
+                    }
+                }
+                dd($user->id);
+
             }
         }
         $subscriber_username = $request['subscriber_username'];
