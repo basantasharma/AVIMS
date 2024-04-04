@@ -139,7 +139,7 @@ class SubscriberRegistrationController extends Controller
                         $request->validate([
                         'iptv_package' => 'required|exists:iptv_packages,id'
                         ]);
-                        $iptvMonths = (IptvPackages::select('service_duration'))->where('id', $request['internet_package'])->get()->pluck('service_duration');
+                        $iptvMonths = (IptvPackages::select('service_duration'))->where('id', $request['iptv_package'])->get()->pluck('service_duration');
                         $iptvAddingTime = now()->addMonths($iptvMonths[0]);
                         $request['expires_at'] = $iptvAddingTime;
                         $request['service_table_name'] = 'iptv_packages';
