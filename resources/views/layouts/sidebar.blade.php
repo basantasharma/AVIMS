@@ -31,12 +31,12 @@
               @endrole
               @role('technician')
                 <li class="nav-item">
-                  <a href="/register" class="nav-link @yield('register')"><i class="fa-solid fa-user-plus"></i>
+                  <a href="/register" class="nav-link @yield('register')"><i class="nav-icon fa-solid fa-user-plus"></i>
                     <p>Register User</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/addnas" class="nav-link @yield('registernas')"><i class="fa-solid fa-server"></i>
+                  <a href="/addnas" class="nav-link @yield('registernas')"><i class="nav-icon fa-solid fa-server"></i>
                     <p>Add NAS</p>
                   </a>
                 </li>
