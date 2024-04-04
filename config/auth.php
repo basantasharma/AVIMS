@@ -40,11 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-
         'admin' =>  [
             'driver'    =>  'session',
             'provider'  =>  'admins'
+        ],
+        'sub' =>[
+            'driver' => 'session',
+            'provicer' => 'sub'
         ],
     ],
 
@@ -81,6 +83,11 @@ return [
             'driver'    =>  'eloquent',
             'model'     =>  App\Models\Role::class,
         ],
+        'sub' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\SubscribersDetails::class,
+        ],
+
     ],
 
     /*

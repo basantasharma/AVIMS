@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SubscriberService;
 use App\Models\SubscribersDetails;
 use App\Models\InternetPackages;
+use App\Models\IptvPackages;
 
 use App\Http\Controller\InternetPackagesController;
 
@@ -125,10 +126,10 @@ class SubscriberRegistrationController extends Controller
                 $request['user_id'] = $user->id;
                 $request['service_table_name'] = 'internet_packages';
                 $request['service_id'] = $request['internet_package'];
-                $months = (InternetPackages::select('service_duration'))->where('id', $request['internet_package'])->get()->pluck('service_duration');
+                $internetMonths = (InternetPackages::select('service_duration'))->where('id', $request['internet_package'])->get()->pluck('service_duration');
                 // dd($months[0]);
-                $addingTime = now()->addMonths($months[0]);
-                $request['expires_at'] = $addingTime;
+                $internetAddingTime = now()->addMonths($internetMonths[0]);
+                $request['expires_at'] = $internetAddingTime;
                 $subscriberService = SubscriberService::create($request->all());
                 // $request['expires_at'] = SubscriberService::get('expires_at') +((new InternetPackagesController())->getInternetPackageById($request['internet_package']))[''] ;
                 if($subscriberService)
@@ -138,16 +139,21 @@ class SubscriberRegistrationController extends Controller
                         $request->validate([
                         'iptv_package' => 'required|exists:iptv_packages,id'
                         ]);
+                        $iptvMonths = (IptvPackages::select('service_duration'))->where('id', $request['internet_package'])->get()->pluck('service_duration');
+                        $iptvAddingTime = now()->addMonths($iptvMonths[0]);
+                        $request['expires_at'] = $iptvAddingTime;
                         $request['service_table_name'] = 'iptv_packages';
                         $request['service_id'] = $request['iptv_package'];
                         $subscriberService = SubscriberService::create($request->all());
                         if($subscriberService)
                         {
-                            dd('user, subscriberService added');
+                            return redirect()->back()->with('success', "user Registered successfully");
+                            // dd('user, subscriberService added');
                         }
                     }
                 }
-                dd($user->id);
+                return redirect()->back()->with('success', "user Registered successfully");
+                // dd($user->id);
 
             }
         }
