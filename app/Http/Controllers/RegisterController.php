@@ -30,19 +30,6 @@ class RegisterController extends Controller
         return view('register')->with('availableInternetPackages',$registeredInternetPackages)->with('availableIptvPackages', $registeredIptvPackages);
     }
 
-    public function showRegisternasPage()
-    {
-        // if(\Auth::user())
-        // {
-        //     \Auth::logout(); //this is considered as leatest method
- 
-        //     $request->session()->invalidate();
-     
-        //     $request->session()->regenerateToken();
-        // }
-        return view('registernas');
-    }
-
     public function startRegistration(Request $request)
     {
         dd($request);
