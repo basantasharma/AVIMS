@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubscriberRegistrationController;
+use App\Http\Controllers\NasRegistrationController;
 use App\Http\Controllers\InternetPackagesController;
 use App\Http\Controllers\IptvPackagesController;
 use App\Http\Controllers\HomeController;
@@ -48,9 +49,10 @@ use App\Http\Controllers\EmailVarificationController;
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['auth', 'role:technician,admin'])->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
-    Route::get('/addnas', [RegisterController::class, 'showRegisternasPage'])->name('registernas');
-    Route::post('/register', [RegisterController::class, 'startRegistration'])->name('startregister');
+    Route::get('/addnas', [NasRegistrationController::class, 'showRegisternasPage'])->name('showRegisternasPage');
+    Route::post('/register', [RegisterController::class, 'startRegistration'])->name('startRegistration');
     Route::post('/subscriberregister', [SubscriberRegistrationController::class, 'registerSubscriber'])->name('registerSubscriber');
+    Route::post('/registernas', [NasRegistrationController::class, 'registerNas'])->name('registerNas');
 });
 
 Route::get('/offers', [OffersController::class, 'showOffersPage'])->name('offers');
