@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Bhojpur",
 		"area_sq_km": "1507",
 		"website": "https://www.ddcbhojpur.gov.np",
@@ -9,7 +9,7 @@
 	},
 	{
 		"id": 2,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Dhankuta",
 		"area_sq_km": "892",
 		"website": "https://www.ddcdhankuta.gov.np",
@@ -17,7 +17,7 @@
 	},
 	{
 		"id": 3,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Ilam",
 		"area_sq_km": "1703",
 		"website": "https://www.ddcilam.gov.np",
@@ -25,7 +25,7 @@
 	},
 	{
 		"id": 4,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Jhapa",
 		"area_sq_km": "1606",
 		"website": "https://www.ddcjhapa.gov.np",
@@ -33,7 +33,7 @@
 	},
 	{
 		"id": 5,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Khotang",
 		"area_sq_km": "1591",
 		"website": "https://www.dcckhotang.gov.np",
@@ -41,7 +41,7 @@
 	},
 	{
 		"id": 6,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Morang",
 		"area_sq_km": "1855",
 		"website": "https://www.ddcmorang.gov.np",
@@ -49,7 +49,7 @@
 	},
 	{
 		"id": 7,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Okhaldhunga",
 		"area_sq_km": "1074",
 		"website": "https://www.dccokhaldhunga.gov.np/en",
@@ -57,7 +57,7 @@
 	},
 	{
 		"id": 8,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Pachthar",
 		"area_sq_km": "1241",
 		"website": "https://www.ddcpanchthar.gov.np",
@@ -65,7 +65,7 @@
 	},
 	{
 		"id": 9,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Sankhuwasabha",
 		"area_sq_km": "3480",
 		"website": "https://www.ddcsankhuwasabha.gov.np",
@@ -73,7 +73,7 @@
 	},
 	{
 		"id": 10,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Solukhumbu",
 		"area_sq_km": "3312",
 		"website": "https://www.ddcsolukhumbu.gov.np",
@@ -81,7 +81,7 @@
 	},
 	{
 		"id": 11,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Sunsari",
 		"area_sq_km": "1257",
 		"website": "https://www.ddcsunsari.gov.np",
@@ -89,7 +89,7 @@
 	},
 	{
 		"id": 12,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Taplejung",
 		"area_sq_km": "3646",
 		"website": "https://www.ddctaplejung.gov.np",
@@ -97,7 +97,7 @@
 	},
 	{
 		"id": 13,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Terhathum",
 		"area_sq_km": "679",
 		"website": "https://www.ddctehrathum.gov.np",
@@ -105,7 +105,7 @@
 	},
 	{
 		"id": 14,
-		"province_id": 1,
+		"state_id": 1,
 		"name": "Udayapur",
 		"area_sq_km": "2063",
 		"website": "https://www.ddcudayapur.gov.np",
@@ -113,7 +113,7 @@
 	},
 	{
 		"id": 15,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Parsa",
 		"area_sq_km": "1353",
 		"website": "https://dccparsa.gov.np/",
@@ -121,7 +121,7 @@
 	},
 	{
 		"id": 16,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Bara",
 		"area_sq_km": "1190",
 		"website": "https://dccbara.gov.np/",
@@ -129,7 +129,7 @@
 	},
 	{
 		"id": 17,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Rautahat",
 		"area_sq_km": "1126",
 		"website": "https://dccrautahat.gov.np/",
@@ -137,7 +137,7 @@
 	},
 	{
 		"id": 18,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Sarlahi",
 		"area_sq_km": "1259",
 		"website": "https://dccsarlahi.gov.np/",
@@ -145,7 +145,7 @@
 	},
 	{
 		"id": 19,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Siraha",
 		"area_sq_km": "1188",
 		"website": "https://dccsiraha.gov.np/",
@@ -153,7 +153,7 @@
 	},
 	{
 		"id": 20,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Dhanusha",
 		"area_sq_km": "1180",
 		"website": "https://dccdhanusha.gov.np/",
@@ -161,7 +161,7 @@
 	},
 	{
 		"id": 21,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Saptari",
 		"area_sq_km": "1363",
 		"website": "https://dccsaptari.gov.np/",
@@ -169,7 +169,7 @@
 	},
 	{
 		"id": 22,
-		"province_id": 2,
+		"state_id": 2,
 		"name": "Mahottari",
 		"area_sq_km": "1002",
 		"website": "https://dccmahottari.gov.np/",
@@ -177,7 +177,7 @@
 	},
 	{
 		"id": 23,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Bhaktapur",
 		"area_sq_km": "119",
 		"website": "https://dccbhaktapur.gov.np/",
@@ -185,7 +185,7 @@
 	},
 	{
 		"id": 24,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Chitwan",
 		"area_sq_km": "2218",
 		"website": "https://dccchitwan.gov.np/",
@@ -193,7 +193,7 @@
 	},
 	{
 		"id": 25,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Dhading",
 		"area_sq_km": "1926",
 		"website": "https://dccdhading.gov.np/",
@@ -201,7 +201,7 @@
 	},
 	{
 		"id": 26,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Dolakha",
 		"area_sq_km": "2191",
 		"website": "https://dccdolakha.gov.np/",
@@ -209,7 +209,7 @@
 	},
 	{
 		"id": 27,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Kathmandu",
 		"area_sq_km": "395",
 		"website": "https://dccktm.gov.np/",
@@ -217,7 +217,7 @@
 	},
 	{
 		"id": 28,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Kavrepalanchok",
 		"area_sq_km": "1396",
 		"website": "https://dcckavre.gov.np/",
@@ -225,7 +225,7 @@
 	},
 	{
 		"id": 29,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Lalitpur",
 		"area_sq_km": "385",
 		"website": "https://dcclalitpur.gov.np/",
@@ -233,7 +233,7 @@
 	},
 	{
 		"id": 30,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Makwanpur",
 		"area_sq_km": "2426",
 		"website": "https://dccmakwanpur.gov.np/",
@@ -241,7 +241,7 @@
 	},
 	{
 		"id": 31,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Nuwakot",
 		"area_sq_km": "1121",
 		"website": "https://dccnuwakot.gov.np/",
@@ -249,7 +249,7 @@
 	},
 	{
 		"id": 32,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Ramechap",
 		"area_sq_km": "1546",
 		"website": "https://dccramechhap.gov.np/",
@@ -257,7 +257,7 @@
 	},
 	{
 		"id": 33,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Rasuwa",
 		"area_sq_km": "1544",
 		"website": "https://dccrasuwa.gov.np/",
@@ -265,7 +265,7 @@
 	},
 	{
 		"id": 34,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Sindhuli",
 		"area_sq_km": "2491",
 		"website": "https://dccsindhuli.gov.np/",
@@ -273,7 +273,7 @@
 	},
 	{
 		"id": 35,
-		"province_id": 3,
+		"state_id": 3,
 		"name": "Sindhupalchok",
 		"area_sq_km": "2542",
 		"website": "https://dccsindhupalchowk.gov.np/",
@@ -281,7 +281,7 @@
 	},
 	{
 		"id": 36,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Baglung",
 		"area_sq_km": "1784",
 		"website": "https://dccbaglung.gov.np/",
@@ -289,7 +289,7 @@
 	},
 	{
 		"id": 37,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Gorkha",
 		"area_sq_km": "3610",
 		"website": "https://dccgorkha.gov.np/",
@@ -297,7 +297,7 @@
 	},
 	{
 		"id": 38,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Kaski",
 		"area_sq_km": "2017",
 		"website": "https://dcckaski.gov.np/",
@@ -305,7 +305,7 @@
 	},
 	{
 		"id": 39,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Lamjung",
 		"area_sq_km": "1692",
 		"website": "https://dcclamjung.gov.np/",
@@ -313,7 +313,7 @@
 	},
 	{
 		"id": 40,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Manang",
 		"area_sq_km": "2246",
 		"website": "https://dccmanang.gov.np/",
@@ -321,7 +321,7 @@
 	},
 	{
 		"id": 41,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Mustang",
 		"area_sq_km": "3573",
 		"website": "https://dccmustang.gov.np/",
@@ -329,7 +329,7 @@
 	},
 	{
 		"id": 42,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Myagdi",
 		"area_sq_km": "2297",
 		"website": "https://dccmyagdi.gov.np/",
@@ -337,7 +337,7 @@
 	},
 	{
 		"id": 43,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Nawalpur",
 		"area_sq_km": "1043.1",
 		"website": "https://dccnawalparasi.gov.np/",
@@ -345,7 +345,7 @@
 	},
 	{
 		"id": 44,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Parwat",
 		"area_sq_km": "494",
 		"website": "https://dccparbat.gov.np/",
@@ -353,7 +353,7 @@
 	},
 	{
 		"id": 45,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Syangja",
 		"area_sq_km": "1164",
 		"website": "https://dccsyangja.gov.np/",
@@ -361,7 +361,7 @@
 	},
 	{
 		"id": 46,
-		"province_id": 4,
+		"state_id": 4,
 		"name": "Tanahun",
 		"area_sq_km": "1546",
 		"website": "https://dcctanahun.gov.np/",
@@ -369,7 +369,7 @@
 	},
 	{
 		"id": 47,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Kapilvastu",
 		"area_sq_km": "1738",
 		"website": "https://dcckapilvastu.gov.np/",
@@ -377,7 +377,7 @@
 	},
 	{
 		"id": 48,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Parasi",
 		"area_sq_km": "634.88",
 		"website": "https://dccnawalparasi.gov.np/",
@@ -385,7 +385,7 @@
 	},
 	{
 		"id": 49,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Rupandehi",
 		"area_sq_km": "1360",
 		"website": "https://dccrupandehi.gov.np/",
@@ -393,7 +393,7 @@
 	},
 	{
 		"id": 50,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Arghakhanchi",
 		"area_sq_km": "1193",
 		"website": "https://dccargakhanchi.gov.np/",
@@ -401,7 +401,7 @@
 	},
 	{
 		"id": 51,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Gulmi",
 		"area_sq_km": "1149",
 		"website": "https://dccgulmi.gov.np/",
@@ -409,7 +409,7 @@
 	},
 	{
 		"id": 52,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Palpa",
 		"area_sq_km": "1373",
 		"website": "https://dccpalpa.gov.np/",
@@ -417,7 +417,7 @@
 	},
 	{
 		"id": 53,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Dang",
 		"area_sq_km": "2955",
 		"website": "https://dccdang.gov.np/",
@@ -425,7 +425,7 @@
 	},
 	{
 		"id": 54,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Pyuthan",
 		"area_sq_km": "1309",
 		"website": "https://dccpyuthan.gov.np/",
@@ -433,7 +433,7 @@
 	},
 	{
 		"id": 55,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Rolpa",
 		"area_sq_km": "1879",
 		"website": "https://dccrolpa.gov.np/",
@@ -441,7 +441,7 @@
 	},
 	{
 		"id": 56,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Eastern Rukum",
 		"area_sq_km": "1161.13",
 		"website": "https://dccrukum.gov.np/",
@@ -449,7 +449,7 @@
 	},
 	{
 		"id": 57,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Banke",
 		"area_sq_km": "2337",
 		"website": "https://dccbanke.gov.np/",
@@ -457,7 +457,7 @@
 	},
 	{
 		"id": 58,
-		"province_id": 5,
+		"state_id": 5,
 		"name": "Bardiya",
 		"area_sq_km": "2025",
 		"website": "https://dccbardiya.gov.np/",
@@ -465,7 +465,7 @@
 	},
 	{
 		"id": 59,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Western Rukum",
 		"area_sq_km": "1213.49",
 		"website": "https://dccrukum.gov.np/",
@@ -473,7 +473,7 @@
 	},
 	{
 		"id": 60,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Salyan",
 		"area_sq_km": "1462",
 		"website": "https://dccsalyan.gov.np/",
@@ -481,7 +481,7 @@
 	},
 	{
 		"id": 61,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Dolpa",
 		"area_sq_km": "7889",
 		"website": "https://dccdolpa.gov.np/",
@@ -489,7 +489,7 @@
 	},
 	{
 		"id": 62,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Humla",
 		"area_sq_km": "5655",
 		"website": "https://dcchumla.gov.np/",
@@ -497,7 +497,7 @@
 	},
 	{
 		"id": 63,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Jumla",
 		"area_sq_km": "2531",
 		"website": "https://dccjumla.gov.np/",
@@ -505,7 +505,7 @@
 	},
 	{
 		"id": 64,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Kalikot",
 		"area_sq_km": "1741",
 		"website": "https://dcckalikot.gov.np/",
@@ -513,7 +513,7 @@
 	},
 	{
 		"id": 65,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Mugu",
 		"area_sq_km": "3535",
 		"website": "https://dccmugu.gov.np/",
@@ -521,7 +521,7 @@
 	},
 	{
 		"id": 66,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Surkhet",
 		"area_sq_km": "2451",
 		"website": "https://dccsurkhet.gov.np/",
@@ -529,7 +529,7 @@
 	},
 	{
 		"id": 67,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Dailekh",
 		"area_sq_km": "1502",
 		"website": "https://dccdailekh.gov.np/",
@@ -537,7 +537,7 @@
 	},
 	{
 		"id": 68,
-		"province_id": 6,
+		"state_id": 6,
 		"name": "Jajarkot",
 		"area_sq_km": "2230",
 		"website": "https://dccjajarkot.gov.np/",
@@ -545,7 +545,7 @@
 	},
 	{
 		"id": 69,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Darchula",
 		"area_sq_km": "2344.61",
 		"website": "https://ddcdarchula.gov.np/",
@@ -553,7 +553,7 @@
 	},
 	{
 		"id": 70,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Bajhang",
 		"area_sq_km": "3394.21",
 		"website": "https://dccbajhang.gov.np/",
@@ -561,7 +561,7 @@
 	},
 	{
 		"id": 71,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Bajura",
 		"area_sq_km": "2300.34",
 		"website": "https://dccbajura.gov.np/",
@@ -569,7 +569,7 @@
 	},
 	{
 		"id": 72,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Baitadi",
 		"area_sq_km": "1496.04",
 		"website": "https://dccbaitadi.gov.np/",
@@ -577,7 +577,7 @@
 	},
 	{
 		"id": 73,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Doti",
 		"area_sq_km": "2295.71",
 		"website": "https://dccdoti.gov.np/",
@@ -585,7 +585,7 @@
 	},
 	{
 		"id": 74,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Acham",
 		"area_sq_km": "1692",
 		"website": "https://dccacham.gov.np/",
@@ -593,7 +593,7 @@
 	},
 	{
 		"id": 75,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Dadeldhura",
 		"area_sq_km": "1506.09",
 		"website": "https://dccdadeldhura.gov.np/",
@@ -601,7 +601,7 @@
 	},
 	{
 		"id": 76,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Kanchanpur",
 		"area_sq_km": "1222.31",
 		"website": "https://dcckanchanpur.gov.np/",
@@ -609,7 +609,7 @@
 	},
 	{
 		"id": 77,
-		"province_id": 7,
+		"state_id": 7,
 		"name": "Kailali",
 		"area_sq_km": "3292.35",
 		"website": "https://dcckailali.gov.np/",

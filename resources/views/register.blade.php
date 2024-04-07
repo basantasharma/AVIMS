@@ -302,14 +302,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_state" name="permanent_state">
-                  <option selected>Select State</option>
-                  <option value="Koshi">Koshi</option>
-                  <option value="Madhesh">Madhesh</option>
-                  <option value="Bagmati">Bagmati</option>
-                  <option value="Gandaki">Gandaki</option>
-                  <option value="Lumbini">Lumbini</option>
-                  <option value="Karnali">Karnali</option>
-                  <option value="Sudurpashchim">Sudurpashchim</option>
+                  <option value="">Select State</option>
                 </select>
                 <label for="permanent_state">State</label>
               </div>
@@ -318,14 +311,8 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_district" name="permanent_district">
-                  <option selected>Select District</option>
-                  <option value="Koshi">Koshi</option>
-                  <option value="Madhesh">Madhesh</option>
-                  <option value="Bagmati">Bagmati</option>
-                  <option value="Gandaki">Gandaki</option>
-                  <option value="Lumbini">Lumbini</option>
-                  <option value="Karnali">Karnali</option>
-                  <option value="Sudurpashchim">Sudurpashchim</option>
+                  <option value="">Select District</option>
+                 
                 </select>
                 <label for="permanent_state">District</label>
               </div>
@@ -334,14 +321,8 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_vdcmun" name="permanent_vdc/mun">
-                  <option selected>Select VDC/Municipality</option>
-                  <option value="Koshi">Koshi</option>
-                  <option value="Madhesh">Madhesh</option>
-                  <option value="Bagmati">Bagmati</option>
-                  <option value="Gandaki">Gandaki</option>
-                  <option value="Lumbini">Lumbini</option>
-                  <option value="Karnali">Karnali</option>
-                  <option value="Sudurpashchim">Sudurpashchim</option>
+                  <option value="">Select VDC/Municipality</option>
+                 
                 </select>
                 <label for="permanent_vdcmun">VDC/MUNICIPALITY</label>
               </div>
@@ -351,13 +332,7 @@
               <div class="form-floating">
                 <select class="form-control" id="permanent_ward" name="permanent_ward_number">
                   <option selected>Select Ward</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
+              
                 </select>
                 <label for="permanent_ward">Ward</label></label>
               </div>
@@ -377,19 +352,15 @@
                 <label for="Subscriber_permanent_housenumber">House Number</label><br>
               </div>
             </div>
+
+            {{-- Current Address --}}
             <h4>Current Address <input type="checkbox" class="form-check-input ms-4 fs-5" id="copy-address" name="same_as_permanent" placeholder="Same As permanent">
               <label for="copy-address" class="fs-5">same as permanent</label></h4>
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_state" name="current_state">
-                  <option selected>Select State</option>
-                  <option value="Koshi">Koshi</option>
-                  <option value="Madhesh">Madhesh</option>
-                  <option value="Bagmati">Bagmati</option>
-                  <option value="Gandaki">Gandaki</option>
-                  <option value="Lumbini">Lumbini</option>
-                  <option value="Karnali">Karnali</option>
-                  <option value="Sudurpashchim">Sudurpashchim</option>
+                  <option value="">Select State</option>
+                
                 </select>
                 <label for="current_state">State</label>
               </div>
@@ -398,14 +369,8 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_district" name="current_district">
-                  <option selected>Select District</option>
-                  <option value="Koshi">Koshi</option>
-                  <option value="Madhesh">Madhesh</option>
-                  <option value="Bagmati">Bagmati</option>
-                  <option value="Gandaki">Gandaki</option>
-                  <option value="Lumbini">Lumbini</option>
-                  <option value="Karnali">Karnali</option>
-                  <option value="Sudurpashchim">Sudurpashchim</option>
+                  <option value="">Select District</option>
+                 
                 </select>
                 <label for="current_district">District</label>
               </div>
@@ -414,14 +379,8 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_vdcmun" name="current_vdc/mun">
-                  <option selected>Select VDC/Municipality</option>
-                  <option value="Koshi">Koshi</option>
-                  <option value="Madhesh">Madhesh</option>
-                  <option value="Bagmati">Bagmati</option>
-                  <option value="Gandaki">Gandaki</option>
-                  <option value="Lumbini">Lumbini</option>
-                  <option value="Karnali">Karnali</option>
-                  <option value="Sudurpashchim">Sudurpashchim</option>
+                  <option value="">Select VDC/Municipality</option>
+                 
                 </select>
                 <label for="current_vdcmun">VDC/MUNICIPALITY</label>
               </div>
@@ -432,12 +391,20 @@
                 <select class="form-control" id="current_ward" name="current_ward_number">
                   <option selected>Select Ward</option>
                   <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+
+                 
                 </select>
                 <label for="current_ward">Ward</label>
               </div>
