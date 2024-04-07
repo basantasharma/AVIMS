@@ -60,6 +60,13 @@ class SubscriberRegistrationController extends Controller
                 'refered_by' => 'required|string|max:50',
             ]);
         }
+        if($request['connection_type'] == 'ipoe')
+        {
+            $request['username'] = $request['subscriber_username'];
+            $request['attribute'] = 'cleartext-password';
+            $request['op'] = '==';
+            $request['value'] = $request['subscriber_password'];
+        }
         $request->validate([
             'subscriber_username' => 'required|string|max:50',
             'subscriber_password' => 'required|string|max:50',
