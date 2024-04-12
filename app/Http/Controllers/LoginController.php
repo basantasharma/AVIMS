@@ -20,13 +20,17 @@ class LoginController extends Controller
 
         ]);
 
-        if(\Auth::attempt($request->only('email', 'password'), $request->rememberme))
+        if(auth()->guard('sub')->attempt(['email' => $request->email, 'password' => $request->password], $request->rememberme))
+        {
+            return redirect('/')->with('success', "Account successfully Logged in.");
+        }
+        elseif(\Auth::attempt($request->only('email', 'password'), $request->rememberme))
         {
             return redirect('/')->with('success', "Account successfully Logged in.");
         }
         else
         {
-            return redirect('/login')->with('failed', 'Failed to Login. Bad credentials');
+            return redirect()->back()->with('failed', 'Failed to Login. Bad credentials');
         }
         // if (auth()->guard('sub')->attempt(['email' => $email, 'password' => $password])) {
         //     // Company is logged in

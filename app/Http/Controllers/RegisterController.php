@@ -32,14 +32,15 @@ class RegisterController extends Controller
 
     public function startRegistration(Request $request)
     {
-        dd($request);
+        // dd($request);
         $request->validate([
             'name'                  => 'required|string|max:30',
             'username'              => 'required|string|max:20',
             'email'                 => 'required|email|unique:users,email',
             'password'              => 'required|confirmed|min:8',
-            'router_serial_no'      => 'required',
-            'router_model_name'     => 'required',
+            'organization'          => 'required',
+            'branch'                => 'required',
+            'department'            => 'required'
         ]);
 
 
@@ -49,9 +50,9 @@ class RegisterController extends Controller
             'username'              => $request->username,
             'email'                 => $request->email,
             'password'              => $request->password,
-            'router_serial_no'      => $request->router_serial_no,
-            'router_model_name'     => $request->router_serial_name
-            
+            'organization'          => $request->organization,
+            'branch'                => $request->branch,
+            'department'            => $request->department
         ]);
 
         if(!is_null($user))
@@ -69,11 +70,11 @@ class RegisterController extends Controller
             
             // }
             
-                return redirect('/')->with('success', "Account successfully registered.")->with('info', "Please verify your email address before proceduring any further");
+                return redirect('/')->with('success', "User successfully registered.");
         }
         else
         {
-            return redirect('/register');
+            return redirect()->back();
 
             // return view('register',[
             //     'name'            => $request->name,
@@ -82,5 +83,9 @@ class RegisterController extends Controller
             // ]); 
             //return back()->with("failed", "Alert! Failed to register");
         }
+    }
+    public function showSystemUserRegisterPage()
+    {
+        return view('registersystemuser');
     }
 }

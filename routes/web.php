@@ -49,6 +49,7 @@ use App\Http\Controllers\EmailVarificationController;
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['auth', 'role:technician,admin'])->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
+    Route::get('/addsystemuser', [RegisterController::class, 'showSystemUserRegisterPage'])->name('register');
     Route::get('/addnas', [NasRegistrationController::class, 'showRegisternasPage'])->name('showRegisternasPage');
     Route::post('/register', [RegisterController::class, 'startRegistration'])->name('startRegistration');
     Route::post('/subscriberregister', [SubscriberRegistrationController::class, 'registerSubscriber'])->name('registerSubscriber');

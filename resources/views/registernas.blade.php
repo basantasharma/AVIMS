@@ -2,6 +2,7 @@
 @section('title', 'Register-Telnet')
 @section('headerLeft', 'Register NAS')
 @section('registernas', 'active')
+@section('menuregister', 'menu-open')
 
 
 @section('scripts-top')
