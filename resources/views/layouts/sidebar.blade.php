@@ -30,15 +30,29 @@
                 </li>
               @endrole
               @role('technician')
-                <li class="nav-item">
-                  <a href="/register" class="nav-link @yield('register')"><i class="nav-icon fa-solid fa-user-plus"></i>
-                    <p>Register User</p>
+                <li class="nav-item @yield('menuregister') active">
+                  <a href="#" class="nav-link"><i class="nav-icon fa-solid fa-user-plus"></i>
+                    <p>Register<i class="nav-arrow fas fa-angle-left right"></i></p>
                   </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/addnas" class="nav-link @yield('registernas')"><i class="nav-icon fa-solid fa-server"></i>
-                    <p>Add NAS</p>
-                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/register" class="nav-link @yield('register')"><i class="nav-icon fa-solid fa-user-plus"></i>
+                        <p>Register User</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/addnas" class="nav-link @yield('registernas')"><i class="nav-icon fa-solid fa-server"></i>
+                        <p>Add NAS</p>
+                      </a>
+                    </li>
+                    @role('admin')
+                    <li class="nav-item">
+                      <a href="/addsystemuser" class="nav-link @yield('registersystemuser')"><i class="fa-solid fa-person-rifle"></i>
+                        <p>Add System Users</p>
+                      </a>
+                    </li>
+                    @endrole
+                  </ul>
                 </li>
               @endrole
 

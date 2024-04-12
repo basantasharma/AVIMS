@@ -46,7 +46,7 @@ return [
         ],
         'sub' =>[
             'driver' => 'session',
-            'provicer' => 'sub'
+            'provider' => 'subs'
         ],
     ],
 
@@ -83,7 +83,7 @@ return [
             'driver'    =>  'eloquent',
             'model'     =>  App\Models\Role::class,
         ],
-        'sub' => [
+        'subs' => [
             'driver' => 'eloquent',
             'model' => App\Models\SubscribersDetails::class,
         ],

@@ -2,6 +2,7 @@
 @section('title', 'Register-Telnet')
 @section('headerLeft', 'Register')
 @section('register', 'active')
+@section('menuregister', 'menu-open')
 
 
 @section('scripts-top')
