@@ -8,6 +8,7 @@ use App\Models\SubscriberService;
 use App\Models\SubscribersDetails;
 use App\Models\InternetPackages;
 use App\Models\IptvPackages;
+use App\Models\RadCheck;
 
 use App\Http\Controller\InternetPackagesController;
 
@@ -60,6 +61,7 @@ class SubscriberRegistrationController extends Controller
                 'refered_by' => 'required|string|max:50',
             ]);
         }
+        
         $request->validate([
             'subscriber_username' => 'required|string|max:50',
             'subscriber_password' => 'required|string|max:50',
@@ -109,6 +111,18 @@ class SubscriberRegistrationController extends Controller
             'internet_package' => 'required|exists:internet_packages,id'
 
         ]);
+        if($request['connection_type'] == 'ipoe')
+        {
+            $request['username'] = $request['subscriber_username'];
+            $request['attribute'] = 'cleartext-password';
+            $request['op'] = '==';
+            $request['value'] = $request['subscriber_password'];
+            $radcheck = RadCheck::create($request->only('username', 'attribute', 'op', 'value'));
+            if($radcheck)
+            {
+                dd('Rad check ma package details add garne banauna baki xa');
+            }
+        }
         // Identity proof photo has to be processed
         $imageName = time().'.'.$request->identity_photo->getClientOriginalExtension();
         $request['identity_proof_photo'] = $imageName;
@@ -131,6 +145,7 @@ class SubscriberRegistrationController extends Controller
                 $internetAddingTime = now()->addMonths($internetMonths[0]);
                 $request['expires_at'] = $internetAddingTime;
                 $subscriberService = SubscriberService::create($request->all());
+
                 // $request['expires_at'] = SubscriberService::get('expires_at') +((new InternetPackagesController())->getInternetPackageById($request['internet_package']))[''] ;
                 if($subscriberService)
                 {
@@ -151,8 +166,9 @@ class SubscriberRegistrationController extends Controller
                             // dd('user, subscriberService added');
                         }
                     }
+                    return redirect()->back()->with('failed', 'Adding service failed')->with('success', 'User Registered successfully');
                 }
-                return redirect()->back()->with('success', "user Registered successfully");
+                return redirect()->back()->with('success', "user Registered successfully")->with('failed', 'Subacription adding failed');
                 // dd($user->id);
 
             }

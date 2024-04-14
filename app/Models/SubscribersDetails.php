@@ -23,6 +23,8 @@ class SubscribersDetails extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $table = 'subscribers_details';
+    protected $guard = 'sub';
+    protected $guarded = [];
 
     protected $fillable = [
         'subscriber_username',
@@ -93,6 +95,10 @@ class SubscribersDetails extends Authenticatable implements MustVerifyEmail
         'portal_password',
         'remember_token',
     ];
+    public function getAuthPassword()
+    {
+        return $this->portal_password;
+    }
 
     /**
      * The attributes that should be cast.

@@ -22,9 +22,9 @@ class NasRegistrationController extends Controller
         return view('registernas');
     }
     
-    public function registerNas()
+    public function registerNas(Request $request)
     {
-        $request->validade([
+        $request->validate([
             'nasname' => 'required',
             'shortname' => 'required',
             'secret' => 'required'
