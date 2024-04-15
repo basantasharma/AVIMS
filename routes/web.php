@@ -47,7 +47,7 @@ use App\Http\Controllers\EmailVarificationController;
 // Route::get('/adduser', [UserController::class, 'showAddUserPage'])->name('adduser')->middleware(['auth', 'verified']);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::middleware(['auth', 'role:technician,admin'])->group(function () {
+Route::middleware(['auth:web', 'role:technician,admin'])->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
     Route::get('/addsystemuser', [RegisterController::class, 'showSystemUserRegisterPage'])->name('register');
     Route::get('/addnas', [NasRegistrationController::class, 'showRegisternasPage'])->name('showRegisternasPage');
@@ -62,15 +62,15 @@ Route::get('/contacts', [ContactsController::class, 'showContactsPage'])->name('
 Route::get('/timeline', [TimelineController::class, 'showTimelinePage'])->name('timeline');
 
 
-Route::get('/getactivedevice', [RouterSettingController::class, 'getActiveDevices'])->name('getActiveDevices')->middleware('auth');
-Route::get('/refreshhost', [RouterSettingController::class, 'refreshHost'])->name('refreshHost')->middleware('auth');
-Route::get('/getrouterinfo', [RouterSettingController::class, 'getRouterInfo'])->name('getRouterInfo')->middleware('auth');
-Route::post('/reboot', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter')->middleware('auth');
+// Route::get('/getactivedevice', [RouterSettingController::class, 'getActiveDevices'])->name('getActiveDevices')->middleware('auth');
+// Route::get('/refreshhost', [RouterSettingController::class, 'refreshHost'])->name('refreshHost')->middleware('auth');
+// Route::get('/getrouterinfo', [RouterSettingController::class, 'getRouterInfo'])->name('getRouterInfo')->middleware('auth');
+// Route::post('/reboot', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter')->middleware('auth');
 
 
-Route::post('/reboot5g', [FivegRouterSettingController::class, 'rebootRouter'])->name('reboot5gRouter')->middleware('auth');
-Route::post('/5g', [FivegRouterSettingController::class, 'routerSetting'])->name('5grouterSetting')->middleware('auth');
-Route::get('/5g', [FivegRouterSettingController::class, 'showRouterSettingPage'])->name('showRouterSettingPage')->middleware('auth');
+// Route::post('/reboot5g', [FivegRouterSettingController::class, 'rebootRouter'])->name('reboot5gRouter')->middleware('auth');
+// Route::post('/5g', [FivegRouterSettingController::class, 'routerSetting'])->name('5grouterSetting')->middleware('auth');
+// Route::get('/5g', [FivegRouterSettingController::class, 'showRouterSettingPage'])->name('showRouterSettingPage')->middleware('auth');
 
 
 Route::get('/email/verify',[EmailVarificationController::class, 'index'])->middleware('auth')->name('verification.notice');
@@ -88,11 +88,11 @@ Route::get('/', [HomeController::class, 'showHomePage'])->name('index');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginPage'])->name('login');
-    Route::post('/login', [LoginController::class, 'startLogin'])->name('login');
+    Route::post('/login', [LoginController::class, 'startLogin'])->name('startlogin');
 });
 
 
-Route::middleware(['auth', 'notrole:admin', 'notrole:technician'])->group(function () {
+Route::middleware(['auth:sub'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'showDashboardPage'])->name('dashboard');
     Route::get('/router', [RouterSettingController::class, 'showRouterSettingPage'])->name('router');
@@ -103,7 +103,7 @@ Route::middleware(['auth', 'notrole:admin', 'notrole:technician'])->group(functi
 
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin');
     Route::post('/addinternetpackage', [InternetPackagesController::class, 'addInternetPackage'])->name('addInternetPackage');
     Route::post('/addiptvpackage', [IptvPackagesController::class, 'addIptvPackage'])->name('addIptvPackage');

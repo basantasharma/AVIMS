@@ -29,7 +29,7 @@
           </ol>
       </div>
 
-      @role('admin')
+      @role(['admin'])
       <div class="row text-start mb-4">
         <div class="col-auto">
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addinternetpackage">

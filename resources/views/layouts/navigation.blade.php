@@ -11,12 +11,12 @@
     </ul>
     <!--end::Start Navbar Links-->
     <ul class="navbar-nav">
-      @auth
+      @if(\Auth::guard('web')->check() || \Auth::guard('sub')->check())
       <li class="nav-item d-none d-md-block"><a href="/" class="nav-link @yield('profile')">Profile</a></li>
       <li class="nav-item d-none d-md-block"><a href="/logout/" class="nav-link">Log Out</a></li>
       @else
       <li class="nav-item d-none d-md-block"><a href="/login/" class="nav-link @yield('login')">Log in</a></li>
-      @endauth
+      @endif
   </ul>
     
   </div><!--end::Container-->

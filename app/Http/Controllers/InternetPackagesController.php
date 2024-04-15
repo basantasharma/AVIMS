@@ -48,7 +48,7 @@ class InternetPackagesController extends Controller
     public function getInternetPackages()
     {
         $packages = array();
-        $registeredPackages = InternetPackages::get();
+        $registeredPackages = InternetPackages::get()->where('created_by', \Auth::user()->organization);
         foreach($registeredPackages as $package)
         {
             $packages[] = $package;

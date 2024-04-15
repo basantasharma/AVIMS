@@ -12,11 +12,11 @@
           <h1 class="display-3 fw-bold mb-3">CPE Management Portal</h1>
           <p class="lead mb-5 text-secondary">Efficiently manage your CPE devices with our advanced portal. Streamline operations, enhance security, and optimize performance.</p>
           <div class="d-grid gap-4 d-sm-flex justify-start-sm-center">
-            @auth
+            {{-- @auth --}}
             <a href="/dashboard" class="btn btn-outline-dark btn-lg px-4 gap-3">Get Started</a>
-            @else
-            <a href="/login" class="btn btn-outline-dark btn-lg px-4 gap-3">Get Started</a>
-            @endauth
+            {{-- @else --}}
+            {{-- <a href="/login" class="btn btn-outline-dark btn-lg px-4 gap-3">Get Started</a> --}}
+            {{-- @endauth --}}
             <a href="/services" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
           </div>
         </div>
