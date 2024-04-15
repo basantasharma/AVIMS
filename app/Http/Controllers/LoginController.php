@@ -19,9 +19,10 @@ class LoginController extends Controller
             'password'        => 'required',
 
         ]);
-
+        // dd(auth()->guard('sub')->attempt(['email' => $request->email, 'password' => $request->password], $request->rememberme));
         if(auth()->guard('sub')->attempt(['email' => $request->email, 'password' => $request->password], $request->rememberme))
         {
+            // dd(auth()->user());
             return redirect('/')->with('success', "Account successfully Logged in.");
         }
         elseif(\Auth::attempt($request->only('email', 'password'), $request->rememberme))
@@ -41,7 +42,15 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        \Auth::logout(); //this is considered as leatest method
+        if(\Auth::guard('sub')->check())
+        {
+            \Auth::guard('sub')->logout(); //this is considered as leatest method
+        }
+        else
+        {
+            \Auth::guard('web')->logout(); //this is considered as leatest method
+
+        }
  
         $request->session()->invalidate();
      

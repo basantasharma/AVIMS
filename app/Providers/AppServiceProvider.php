@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             $roles = (new UsersRolesController())->seeUserRole();
             foreach($roles as $rolee)
             {
-                if($rolee->role == $role || $rolee->role == 'admin')
+                if(in_array($rolee->role, $role) || $rolee->role == 'admin')
                 {
                     return true;
                 }
@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
             $permissions = (new UsersPermissionsController())->seeUserPermission();
             foreach($permissions as $permissionss)
             {
-                if($permissionss->permission == $permission || $permissionss->permission == 'all')
+                if(in_array($permissionss->permission, $permission) || $permissionss->permission == 'all')
                 {
                     return true;
                 }

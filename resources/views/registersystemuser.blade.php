@@ -52,7 +52,7 @@
       </div>
       <div class="form-outline mb-2">
         <label class="form-label" for="typeSerialNumberX-2">Organization Branch</label>
-        <input name="branch" type="text" id="typeSerialNumberX-2" class="form-control form-control-md" placeholder="Serial Number" />
+        <input name="branch" type="text" id="typeSerialNumberX-2" class="form-control form-control-md" placeholder="Organization Branch" />
       </div>
       <div class="form-outline mb-2">
         <label class="form-label" for="typeDepartmentX-2">Organization Department</label>

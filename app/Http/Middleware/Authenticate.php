@@ -12,6 +12,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
+        // return $request->expectsJson() ? null : redirect()->back()->with('failed', 'Sorry not authorized to access please login using allowed account');
         return $request->expectsJson() ? null : route('login');
     }
 }
