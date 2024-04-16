@@ -25,10 +25,10 @@
               @endrole
               @role(['technician'])
                 <li class="nav-item @yield('menuregister') active">
-                  <a href="#" class="nav-link"><i class="nav-icon fa-solid fa-user-plus"></i>
+                  <a href="#" class="nav-link m-0"><i class="nav-icon fa-solid fa-user-plus"></i>
                     <p>Register<i class="nav-arrow fas fa-angle-right right"></i></p>
                   </a>
-                  <ul class="nav nav-treeview">
+                  <ul class="nav nav-treeview fs-7 my-1 border border-top-0 border-bottom-0 border-4 border-light-subtle rounded-3">
                     <li class="nav-item">
                       <a href="/register" class="nav-link @yield('register')"><i class="nav-icon fa-solid fa-user-plus"></i>
                         <p>Register User</p>
@@ -41,7 +41,7 @@
                     </li>
                     @role(['admin'])
                     <li class="nav-item">
-                      <a href="/addsystemuser" class="nav-link @yield('registersystemuser')"><i class="fa-solid fa-person-rifle"></i>
+                      <a href="/addsystemuser" class="nav-link @yield('registersystemuser') m-0"><i class="fa-solid fa-person-rifle"></i>
                         <p>Add System Users</p>
                       </a>
                     </li>
