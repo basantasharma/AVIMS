@@ -38,7 +38,14 @@ class UserController extends Controller
     //it will get all users registered in the database 
     public function getAllUsers()
     {
-        $alluser = User::select('id','username')->get();
+        if(\Auth::user()->organization == 'astavision')
+        {
+            $alluser = User::select('id','username')->get();
+        }
+        else
+        {
+            $alluser = User::select('id','username')->where('organization', \Auth::user()->organization)->get();
+        }
         return $alluser;
     }
 }

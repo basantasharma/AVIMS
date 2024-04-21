@@ -42,6 +42,7 @@ class RoleController extends Controller
     
     public function seeAllRoles()
     {
+
         $userId = \Auth::id();
         // $results = \DB::table('roles')->select('role', 'id')->get();
         $results = Roles::select('role', 'id')->get();
@@ -68,11 +69,15 @@ class RoleController extends Controller
         $request->validate([
             'roleid'            => 'required|string|max:30|exists:roles,id',
         ]);
-        $deleterole = ROles::where('id', $request->roleid)->delete();
-        // $deleterole = \DB::table('roles')->where('id', $request->roleid)->delete();
-        if($deleterole)
+        $role = Roles::find($request->roleid);
+        if (!in_array($role->role, ['admin', 'technician', 'manager'])) 
         {
-            return redirect('/admin')->with('success', 'role deleted');
+            $deleterole = ROles::where('id', $request->roleid)->delete();
+            // $deleterole = \DB::table('roles')->where('id', $request->roleid)->delete();
+            if($deleterole)
+            {
+                return redirect('/admin')->with('success', 'role deleted');
+            }
         }
         return redirect('/admin')->with('failed', 'role cannot be deleted');
     }

@@ -17,30 +17,37 @@ class UsersPermissionsController extends Controller
             'permissionid'            => 'required|exists:permissions,id',
             'userid'            => 'required|exists:users,id',
         ]);
-        
-        $douserHasPermission = $this->hasUserPermission($request->userid, $request->permissionid);
-
-
-        //if to check if data exist already or not
-        if($douserHasPermission)
+        if(\Auth::user()->organization == $this->getUserById($request->userid)->organization || \Auth::user()->organization == 'astavision')
         {
-            return back()->with('failed', 'User already has the specified permission');
-        }
-        else
-        {
-            $data=array([
-                'permission_id'=> $request->permissionid,
-                'user_id' => $request->userid
-            ]);
-            $permission = UserPermissions::insert($data);
-            if($permission)
+
+            $douserHasPermission = $this->hasUserPermission($request->userid, $request->permissionid);
+    
+    
+            //if to check if data exist already or not
+            if($douserHasPermission)
             {
-                return back()->with('success', "Permission to user Added successfully.");
+                return back()->with('failed', 'User already has the specified permission');
             }
             else
             {
-                return back()->with('failed', "Sorry something went wrong");
+                $data=array([
+                    'permission_id'=> $request->permissionid,
+                    'user_id' => $request->userid
+                ]);
+                $permission = UserPermissions::insert($data);
+                if($permission)
+                {
+                    return back()->with('success', "Permission to user Added successfully.");
+                }
+                else
+                {
+                    return back()->with('failed', "Sorry something went wrong");
+                }
             }
+        }
+        else
+        {
+            return redirect()->back()->with('failed', "sorry you are not allowed for this user");
         }
         
     }
@@ -84,30 +91,37 @@ class UsersPermissionsController extends Controller
             'permissionid'            => 'required|exists:permissions,id',
             'userid'            => 'required|exists:users,id',
         ]);
-        $douserHasPermission = ($this->hasUserPermission($request->userid, $request->permissionid));
-
-        if($douserHasPermission)
+        if(\Auth::user()->organization == $this->getUserById($request->userid)->organization || \Auth::user()->organization == 'astavision')
         {
-            // dd(gettype($douserHasRole));
-            $data=array([
-                'Permission_id'=> $request->permissionid,
-                'user_id' => $request->userid
-            ]);
-            $permission = UsersPermissions::where('permission_id', $request->permissionid)->where('user_id', $request->userid)->delete();
-            if($permission)
+            $douserHasPermission = ($this->hasUserPermission($request->userid, $request->permissionid));
+
+            if($douserHasPermission)
             {
-                return back()->with('success', "Permission removed successfully.");
+                // dd(gettype($douserHasRole));
+                $data=array([
+                    'Permission_id'=> $request->permissionid,
+                    'user_id' => $request->userid
+                ]);
+                $permission = UsersPermissions::where('permission_id', $request->permissionid)->where('user_id', $request->userid)->delete();
+                if($permission)
+                {
+                    return back()->with('success', "Permission removed successfully.");
+                }
+                else
+                {
+                    return back()->with('failed', "Sorry something went wrong");
+                }
             }
             else
             {
-                return back()->with('failed', "Sorry something went wrong");
+                return back()->with('failed', 'User may not have specified permission');
+
+                
             }
         }
         else
         {
-            return back()->with('failed', 'User may not have specified permission');
-
-            
+            return redirect()->back()->with('failed', "sorry you are not allowed for this user");
         }
     }
 
