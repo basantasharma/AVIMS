@@ -15,7 +15,15 @@ class SubscriberController extends Controller
     //it will get all users registered in the database 
     public function getAllSubscribers()
     {
-        $alluser = SubscribersDetails::select('id','subscriber_username')->where('lead_organization', \Auth::user()->organization)->get();
+        $leadorg = \Auth::user()->organization;
+        if($leadorg == 'astavision')
+        {
+            $alluser = SubscribersDetails::select('id','subscriber_username')->get();
+        }
+        else{
+
+            $alluser = SubscribersDetails::select('id','subscriber_username')->where('lead_organization', $leadorg)->get();
+        }
         return $alluser;
     }
 }

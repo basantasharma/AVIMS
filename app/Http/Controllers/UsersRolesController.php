@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Roles;
 use App\Models\UsersRoles;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\RoleController;
@@ -19,34 +20,41 @@ class UsersRolesController extends Controller
             'roleid'            => 'required|exists:roles,id',
             'userid'            => 'required|exists:users,id',
         ]);
-        
-        $douserHasRole = $this->hasUserRole($request->userid, $request->roleid);
-
-
-        //if to check if data exist already or not
-        if($douserHasRole)
+        if(\Auth::user()->organization == $this->getUserById($request->userid)->organization || \Auth::user()->organization == 'astavision')
         {
-            return redirect('/admin')->with('failed', 'User already has the specified role');
-        }
-        else
-        {
-            $data=array([
-                'role_id'=> $request->roleid,
-                'user_id' => $request->userid
-            ]);
-            $role = UsersRoles::insert($data);
-            if($role)
+            $douserHasRole = $this->hasUserRole($request->userid, $request->roleid);
+            //if to check if data exist already or not
+            if($douserHasRole)
             {
-                return redirect('/admin')->with('success', "Role Added successfully.");
+                return redirect('/admin')->with('failed', 'User already has the specified role');
             }
             else
             {
-                return redirect('/admin')->with('failed', "Sorry something went wrong");
+                $data=array([
+                    'role_id'=> $request->roleid,
+                    'user_id' => $request->userid
+                ]);
+                $role = UsersRoles::insert($data);
+                if($role)
+                {
+                    return redirect('/admin')->with('success', "Role Added successfully.");
+                }
+                else
+                {
+                    return redirect('/admin')->with('failed', "Sorry something went wrong");
+                }
             }
+        }
+        else
+        {
+            return redirect()->back()->with('failed', "sorry not allowed for this user");
         }
         
     }
-
+    public function getUserById($id)
+    {
+        return User::select()->where('id', $id)->get()->first();
+    }
 
     public function seeUserRole()
     {
@@ -86,30 +94,37 @@ class UsersRolesController extends Controller
             'roleid'            => 'required|exists:roles,id',
             'userid'            => 'required|exists:users,id',
         ]);
-        $douserHasRole = ($this->hasUserRole($request->userid, $request->roleid));
-
-        if($douserHasRole)
+        if(\Auth::user()->organization == $this->getUserById($request->userid)->organization || \Auth::user()->organization == 'astavision')
         {
-            // dd(gettype($douserHasRole));
-            $data=array([
-                'role_id'=> $request->roleid,
-                'user_id' => $request->userid
-            ]);
-            $role = UsersRoles::where('role_id', $request->roleid)->where('user_id', $request->userid)->delete();
-            if($role)
+            $douserHasRole = ($this->hasUserRole($request->userid, $request->roleid));
+    
+            if($douserHasRole)
             {
-                return redirect('/admin')->with('success', "Role removed successfully.");
+                // dd(gettype($douserHasRole));
+                $data=array([
+                    'role_id'=> $request->roleid,
+                    'user_id' => $request->userid
+                ]);
+                $role = UsersRoles::where('role_id', $request->roleid)->where('user_id', $request->userid)->delete();
+                if($role)
+                {
+                    return redirect('/admin')->with('success', "Role removed successfully.");
+                }
+                else
+                {
+                    return redirect('/admin')->with('failed', "Sorry something went wrong");
+                }
             }
             else
             {
-                return redirect('/admin')->with('failed', "Sorry something went wrong");
+                return redirect('/admin')->with('failed', 'User may not have specified role');
+    
+                
             }
         }
         else
         {
-            return redirect('/admin')->with('failed', 'User may not have specified role');
-
-            
+            return redirect()->back()->with('failed', "sorry not allowed for this user");
         }
     }
 
