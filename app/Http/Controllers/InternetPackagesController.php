@@ -60,13 +60,13 @@ class InternetPackagesController extends Controller
     public function getInternetPackageById($id)
     {
         $package = array();
-        $registeredPackages = InternetPackages::get()->where('id', $id);
-        dd($registeredPackages);
-        foreach($registeredPackages as $package)
-        {
-            $packages[] = $package;
-        }
-        return $packages;
+        $registeredPackage = InternetPackages::get()->where('created_by', \Auth::user()->organization)->where('id', $id);
+        // dd($registeredPackages);
+        // foreach($registeredPackage as $package)
+        // {
+        //     $packages[] = $package;
+        // }
+        return $registeredPackage;
         // dd($packages);
         
     }

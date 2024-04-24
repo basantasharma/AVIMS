@@ -55,7 +55,7 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="connectionType">
               <div class="form-floating">
                 <select class="form-control" id="connection_type" name="connection_type">
-                  <option selected value="ppoe">PPOE</option>
+                  <option selected value="pppoe">PPPOE</option>
                   <option value="ipoe">IPoE</option>
                   <option value="static">Static IP</option>
                 </select>
