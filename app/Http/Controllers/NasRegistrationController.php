@@ -26,7 +26,7 @@ class NasRegistrationController extends Controller
     {
         $request->validate([
             'nasname' => 'required',
-            'shortname' => 'required',
+            // 'shortname' => 'required',
             'secret' => 'required'
         ]);
         $nas = Nas::create($request->all());
