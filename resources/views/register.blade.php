@@ -45,8 +45,8 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriberType">
               <div class="form-floating">
                 <select class="form-control" id="subscriber_type" name="subscriber_type">
-                  <option selected value="home">Home User</option>
-                  <option value="organization">Organization User</option>
+                  <option selected value="home" {{ (old('subscriber_type') == 'home')? 'selected' : '' }}>Home User</option>
+                  <option value="organization" {{ (old('subscriber_type') == 'organization')? 'selected' : '' }}>Organization User</option>
                 </select>
                 <label for="subscriber_type" id="typeSelectPlaceholder" class="">Select Subscriber Type</label>
               </div>
@@ -55,9 +55,9 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="connectionType">
               <div class="form-floating">
                 <select class="form-control" id="connection_type" name="connection_type">
-                  <option selected value="pppoe">PPPOE</option>
-                  <option value="ipoe">IPoE</option>
-                  <option value="static">Static IP</option>
+                  <option selected value="pppoe" {{ (old('connection_type') == 'pppoe')? 'selected' : '' }}>PPPOE</option>
+                  <option value="ipoe" {{ (old('connection_type') == 'ipoe')? 'selected' : '' }}>IPoE</option>
+                  <option value="static" {{ (old('connection_type') == 'static')? 'selected' : '' }}>Static IP</option>
                 </select>
                 <label for="connection_type" id="connectionSelectPlaceholder" class="">Select Connection Type</label>
               </div>
@@ -95,7 +95,7 @@
               <div class="form-floating">
                 <select class="form-control" id="internet_package" name="internet_package">
                   @foreach($availableInternetPackages as $package)
-                    <option value="{{ $package->id }}">{{ $package->service_download_bandwidth }} Mbps for {{ $package->service_duration }} months</option>
+                    <option value="{{ $package->id }}"{{ (old('internet_package') == $package->id) ? 'selected' : '' }} >{{ $package->service_download_bandwidth }} Mbps for {{ $package->service_duration }} months</option>
                   @endforeach
                 </select>
                 <label for="internet_package">Select Internet Package</label>
@@ -105,9 +105,9 @@
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="iptv_package" name="iptv_package">
-                  <option value="">None</option>
+                  <option value="" selected>None</option>
                   @foreach($availableIptvPackages as $package)
-                    <option value="{{ $package->id }}">{{ (int)$package->no_of_HD_channels + (int)$package->no_of_SD_channels }} Channels for {{ $package->service_duration }} months</option>
+                    <option value="{{ $package->id }}" {{ (old('iptv_package') == $package->id) ? 'selected' : '' }}>{{ (int)$package->no_of_HD_channels + (int)$package->no_of_SD_channels }} Channels for {{ $package->service_duration }} months</option>
                   @endforeach
                 </select>
                 <label for="internet_package">Select Iptv Package</label>
@@ -246,11 +246,11 @@
               <div class="form-floating">
               <select class="form-control" id="identity_proof_type" name="identity_proof_type">
                 <option selected>Document Type </option>
-                <option value="nationalIdentityCard">National Identity Card</option>
-                <option value="citizenship">Citizenship</option>
-                <option value="passport">Passport</option>
-                <option value="drivingLicense">Driving License</option>
-                <option value="other">Other</option>
+                <option value="nationalIdentityCard" {{ (old('identity_proof_type') == 'nationalIdentityCard')? 'selected' : '' }}>National Identity Card</option>
+                <option value="citizenship" {{ (old('identity_proof_type') == 'citizenship')? 'selected' : '' }}>Citizenship</option>
+                <option value="passport" {{ (old('identity_proof_type') == 'passport')? 'selected' : '' }}>Passport</option>
+                <option value="drivingLicense" {{ (old('identity_proof_type') == 'drivingLicense')? 'selected' : '' }}>Driving License</option>
+                <option value="other" {{ (old('identity_proof_type') == 'other')? 'selected' : '' }}>Other</option>
               </select>
               <label for="identity_proof_type">Identity Proof Type:</label>
     
@@ -391,19 +391,19 @@
               <div class="form-floating">
                 <select class="form-control" id="current_ward" name="current_ward_number">
                   <option selected>Select Ward</option>
-                  <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
+                  <option value="1" {{ (old('current_ward_number') == '1')? 'selected' : '' }}>1</option>
+                <option value="2" {{ (old('current_ward_number') == '2')? 'selected' : '' }}>2</option>
+                <option value="3" {{ (old('current_ward_number') == '3')? 'selected' : '' }}>3</option>
+                <option value="4" {{ (old('current_ward_number') == '4')? 'selected' : '' }}>4</option>
+                <option value="5" {{ (old('current_ward_number') == '5')? 'selected' : '' }}>5</option>
+                <option value="6" {{ (old('current_ward_number') == '6')? 'selected' : '' }}>6</option>
+                <option value="7" {{ (old('current_ward_number') == '7')? 'selected' : '' }}>7</option>
+                <option value="8" {{ (old('current_ward_number') == '8')? 'selected' : '' }}>8</option>
+                <option value="9" {{ (old('current_ward_number') == '9')? 'selected' : '' }}>9</option>
+                <option value="10" {{ (old('current_ward_number') == '10')? 'selected' : '' }}>10</option>
+                <option value="11" {{ (old('current_ward_number') == '11')? 'selected' : '' }}>11</option>
+                <option value="12" {{ (old('current_ward_number') == '12')? 'selected' : '' }}>12</option>
+                <option value="13" {{ (old('current_ward_number') == '13')? 'selected' : '' }}>13</option>
 
                  
                 </select>
@@ -468,8 +468,8 @@
               <div class="form-floating">
               <select class="form-control" id="ip_type" name="ip_type">
                 <option selected>Select IP Type</option>
-                  <option value="static">static</option>
-                <option value="dynamic">Dynamic</option>
+                  <option value="static" {{ (old('ip_type') == 'static')? 'selected' : '' }}>static</option>
+                <option value="dynamic" {{ (old('ip_type') == 'dynamic')? 'selected' : '' }}>Dynamic</option>
                 
               </select>
               <label for="ip_type">IP Type</label>
