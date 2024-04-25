@@ -37,7 +37,7 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_password" name="subscriber_password" placeholder="User Password">
+                <input type="text" class="form-control" id="Subscriber_password" name="subscriber_password" placeholder="User Password" value="{{ old('Subscriber_password') }}">
                 <label for="Subscriber_password">User Password</label>
               </div>
             </div>
@@ -79,14 +79,14 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="portal_user_name" name="portal_username" placeholder="Portal Username">
+                <input type="text" class="form-control" id="portal_user_name" name="portal_username" placeholder="Portal Username" value="{{ old('portal_user_name') }}" >
                 <label for="portal_user_name">Portal Username:</label>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="password" class="form-control" id="portal_password" name="portal_password" placeholder="Portal Password">
+                <input type="password" class="form-control" id="portal_password" name="portal_password" placeholder="Portal Password" value="{{ old('portal_password') }}">
                 <label for="portal_password">Portal Password:</label>
               </div>
             </div>
@@ -153,35 +153,35 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="orgname" style="display: none" >
               <div class="form-floating">
-                <input type="text" class="form-control" id="organization_name" name="organization_name" placeholder="Organization Name">
+                <input type="text" class="form-control" id="organization_name" name="organization_name" placeholder="Organization Name" value="{{ old('organization_name') }}">
                 <label for="organization_name">Organization Name</label><br>
               </div>
             </div>
 
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="orgreg" style="display: none"  >
               <div class="form-floating">
-                <input type="text" class="form-control" id="organization_registration_number" name="organization_registration_number" placeholder="Organization Registration">
+                <input type="text" class="form-control" id="organization_registration_number" name="organization_registration_number" placeholder="Organization Registration" value="{{ old('organization_registration_number') }}">
                 <label for="organization_registration_number">Organization Registration Number</label><br>
               </div>
             </div>
 
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_firstname">
               <div class="form-floating">
-                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="{{ old('first_name') }}">
                 <label for="first_name">First Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_middlename">
               <div class="form-floating">
-                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name">
+                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value="{{ old('middle_name') }}">
                 <label for="middle_name">Middle Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_lastname">
               <div class="form-floating">
-                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="{{ old('last_name') }}">
                 <label for="last_name">Last Name</label><br>
               </div>
             </div>
@@ -200,35 +200,35 @@
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="subscriber_occupation">
               <div class="form-floating">
-                <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
+                <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation" value="{{ old('occupation') }}">
                 <label for="occupation">occupation</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" >
               <div class="form-floating">
-                <input type="text" class="form-control" id="pan" name="pan" placeholder="pan">
+                <input type="text" class="form-control" id="pan" name="pan" placeholder="pan" value="{{ old('pan') }}">
                 <label for="pan">PAN</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="fatherdiv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="father_full_name" name="father_full_name" placeholder="Father Full Name">
+                <input type="text" class="form-control" id="father_full_name" name="father_full_name" placeholder="Father Full Name" value="{{ old('father_full_name') }}">
                 <label for="father_full_name">Father's Full Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="motherdiv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="mother_full_name" name="mother_full_name" placeholder="Mother full Name">
+                <input type="text" class="form-control" id="mother_full_name" name="mother_full_name" placeholder="Mother full Name" value="{{ old('mother_full_name') }}">
                 <label for="mother_full_name">Mother's Full Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="grandparentdiv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="grand_father_full_name" name="grand_father_full_name" placeholder="Grand Father Full Name">
+                <input type="text" class="form-control" id="grand_father_full_name" name="grand_father_full_name" placeholder="Grand Father Full Name" value="{{ old('grand_father_full_name') }}">
                 <label for="grand_father_full_name">Grandparent's Full Name</label><br>
               </div>
             </div>
@@ -236,7 +236,7 @@
             
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" id="spousediv">
               <div class="form-floating">
-                <input type="text" class="form-control" id="spouse_full_name" name="spouse_full_name" placeholder="Spouse Full Name">
+                <input type="text" class="form-control" id="spouse_full_name" name="spouse_full_name" placeholder="Spouse Full Name" value="{{ old('spouse_full_name') }}">
                 <label for="spouse_full_name">Spouse's Full Name</label><br>
               </div>
             </div>
@@ -264,14 +264,14 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3" >
               <div class="form-floating">
-                <input type="text" class="form-control" id="email" name="email" placeholder="Subscriber Email">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Subscriber Email" value="{{ old('email') }}">
                 <label for="email">Subscriber's Email</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="refered_by" name="refered_by" placeholder="Refered By">
+                <input type="text" class="form-control" id="refered_by" name="refered_by" placeholder="Refered By" value="{{ old('refered_by') }}">
                 <label for="refered_by">Referred By</label><br>
               </div>
             </div>
@@ -286,14 +286,14 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="number" class="form-control" id="Phone_number" name="Phone_number" placeholder="Phone Number">
+                <input type="number" class="form-control" id="Phone_number" name="Phone_number" placeholder="Phone Number" value="{{ old('Phone_number') }}">
                 <label for="Phone_number">Phone Number</label><br>
               </div>
             </div>
         
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="number" class="form-control" id="cellphone_number" name="cellphone_number" placeholder="cellcontact">
+                <input type="number" class="form-control" id="cellphone_number" name="cellphone_number" placeholder="cellcontact" value="{{ old('cellphone_number') }}">
                 <label for="cellphone_number">Cell Phone Number</label><br>
               </div>
             </div>
@@ -342,14 +342,14 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_permanent_streetname" name="permanent_street" placeholder="Subscriber_permanent_streetname">
+                <input type="text" class="form-control" id="Subscriber_permanent_streetname" name="permanent_street" placeholder="Subscriber_permanent_streetname" value="{{ old('Subscriber_permanent_streetname') }}">
                 <label for="Subscriber_permanent_streetname">Street Name</label><br>
               </div>
             </div>
           
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_permanent_housenumber" name="permanent_house_number" placeholder="Subscriber_permanent_housenumber">
+                <input type="text" class="form-control" id="Subscriber_permanent_housenumber" name="permanent_house_number" placeholder="Subscriber_permanent_housenumber" value="{{ old('Subscriber_permanent_housenumber') }}">
                 <label for="Subscriber_permanent_housenumber">House Number</label><br>
               </div>
             </div>
@@ -413,26 +413,26 @@
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_current_streetname" name="current_street" placeholder="Subscriber_current_streetname">
+                <input type="text" class="form-control" id="Subscriber_current_streetname" name="current_street" placeholder="Subscriber_current_streetname" value="{{ old('Subscriber_current_streetname') }}">
                 <label for="Subscriber_current_streetname">Street Name</label><br>
               </div>
             </div>
         
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="Subscriber_current_housenumber" name="current_house_number" placeholder="Subscriber_current_housenumber">
+                <input type="text" class="form-control" id="Subscriber_current_housenumber" name="current_house_number" placeholder="Subscriber_current_housenumber" value="{{ old('Subscriber_current_housenumber') }}">
                 <label for="Subscriber_current_housenumber">House Number</label><br>
               </div>
             </div>
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="current_latitude" name="current_latitude" placeholder="Current Latitude">
+                <input type="text" class="form-control" id="current_latitude" name="current_latitude" placeholder="Current Latitude" value="{{ old('current_latitude') }}">
                 <label for="current_latitude">Current Latitude</label><br>
               </div>
             </div>
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="current_longitude" name="current_longitude" placeholder="Current Longitude">
+                <input type="text" class="form-control" id="current_longitude" name="current_longitude" placeholder="Current Longitude" value="{{ old('current_longitude') }}">
                 <label for="current_longitude">Current Longitude</label><br>
               </div>
             </div>
@@ -445,21 +445,21 @@
             
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="installed_by" name="installed_by" placeholder="installername">
+                <input type="text" class="form-control" id="installed_by" name="installed_by" placeholder="installername" value="{{ old('installed_by') }}">
                 <label for="installed_by">Installer's Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="access_point" name="access_point" placeholder="accesspoint">
+                <input type="text" class="form-control" id="access_point" name="access_point" placeholder="accesspoint" value="{{ old('access_point') }}">
                 <label for="access_point">Access Point's Name</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="drop_wire_used_serial_number" name="drop_wire_used_serial_number" placeholder="dropwire Serial Number">
+                <input type="text" class="form-control" id="drop_wire_used_serial_number" name="drop_wire_used_serial_number" placeholder="dropwire Serial Number" value="{{ old('drop_wire_used_serial_number') }}">
                 <label for="drop_wire_used_serial_number">Drop-wire Serial Number</label><br>
               </div>
             </div>
@@ -478,48 +478,48 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="ip_address" name="ip_address" placeholder="ipadd">
+                <input type="text" class="form-control" id="ip_address" name="ip_address" placeholder="ipadd" value="{{ old('ip_address') }}">
                 <label for="ip_address">IP Address</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="vlan_id" name="vlan_id" placeholder="vlanid">
+                <input type="text" class="form-control" id="vlan_id" name="vlan_id" placeholder="vlanid" value="{{ old('vlan_id') }}">
                 <label for="vlan_id">VLAN ID</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="cpe_model_name" name="cpe_model_name" placeholder="cpemodel">
+                <input type="text" class="form-control" id="cpe_model_name" name="cpe_model_name" placeholder="cpemodel" value="{{ old('cpe_model_name') }}">
                 <label for="cpe_model_name">CPE Model</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="cpe_mac_address" name="cpe_mac_address" placeholder="cpemacadd">
+                <input type="text" class="form-control" id="cpe_mac_address" name="cpe_mac_address" placeholder="cpemacadd" value="{{ old('cpe_mac_address') }}">
                 <label for="cpe_mac_address">CPE Mac Address</label><br>
               </div>
             </div>
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="cpe_serial_number" name="cpe_serial_number" placeholder="CPE Serial Number">
+                <input type="text" class="form-control" id="cpe_serial_number" name="cpe_serial_number" placeholder="CPE Serial Number" value="{{ old('cpe_serial_number') }}">
                 <label for="cpe_serial_number">CPE Serial Number</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="number" class="form-control" id="lead_id" name="lead_id" placeholder="leadid">
+                <input type="number" class="form-control" id="lead_id" name="lead_id" placeholder="leadid" value="{{ old('lead_id') }}">
                 <label for="lead_id">Lead ID</label><br>
               </div>
             </div>
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="lead_organization" name="lead_organization" placeholder="Lead Organization">
+                <input type="text" class="form-control" id="lead_organization" name="lead_organization" placeholder="Lead Organization" value="{{ old('lead_organization') }}">
                 <label for="lead_organization">Lead Organization</label><br>
               </div>
             </div>
