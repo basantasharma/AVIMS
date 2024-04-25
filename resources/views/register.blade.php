@@ -30,7 +30,7 @@
     
             <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control"  id="Subscriber_username" name="subscriber_username" placeholder="User Name">
+                <input type="text" class="form-control"  id="Subscriber_username" name="subscriber_username" placeholder="User Name" value="{{ old('subscriber_username') }}">
                 <label for="Subscriber_username">User Name</label>
               </div>
             </div>

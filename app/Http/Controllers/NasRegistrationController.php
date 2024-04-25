@@ -25,7 +25,7 @@ class NasRegistrationController extends Controller
     public function registerNas(Request $request)
     {
         $request->validate([
-            'nasname' => 'required',
+            'nasname' => 'required|ipv4',
             // 'shortname' => 'required',
             'secret' => 'required'
         ]);
