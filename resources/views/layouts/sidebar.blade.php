@@ -21,7 +21,25 @@
                   <a href="/admin" class="nav-link @yield('dashboard')"><i class="nav-icon fa-solid fa-gauge-high"></i>
                     <p>Dashboard</p>
                   </a>
-                </li>                
+                </li>
+
+                <li class="nav-item @yield('menuviewregistereduser') active">
+                  <a href="#" class="nav-link m-0"><i class="nav-icon fa-solid fa-users"></i>
+                    <p>Users<i class="nav-arrow fas fa-angle-right right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview fs-7 my-1 border border-top-0 border-bottom-0 border-4 border-light-subtle rounded-3">
+                    <li class="nav-item">
+                      <a href="/viewalluser" class="nav-link @yield('viewregistereduser')"><i class="fa-solid fa-user"></i>
+                        <p>View Subscribers</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/#" class="nav-link @yield('registernas')"><i class="fa-solid fa-user-shield"></i>
+                        <p>View System User</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
               @endrole
               @role(['technician'])
                 <li class="nav-item @yield('menuregister') active">

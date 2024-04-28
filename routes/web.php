@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubscriberRegistrationController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\NasRegistrationController;
 use App\Http\Controllers\InternetPackagesController;
 use App\Http\Controllers\IptvPackagesController;
@@ -108,6 +109,7 @@ Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::post('/addinternetpackage', [InternetPackagesController::class, 'addInternetPackage'])->name('addInternetPackage');
     Route::post('/addiptvpackage', [IptvPackagesController::class, 'addIptvPackage'])->name('addIptvPackage');
 
+    Route::get('/viewalluser', [SubscriberController::class, 'viewAllUsers'])->name('viewAllusers');
     Route::get('/deleteallusers', [UserController::class, 'deleteAllUsers'])->name('deleteAllusers');
     Route::get('/getallusers', [UserController::class, 'getAllUsers'])->name('getAllusers');
     Route::post('/role', [RoleController::class, 'addRole'])->name('addRole');
