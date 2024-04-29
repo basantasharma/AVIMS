@@ -3,8 +3,6 @@ import municipalities from "./municipalities.json";
 import state from "./state.json";
 
 document.addEventListener("DOMContentLoaded", function () {
-
-
     document
         .getElementById("subscriber_type")
         .addEventListener("change", function () {
@@ -119,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectpermanent_vdcmun = document.getElementById("permanent_vdcmun");
     const selectcurrent_vdcmun = document.getElementById("current_vdcmun");
 
-
     // Filter permanent district => permanent state .............................................................
 
     if (!selectpermanent_state || !selectpermanent_district) {
@@ -151,6 +148,11 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         selectpermanent_district.innerHTML = "";
+
+        const selectDistrictOption = document.createElement("option");
+        selectDistrictOption.value = "";
+        selectDistrictOption.textContent = "Select District";
+        selectpermanent_district.appendChild(selectDistrictOption);
 
         if (filteredDistricts.length > 0) {
             filteredDistricts.forEach((district) => {
@@ -197,6 +199,10 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         selectcurrent_district.innerHTML = "";
+        const selectDistrictOption = document.createElement("option");
+        selectDistrictOption.value = "";
+        selectDistrictOption.textContent = "Select District";
+        selectcurrent_district.appendChild(selectDistrictOption);
 
         if (filteredDistricts.length > 0) {
             filteredDistricts.forEach((district) => {
@@ -244,6 +250,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         selectpermanent_vdcmun.innerHTML = "";
 
+        const selectmunicipalityOption = document.createElement("option");
+        selectmunicipalityOption.value = "";
+        selectmunicipalityOption.textContent = "Select VDC/Municipality";
+        selectpermanent_vdcmun.appendChild(selectmunicipalityOption);
+
         if (filteredVdcMun.length > 0) {
             filteredVdcMun.forEach((municipality) => {
                 const option = document.createElement("option");
@@ -259,8 +270,6 @@ document.addEventListener("DOMContentLoaded", function () {
             selectpermanent_vdcmun.appendChild(nomunicipalityOption);
         }
     });
-
-  
 
     // Filter Current VDC/Municipality => current district
 
@@ -293,6 +302,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         selectcurrent_vdcmun.innerHTML = "";
 
+        const selectmunicipalityOption = document.createElement("option");
+        selectmunicipalityOption.value = "";
+        selectmunicipalityOption.textContent = "Select VDC/Municipality";
+        selectcurrent_vdcmun.appendChild(selectmunicipalityOption);
+
         if (filteredVdcMun.length > 0) {
             filteredVdcMun.forEach((municipality) => {
                 const option = document.createElement("option");
@@ -309,129 +323,155 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    //Filter permanent Ward => VDC/MUNICIPALITY
+
+    const selectpermanentWard = document.getElementById("permanent_ward");
+
+    selectpermanent_vdcmun.addEventListener("change", () => {
+        const selectedMunicipalityName = selectpermanent_vdcmun.value;
+
+        const selectedMunicipality = municipalities.find(
+            (municipality) => municipality.name === selectedMunicipalityName
+        );
+
+        if (!selectedMunicipality) {
+            console.error("Selected municipality not found.");
+            return;
+        }
+
+        const numberOfWards = parseInt(selectedMunicipality.wards);
+
+        selectpermanentWard.innerHTML = "";
+        const selectwardOption = document.createElement("option");
+        selectwardOption.value = "";
+        selectwardOption.textContent = "Select Ward";
+        selectpermanentWard.appendChild(selectwardOption);
+
+        if (numberOfWards > 0) {
+            for (let i = 1; i <= numberOfWards; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                selectpermanentWard.appendChild(option);
+            }
+        } else {
+            const noWardsOption = document.createElement("option");
+            noWardsOption.value = "";
+            noWardsOption.textContent = "No wards found for this municipality.";
+            selectpermanentWard.appendChild(noWardsOption);
+        }
+    });
+
+    // Filter current Ward => VDC/MUNICIPALITY
+
+    const selectcurrentWard = document.getElementById("current_ward");
+
+    selectcurrent_vdcmun.addEventListener("change", () => {
+        const selectedMunicipalityName = selectcurrent_vdcmun.value;
+
+        const selectedMunicipality = municipalities.find(
+            (municipality) => municipality.name === selectedMunicipalityName
+        );
+
+        if (!selectedMunicipality) {
+            console.error("Selected municipality not found.");
+            return;
+        }
+
+        const numberOfWards = parseInt(selectedMunicipality.wards); // Parse the number of wards to an integer
+        console.log(numberOfWards);
+        
+
+        // Clear previous options
+        selectcurrentWard.innerHTML = "";
+
+        const selectwardOption = document.createElement("option");
+        selectwardOption.value = "";
+        selectwardOption.textContent = "Select Ward";
+        selectcurrentWard.appendChild(selectwardOption);
+
+        if (numberOfWards > 0) {
+            for (let i = 1; i <= numberOfWards; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                selectcurrentWard.appendChild(option);
+            }
+        } else {
+            const noWardsOption = document.createElement("option");
+            noWardsOption.value = "";
+            noWardsOption.textContent = "No wards found for this municipality.";
+            selectcurrentWard.appendChild(noWardsOption);
+        }
+    });
     
-     //Filter permanent Ward => VDC/MUNICIPALITY
-  
-const selectpermanentWard = document.getElementById('permanent_ward'); 
-
-selectpermanent_vdcmun.addEventListener('change', () => {
-  const selectedMunicipalityName = selectpermanent_vdcmun.value;
-
-  const selectedMunicipality = municipalities.find(municipality => municipality.name === selectedMunicipalityName);
-
-  if (!selectedMunicipality) {
-    console.error('Selected municipality not found.');
-    return;
-  }
-
-  const numberOfWards = parseInt(selectedMunicipality.wards); 
-
-  
-  selectpermanentWard.innerHTML = '';
-
-  if (numberOfWards > 0) {
-    for (let i = 1; i <= numberOfWards; i++) {
-      const option = document.createElement('option');
-      option.value = i;
-      option.textContent = i;
-      selectpermanentWard.appendChild(option);
-    }
-  } else {
-    const noWardsOption = document.createElement('option');
-    noWardsOption.value = '';
-    noWardsOption.textContent = 'No wards found for this municipality.';
-    selectpermanentWard.appendChild(noWardsOption);
-  }
-});
 
 
+    document
+        .getElementById("copy-address")
+        .addEventListener("change", function () {
+            if (this.checked) {
+                // Copy values from permanent address fields to current address fields
+                selectcurrent_state.value = selectpermanent_state.value;
+                selectcurrent_district.value = selectpermanent_district.value;
+                selectcurrent_vdcmun.value = selectpermanent_vdcmun.value;
+                selectcurrentWard.value = selectpermanentWard.value;
+                console.log(selectcurrentWard.value);
+                console.log(selectpermanentWard.value);
 
+                let selectedStreetName = document.getElementById(
+                    "Subscriber_permanent_streetname"
+                ).value;
+                let selectedhousenumber = document.getElementById(
+                    "Subscriber_permanent_housenumber"
+                ).value;
+                document.getElementById("Subscriber_current_streetname").value = selectedStreetName;
+                document.getElementById(
+                    "Subscriber_current_housenumber"
+                ).value = selectedhousenumber;
+            } else {
+                // Clear current address fields
+                selectcurrent_state.value = "";
+                selectcurrent_district.value = "";
+                selectcurrent_vdcmun.value = "";
+                selectcurrentWard.value = "";
+                selectedStreetName.value = "";
+                selectedhousenumber.value = "";
+            }
+        });
+    document
+        .getElementById("copy-address")
+        .addEventListener("change", function () {
+            if (this.checked) {
+                let selectedState =
+                    document.getElementById("permanent_state").value;
+                let selectedDistrict =
+                    document.getElementById("permanent_district").value;
+                let selectedVdcMuni =
+                    document.getElementById("permanent_vdcmun").value;
+                let selectedWard =
+                    document.getElementById("permanent_ward").value;
+                let selectedStreetName = document.getElementById(
+                    "Subscriber_permanent_streetname"
+                ).value;
+                let selectedhousenumber = document.getElementById(
+                    "Subscriber_permanent_housenumber"
+                ).value;
 
-// Filter current Ward => VDC/MUNICIPALITY
-  
- const selectcurrentWard = document.getElementById('current_ward'); 
+                document.getElementById("current_state").value = selectedState;
+                document.getElementById("current_district").value =
+                    selectedDistrict;
+                document.getElementById("current_vdcmun").value =
+                    selectedVdcMuni;
+                document.getElementById("current_ward").value = selectedWard;
 
- selectcurrent_vdcmun.addEventListener('change', () => {
-   const selectedMunicipalityName = selectcurrent_vdcmun.value;
- 
-   const selectedMunicipality = municipalities.find(municipality => municipality.name === selectedMunicipalityName);
- 
-   if (!selectedMunicipality) {
-     console.error('Selected municipality not found.');
-     return;
-   }
- 
-   const numberOfWards = parseInt(selectedMunicipality.wards); // Parse the number of wards to an integer
- 
-   // Clear previous options
-   selectcurrentWard.innerHTML = '';
- 
-   if (numberOfWards > 0) {
-     for (let i = 1; i <= numberOfWards; i++) {
-       const option = document.createElement('option');
-       option.value = i;
-       option.textContent = i;
-       selectcurrentWard.appendChild(option);
-     }
-   } else {
-     const noWardsOption = document.createElement('option');
-     noWardsOption.value = '';
-     noWardsOption.textContent = 'No wards found for this municipality.';
-     selectcurrentWard.appendChild(noWardsOption);
-   }
- });
-
-
-
- document.getElementById('copy-address').addEventListener('change', function() {
-    if (this.checked) {
-        // Copy values from permanent address fields to current address fields
-        selectcurrent_state.value = selectpermanent_state.value;
-        selectcurrent_district.value = selectpermanent_district.value;
-        selectcurrent_vdcmun.value = selectpermanent_vdcmun.value;
-        selectcurrentWard.value = selectpermanentWard.value;
-        let selectedStreetName = document.getElementById("Subscriber_permanent_streetname").value;
-         let selectedhousenumber = document.getElementById("Subscriber_permanent_housenumber").value;
-         document.getElementById("Subscriber_current_streetname").value = selectedStreetName;
-         document.getElementById("Subscriber_current_housenumber").value = selectedhousenumber;
-        
-
-    } else {
-        // Clear current address fields
-        selectcurrent_state.value = '';
-        selectcurrent_district.value = '';
-        selectcurrent_vdcmun.value = '';
-        selectcurrentWard.value = '';
-        selectedStreetName.value = '';
-        selectedhousenumber.value = '';
-        
-    }
-});
- document
- .getElementById("copy-address")
- .addEventListener("change", function () {
-     if (this.checked) {
-         let selectedState =
-             document.getElementById("permanent_state").value;
-         let selectedDistrict =
-             document.getElementById("permanent_district").value;
-         let selectedVdcMuni =
-             document.getElementById("permanent_vdcmun").value;
-         let selectedWard = document.getElementById("permanent_ward").value;
-         let selectedStreetName = document.getElementById("Subscriber_permanent_streetname").value;
-         let selectedhousenumber = document.getElementById("Subscriber_permanent_housenumber").value;
-        
-         document.getElementById("current_state").value = selectedState;
-         document.getElementById("current_district").value =
-             selectedDistrict;
-         document.getElementById("current_vdcmun").value =
-             selectedVdcMuni;
-         document.getElementById("current_ward").value = selectedWard;
-
-         document.getElementById("Subscriber_current_streetname").value = selectedStreetName;
-         document.getElementById("Subscriber_current_housenumber").value = selectedhousenumber;
-     }
- });
+                document.getElementById("Subscriber_current_streetname").value =
+                    selectedStreetName;
+                document.getElementById(
+                    "Subscriber_current_housenumber"
+                ).value = selectedhousenumber;
+            }
+        });
 
     // Populate the select element with options
     districts.forEach((district) => {
@@ -461,5 +501,4 @@ selectpermanent_vdcmun.addEventListener('change', () => {
         option.textContent = municipality.name;
         selectcurrent_vdcmun.appendChild(option);
     });
-
 });

@@ -303,7 +303,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_state" name="permanent_state">
-                  <option value="">Select State</option>
+                  <option value="" selected>Select State</option>
                 </select>
                 <label for="permanent_state">State</label>
               </div>
@@ -312,7 +312,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_district" name="permanent_district">
-                  <option value="">Select District</option>
+                  <option value="" selected>Select District</option>
                  
                 </select>
                 <label for="permanent_state">District</label>
@@ -322,7 +322,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="permanent_vdcmun" name="permanent_vdc/mun">
-                  <option value="">Select VDC/Municipality</option>
+                  <option value="" selected>Select VDC/Municipality</option>
                  
                 </select>
                 <label for="permanent_vdcmun">VDC/MUNICIPALITY</label>
@@ -360,7 +360,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_state" name="current_state">
-                  <option value="">Select State</option>
+                  <option value="" selected>Select State</option>
                 
                 </select>
                 <label for="current_state">State</label>
@@ -370,7 +370,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_district" name="current_district">
-                  <option value="">Select District</option>
+                  <option value="" selected>Select District</option>
                  
                 </select>
                 <label for="current_district">District</label>
@@ -380,7 +380,7 @@
             <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" id="current_vdcmun" name="current_vdc/mun">
-                  <option value="">Select VDC/Municipality</option>
+                  <option value="" selected>Select VDC/Municipality</option>
                  
                 </select>
                 <label for="current_vdcmun">VDC/MUNICIPALITY</label>
@@ -404,8 +404,22 @@
                 <option value="11" {{ (old('current_ward_number') == '11')? 'selected' : '' }}>11</option>
                 <option value="12" {{ (old('current_ward_number') == '12')? 'selected' : '' }}>12</option>
                 <option value="13" {{ (old('current_ward_number') == '13')? 'selected' : '' }}>13</option>
-
-                 
+                <option value="14" {{ (old('current_ward_number') == '14')? 'selected' : '' }}>14</option>
+                <option value="15" {{ (old('current_ward_number') == '15')? 'selected' : '' }}>15</option>
+                <option value="16" {{ (old('current_ward_number') == '16')? 'selected' : '' }}>16</option>
+                <option value="17" {{ (old('current_ward_number') == '17')? 'selected' : '' }}>17</option>
+                <option value="18" {{ (old('current_ward_number') == '18')? 'selected' : '' }}>18</option>
+                <option value="19" {{ (old('current_ward_number') == '19')? 'selected' : '' }}>19</option>
+                <option value="20" {{ (old('current_ward_number') == '20')? 'selected' : '' }}>20</option>
+                <option value="21" {{ (old('current_ward_number') == '21')? 'selected' : '' }}>21</option>
+                <option value="22" {{ (old('current_ward_number') == '22')? 'selected' : '' }}>22</option>
+                <option value="23" {{ (old('current_ward_number') == '23')? 'selected' : '' }}>23</option>
+                <option value="24" {{ (old('current_ward_number') == '24')? 'selected' : '' }}>24</option>
+                <option value="25" {{ (old('current_ward_number') == '25')? 'selected' : '' }}>25</option>
+                <option value="26" {{ (old('current_ward_number') == '26')? 'selected' : '' }}>26</option>
+                <option value="27" {{ (old('current_ward_number') == '27')? 'selected' : '' }}>27</option>
+                <option value="28" {{ (old('current_ward_number') == '28')? 'selected' : '' }}>28</option>
+                <option value="29" {{ (old('current_ward_number') == '29')? 'selected' : '' }}>29</option>                 
                 </select>
                 <label for="current_ward">Ward</label>
               </div>
