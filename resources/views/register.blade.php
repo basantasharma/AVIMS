@@ -419,7 +419,12 @@
                 <option value="26" {{ (old('current_ward_number') == '26')? 'selected' : '' }}>26</option>
                 <option value="27" {{ (old('current_ward_number') == '27')? 'selected' : '' }}>27</option>
                 <option value="28" {{ (old('current_ward_number') == '28')? 'selected' : '' }}>28</option>
-                <option value="29" {{ (old('current_ward_number') == '29')? 'selected' : '' }}>29</option>                 
+                <option value="29" {{ (old('current_ward_number') == '29')? 'selected' : '' }}>29</option>    
+                <option value="30" {{ (old('current_ward_number') == '30')? 'selected' : '' }}>30</option>                 
+                <option value="31" {{ (old('current_ward_number') == '31')? 'selected' : '' }}>31</option>                 
+                <option value="32" {{ (old('current_ward_number') == '32')? 'selected' : '' }}>32</option>                 
+                <option value="33" {{ (old('current_ward_number') == '33')? 'selected' : '' }}>33</option>                 
+
                 </select>
                 <label for="current_ward">Ward</label>
               </div>
