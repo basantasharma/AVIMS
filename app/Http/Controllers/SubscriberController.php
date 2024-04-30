@@ -14,15 +14,25 @@ class SubscriberController extends Controller
     {
         $organization = auth()->user()->organization;
         if($organization == 'astavision'){
-            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ?;', ['internet_packages']);
+            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ?;', ['internet_packages']);
         }
         else{
-            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ? AND sd.lead_organization = ?;', ['internet_packages', $organization]);
+            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username,sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ? AND sd.lead_organization = ?;', ['internet_packages', $organization]);
         }
         // dd($packageId);
         // dd($this->getAllSubscribers());
 
         return view('usersdetails')->with('userDetails', $userDetails);
+    }
+
+    public function manageUser(Request $request) {
+        if($request->cpe_serial_number){
+            return view('routersetting');
+        }
+        else{
+            return redirect()->back()->with("failed", "You must pass a serial Number.");
+            dd(redirect()->back());
+        }
     }
 
     //it will get all users registered in the database 
