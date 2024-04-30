@@ -114,6 +114,9 @@ Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::get('/manageuser', [SubscriberController::class, 'manageUser'])->name('manageUser');
 
     Route::get('/rebootrouter', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter');
+    Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting');
+
+
     Route::get('/deleteallusers', [UserController::class, 'deleteAllUsers'])->name('deleteAllusers');
     Route::get('/getallusers', [UserController::class, 'getAllUsers'])->name('getAllusers');
     Route::post('/role', [RoleController::class, 'addRole'])->name('addRole');
