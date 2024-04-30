@@ -66,7 +66,6 @@ Route::get('/timeline', [TimelineController::class, 'showTimelinePage'])->name('
 // Route::get('/getactivedevice', [RouterSettingController::class, 'getActiveDevices'])->name('getActiveDevices')->middleware('auth');
 // Route::get('/refreshhost', [RouterSettingController::class, 'refreshHost'])->name('refreshHost')->middleware('auth');
 // Route::get('/getrouterinfo', [RouterSettingController::class, 'getRouterInfo'])->name('getRouterInfo')->middleware('auth');
-// Route::post('/reboot', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter')->middleware('auth');
 
 
 // Route::post('/reboot5g', [FivegRouterSettingController::class, 'rebootRouter'])->name('reboot5gRouter')->middleware('auth');
@@ -100,8 +99,10 @@ Route::middleware(['auth:sub'])->group(function () {
     Route::get('/account', [AccountController::class, 'showAccountPage'])->name('account');
     Route::get('/support', [SupportController::class, 'showSupportPage'])->name('support');
     
+    
+    Route::get('/reboot', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter');
     Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting');
-
+    
 });
 
 Route::middleware(['auth:web', 'role:admin'])->group(function () {
@@ -110,6 +111,9 @@ Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::post('/addiptvpackage', [IptvPackagesController::class, 'addIptvPackage'])->name('addIptvPackage');
 
     Route::get('/viewalluser', [SubscriberController::class, 'viewAllUsers'])->name('viewAllusers');
+    Route::get('/manageuser', [SubscriberController::class, 'manageUser'])->name('manageUser');
+
+    Route::get('/rebootrouter', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter');
     Route::get('/deleteallusers', [UserController::class, 'deleteAllUsers'])->name('deleteAllusers');
     Route::get('/getallusers', [UserController::class, 'getAllUsers'])->name('getAllusers');
     Route::post('/role', [RoleController::class, 'addRole'])->name('addRole');

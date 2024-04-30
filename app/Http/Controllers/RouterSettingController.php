@@ -119,7 +119,7 @@ class RouterSettingController extends Controller
         }
     }
 
-    //returns id of currently logged in user
+    //returns id of requested cpe serial number
     public function getIdFromSerial($serial)
     {
         $url = 'http://1.1.1.2:7557/devices?query=%7B%22_deviceId._SerialNumber%22%3A%22'.$serial.'%22%7D&projection=_Id';
@@ -131,7 +131,12 @@ class RouterSettingController extends Controller
         }
         curl_close($ch);
         $data = json_decode($response, true);
-        return $data[0]['_id'];
+        if(array_key_exists(0, $data)){
+            return $data[0]['_id'];
+        }
+        else{
+            dd($data);
+        }
     }
 
     //converts datetime to current timezone
@@ -157,7 +162,18 @@ class RouterSettingController extends Controller
 
     public function getRouterInfo()
     {
-        $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
+        if(\Auth::guard('web')->check()){
+            if(request()->has('cpe_serial_number')){
+                $id = $this->getIdFromSerial($request->cpe_serial_number);
+            }
+            else{
+                return redirect()->back()->with("failed", "You must pass a serial Number.");
+            }
+        }
+        else
+        {
+            $id = $this->getIdFromSerial(\Auth::user()->cpe_serial_number);
+        }
         $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
         $info = array();
         if($this->refreshWifiPower($id))
@@ -187,9 +203,21 @@ class RouterSettingController extends Controller
         }
     }
     //returns everything needed to display in router page
-    public function getRouterSettingInfo()
+    public function getRouterSettingInfo(Request $request)
     {
-        $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
+        if(\Auth::guard('web')->check()){
+            if(request()->has('cpe_serial_number')){
+                $id = $this->getIdFromSerial($request->cpe_serial_number);
+            }
+            else{
+                return redirect()->back()->with("failed", "You must pass a serial Number.");
+            }
+        }
+        else
+        {
+
+            $id = $this->getIdFromSerial(\Auth::user()->cpe_serial_number);
+        }
         $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
         $projection = "";
         $info = array();
@@ -251,9 +279,29 @@ class RouterSettingController extends Controller
         }
     }
 
-    public function rebootRouter()
+    public function rebootRouter(Request $request)
     {
-        $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
+        // dd($request);
+        if(\Auth::guard('web')->check()){
+            if(request()->has('cpe_serial_number')){
+                $id = $this->getIdFromSerial($request->cpe_serial_number);
+                if(!$id)
+                {
+                    return redirect()->back()->with('failed', 'couldnot reboot the provided CPE');
+                }
+            }
+            else{
+                return redirect()->back()->with("failed", "You must pass a serial Number.");
+            }
+        }
+        else
+        {
+            $id = $this->getIdFromSerial(\Auth::user()->cpe_serial_number);
+            if(!$id)
+                {
+                    return redirect()->back()->with('failed', 'couldnot reboot the provided CPE');
+                }
+        }
         if($this->refreshWifiPower($id))
         {
 
@@ -284,7 +332,18 @@ class RouterSettingController extends Controller
     
     public function routerSetting(Request $request)
     {
-        $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
+        if(\Auth::guard('web')->check()){
+            if(request()->has('cpe_serial_number')){
+                $id = $this->getIdFromSerial($request->cpe_serial_number);
+            }
+            else{
+                return redirect()->back()->with("failed", "You must pass a serial Number.");
+            }
+        }
+        else
+        {
+            $id = $this->getIdFromSerial(\Auth::user()->cpe_serial_number);
+        }
         // dd($request);
         $SSID1 = $request['SSID2_4GHz'];
         $SSID5 = $request['SSID5GHz'];

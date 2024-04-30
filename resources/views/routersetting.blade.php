@@ -33,7 +33,7 @@
                                         <span class="p-2">{{ $routerSettingInfo['lastBoot']['h'] }} Hrs {{
                                             $routerSettingInfo['lastBoot']['i'] }} min</span>
                                         @else
-                                        <span class="p-2"> Router's Offline</span>
+                                        <span class="p-2"> Offline</span>
                                         @endif
                                     </td>
                                 </tr>
@@ -45,7 +45,12 @@
                                     <td>Restart</td>
                                     <td class="text-end">
                                         <span>
-                                            <form action="/reboot5g" method="post">@csrf @method('post')<button class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-repeat"></i></button></form>
+                                            @if(Auth::guard('web')->check())
+                                            <a href="/rebootrouter?cpe_serial_number={{ $_REQUEST['cpe_serial_number']}}"><i class="fa-solid fa-repeat"></i></a>
+                                            @else
+                                            <a href="/reboot"><i class="fa-solid fa-repeat"></i></a>
+                                            @endif
+                                            {{-- <form action="/reboot" method="post">@csrf @method('post')<button class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-repeat"></i></button></form> --}}
                                         </span>
                                     </td>
                                 </tr>

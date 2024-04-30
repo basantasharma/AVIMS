@@ -35,7 +35,7 @@ class ViewServiceProvider extends ServiceProvider
             // $view->with('routerInfo', json_decode((new FivegRouterSettingController())->getRouterInfo($id = '00259E-EG8041V5-48575443CC7B43AC'), true));
         });
         View::composer(['routersetting'], function ($view) {
-            $view->with('routerSettingInfo', json_decode((new RouterSettingController())->getRouterSettingInfo(), true));  
+            $view->with('routerSettingInfo', json_decode((new RouterSettingController())->getRouterSettingInfo(request()), true));  
         });
         View::composer(['dashboard'], function ($view) {
             $view->with('routerInfo', json_decode((new RouterSettingController())->getRouterInfo($id = '00259E-EG8141A5-48575443F6E9A3A4'), true));

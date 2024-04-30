@@ -34,7 +34,7 @@
                             // dd($daysRemaining);
                         @endphp
                             <tr class="{{ $daysRemaining>0 ? 'text-success': 'text-danger'  }}">
-                                <th>{{ $user->subscriber_username }}</th>
+                                <th><a class="{{ $daysRemaining>0 ? 'text-success': 'text-danger'  }} text-decoration-none" href="/manageuser/?cpe_serial_number={{ $user->cpe_serial_number }}">{{ $user->subscriber_username }}</a></th>
                                 <th>{{ $user->phone_number }}</th>
                                 <th>{{ $user->service_download_bandwidth }}/{{ $user->service_upload_bandwidth }} Mbps</th>
                                 <th>{{ $user->lead_organization }}</th>
@@ -46,10 +46,10 @@
                                     @endif
                                 </th>
                                 <th>
+                                    <button class="btn btn-outline-dark">recharge</button>
                                     @if($daysRemaining < 0)
                                     <button class="btn btn-outline-danger">Extend Days</button> 
                                     @endif
-                                    <button class="btn btn-outline-dark">recharge</button>
                                 </th>
                             </tr>
                         @endforeach
