@@ -132,6 +132,9 @@
     <form class="row" action="/routersetting" method="post">
         @csrf
         @method('post')
+        @if(Auth::guard('web')->check())
+        <input type="text" name="cpe_serial_number" id="" value="{{ request()->cpe_serial_number }}" hidden>
+        @endif
         @foreach($routerSettingInfo['noOfWifi'] as $routerSettingInfoWifi)
             @if($routerSettingInfoWifi)
                 <div class="col-12 col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 mb-4">
@@ -211,7 +214,6 @@
 
                             <div class="row mt-2">
                                 <div class="col">
-
                                     <button class="btn btn-success">Save settings</button>
                                 </div>
                             </div>
