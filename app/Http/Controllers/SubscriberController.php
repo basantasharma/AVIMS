@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SubscribersDetails;
 // use App\Models\User;
-
+use App\Http\Controllers\RouterSettingController;
 
 use Illuminate\Http\Request;
 
@@ -27,7 +27,13 @@ class SubscriberController extends Controller
 
     public function manageUser(Request $request) {
         if($request->cpe_serial_number){
-            return view('routersetting');
+            $id = (new RouterSettingController())->getIdFromSerial($request->cpe_serial_number);
+            if($id){
+                return view('routersetting');
+            }
+            else{
+                return redirect()->back()->with('failed', 'Serial number is not accurate please check');
+            }
         }
         else{
             return redirect()->back()->with("failed", "You must pass a serial Number.");
@@ -48,5 +54,10 @@ class SubscriberController extends Controller
             $alluser = SubscribersDetails::select('id','subscriber_username', 'phone_number')->where('lead_organization', $leadorg)->get();
         }
         return $alluser;
+    }
+
+    public function rechargeUser(Request $request)
+    {
+        
     }
 }
