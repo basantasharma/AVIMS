@@ -135,7 +135,7 @@ class RouterSettingController extends Controller
             return $data[0]['_id'];
         }
         else{
-            dd($data);
+            return false;
         }
     }
 
@@ -165,9 +165,6 @@ class RouterSettingController extends Controller
         if(\Auth::guard('web')->check()){
             if(request()->has('cpe_serial_number')){
                 $id = $this->getIdFromSerial($request->cpe_serial_number);
-            }
-            else{
-                return redirect()->back()->with("failed", "You must pass a serial Number.");
             }
         }
         else
@@ -218,64 +215,67 @@ class RouterSettingController extends Controller
 
             $id = $this->getIdFromSerial(\Auth::user()->cpe_serial_number);
         }
-        $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
-        $projection = "";
-        $info = array();
-        $Devices = array();
-        if($this->refreshLANDeviceHost($id))
-        {
-            foreach($availableFrequencyBands as $key => $value)
+        if($id){
+
+            $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
+            $projection = "";
+            $info = array();
+            $Devices = array();
+            if($this->refreshLANDeviceHost($id))
             {
-                $projection .= "InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".SSID,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".SSIDAdvertisementEnabled,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".Enable,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".ChannelsInUse,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".X_HW_RFBand,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".PossibleChannels";
-                if($value !== end($availableFrequencyBands))
+                foreach($availableFrequencyBands as $key => $value)
                 {
-                    $projection .= ",";
+                    $projection .= "InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".SSID,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".SSIDAdvertisementEnabled,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".Enable,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".ChannelsInUse,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".X_HW_RFBand,InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".PossibleChannels";
+                    if($value !== end($availableFrequencyBands))
+                    {
+                        $projection .= ",";
+                    }
                 }
-            }
-            $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WiFi.X_HW_Txpower,_lastBoot,InternetGatewayDevice.LANDevice.1.Hosts,'.$projection;
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            if (curl_errno($ch)) {
-                die('cURL error: ' . curl_error($ch));
-            }
-            curl_close($ch);
-            $data = json_decode($response, true);
-            $DevicesData = $data[0]['InternetGatewayDevice']['LANDevice'][1]['Hosts'];
-            for($i=1; $i<=$DevicesData["HostNumberOfEntries"]['_value']; $i++)
-            {
-                if($DevicesData['Host'][$i])
+                $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WiFi.X_HW_Txpower,_lastBoot,InternetGatewayDevice.LANDevice.1.Hosts,'.$projection;
+                $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $response = curl_exec($ch);
+                if (curl_errno($ch)) {
+                    die('cURL error: ' . curl_error($ch));
+                }
+                curl_close($ch);
+                $data = json_decode($response, true);
+                $DevicesData = $data[0]['InternetGatewayDevice']['LANDevice'][1]['Hosts'];
+                for($i=1; $i<=$DevicesData["HostNumberOfEntries"]['_value']; $i++)
                 {
-                    $Devices[] = $DevicesData['Host'][$i];
+                    if($DevicesData['Host'][$i])
+                    {
+                        $Devices[] = $DevicesData['Host'][$i];
+                    }
                 }
+                usort($Devices, function($a, $b) {
+                    return $b['Active']['_value'] <=> $a['Active']['_value'];
+                });
+                usort($Devices, function($a, $b) {
+                    if($a['Active']['_value'] & $b['Active']['_value'])
+                        return $b['X_HW_RSSI']['_value'] <=> $a['X_HW_RSSI']['_value'];
+                });
+                $info["active"] = 'Active';
+                $info["lastBoot"] = $this->convertLastBoot($data[0]['_lastBoot']);
+                $info["routerPower"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WiFi']['X_HW_Txpower']['_value'];
+                $info["Devices"] = $Devices;
+                foreach($availableFrequencyBands as $key => $value)
+                {
+                    $info['noOfWifi'][$key] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][$key];
+                }
+                $data = json_encode($info);
+                return $data;
             }
-            usort($Devices, function($a, $b) {
-                return $b['Active']['_value'] <=> $a['Active']['_value'];
-            });
-            usort($Devices, function($a, $b) {
-                if($a['Active']['_value'] & $b['Active']['_value'])
-                    return $b['X_HW_RSSI']['_value'] <=> $a['X_HW_RSSI']['_value'];
-            });
-            $info["active"] = 'Active';
-            $info["lastBoot"] = $this->convertLastBoot($data[0]['_lastBoot']);
-            $info["routerPower"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WiFi']['X_HW_Txpower']['_value'];
-            $info["Devices"] = $Devices;
-            foreach($availableFrequencyBands as $key => $value)
+            else
             {
-                $info['noOfWifi'][$key] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][$key];
+                $info["active"] = 'Offline';
+                $info["lastBoot"] = [];
+                $info["routerPower"] = 'null';
+                $info["Devices"] = [];
+                $info["noOfWifi"][] = [];
+                $data = json_encode($info);
+                return $data;
             }
-            $data = json_encode($info);
-            return $data;
-        }
-        else
-        {
-            $info["active"] = 'Offline';
-            $info["lastBoot"] = [];
-            $info["routerPower"] = 'null';
-            $info["Devices"] = [];
-            $info["noOfWifi"][] = [];
-            $data = json_encode($info);
-            return $data;
         }
     }
 
@@ -285,10 +285,6 @@ class RouterSettingController extends Controller
         if(\Auth::guard('web')->check()){
             if(request()->has('cpe_serial_number')){
                 $id = $this->getIdFromSerial($request->cpe_serial_number);
-                if(!$id)
-                {
-                    return redirect()->back()->with('failed', 'couldnot reboot the provided CPE');
-                }
             }
             else{
                 return redirect()->back()->with("failed", "You must pass a serial Number.");
