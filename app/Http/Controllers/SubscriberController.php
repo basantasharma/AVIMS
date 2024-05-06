@@ -25,7 +25,7 @@ class SubscriberController extends Controller
         return view('usersdetails')->with('userDetails', $userDetails);
     }
 
-    public function manageUser(Request $request) {
+    public function manageSubscriber(Request $request) {
         if($request->cpe_serial_number){
             $id = (new RouterSettingController())->getIdFromSerial($request->cpe_serial_number);
             if($id){

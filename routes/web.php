@@ -110,8 +110,11 @@ Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::post('/addinternetpackage', [InternetPackagesController::class, 'addInternetPackage'])->name('addInternetPackage');
     Route::post('/addiptvpackage', [IptvPackagesController::class, 'addIptvPackage'])->name('addIptvPackage');
 
-    Route::get('/viewalluser', [SubscriberController::class, 'viewAllUsers'])->name('viewAllusers');
-    Route::get('/manageuser', [SubscriberController::class, 'manageUser'])->name('manageUser');
+    Route::get('/viewallsubscribers', [SubscriberController::class, 'viewAllUsers'])->name('viewAllusers');
+    Route::get('/viewalluser', [UserController::class, 'viewAllSystemUsers'])->name('viewAllSystemusers');
+    Route::get('/managesubscriber', [SubscriberController::class, 'manageSubscriber'])->name('manageSubscriber');
+    Route::get('/manageuser', [UserController::class, 'manageUser'])->name('manageUser');
+    Route::get('/extendsubscriber', [UserController::class, 'manageUser'])->name('manageUser');
 
     Route::get('/rebootrouter', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter');
     Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting');
