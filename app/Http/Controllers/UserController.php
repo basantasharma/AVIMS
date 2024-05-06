@@ -12,6 +12,16 @@ class UserController extends Controller
     {
         return view('adduser');
     }
+
+    public function viewAllSystemUsers(Request $request)
+    {
+        $systemUser = $this->getAllUsers();
+        return view('systemusersdetails')->with('userDetails', $systemUser);
+    }
+    public function manageUser(Request $request)
+    {
+        dd($request->id);
+    }
     //
     public function getUserById(Request $request)
     {
@@ -40,11 +50,11 @@ class UserController extends Controller
     {
         if(\Auth::user()->organization == 'astavision')
         {
-            $alluser = User::select('id','username')->get();
+            $alluser = User::select('id','username', 'email', 'organization', 'branch', 'department')->get();
         }
         else
         {
-            $alluser = User::select('id','username')->where('organization', \Auth::user()->organization)->get();
+            $alluser = User::select('id','username', 'email', 'organization', 'branch', 'department')->where('organization', \Auth::user()->organization)->get()->whereNotIn('id', [\Auth::user()->id]);
         }
         return $alluser;
     }
