@@ -50,7 +50,12 @@
                                     <td>Restart</td>
                                     <td class="text-end">
                                         <span>
-                                            <form action="/reboot" method="post">@csrf @method('post')<button class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-repeat"></i></button></form>
+                                            @if(Auth::guard('web')->check())
+                                            <a href="/rebootrouter?cpe_serial_number={{ $_REQUEST['cpe_serial_number']}}"><i class="fa-solid fa-repeat"></i></a>
+                                            @else
+                                            <a class="btn btn-outline-danger" href="/reboot"><i class="fa-solid fa-repeat"></i></a>
+                                            @endif
+                                            {{-- <form action="/reboot" method="post">@csrf @method('post')<button class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-repeat"></i></button></form> --}}
                                         </span>
                                     </td>
                                 </tr>
@@ -69,11 +74,47 @@
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <table class="table table-striped">
-                            <tbody>
+                            <thead>
                                 <tr>
-                                    <td><h4 class="">20 days</h4></td>
-                                    <td><button class="btn btn-danger float-end">Pay Advance</button></td>
+                                    <th>Package</th>
+                                    <th>Activated</th>
+                                    <th>Expiry</th>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($userDetails as $user)
+                                    @php
+                                        $extendedDays = null;
+                                        $daysRemaining = (\Carbon\Carbon::parse(\Carbon\Carbon::now()->format("d M Y")))->diffInDays((\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->expires_at))->format("d M Y")), false);
+                                        // $daysRemaining = (\Carbon\Carbon::now())->diffInDays(\Carbon\Carbon::parse($user->expires_at), false);
+                                        // var_dump($daysRemaining);
+                                        if($daysRemaining < 0)
+                                        {
+                                            if(!is_Null($user->extended_till)){
+
+                                                $extendedDays = (\Carbon\Carbon::parse(\Carbon\Carbon::now()->format("d M Y")))->diffInDays(\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->extended_till)->format("d M Y")), false);
+                                                // $extendedDays = (\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->expires_at)->format("d M Y")))->diffInDays(\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->extended_till)->format("d M Y")), false);
+                                            }
+                                            // $daysRemaining = $extendedDays;
+                                            // if($daysRemaining<0)
+                                        }
+                                        // if($daysRemaining < 0 & is_Null($user->extended_till)$daysRemaining < 0 & is_Null($user->extended_till))
+                                        // {
+
+                                        // }
+                                        // dd($daysRemaining);
+                                    @endphp
+                                <tr>
+                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }}">
+                                        {{-- <div class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0? 'text-warning' : 'text-danger' ) }}"> --}}
+                                            {{ $user->service_table_name }}
+                                        {{-- </div> --}}
+                                    </td>
+                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }}">{{ \Carbon\Carbon::parse($user->updated_at)->format('Y M d') }}</td>
+                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }}">{{ \Carbon\Carbon::parse($user->expires_at)->format('Y M d') }}</td>
+                                </tr>
+                                @endforeach
+                                {{-- <td><button class="btn btn-danger float-end">Pay Advance</button></td> --}}
                                 
                                 {{-- <tr>
                                     <td><h4 class="">20 days</h4></td>
@@ -83,6 +124,28 @@
                                 
                             </tfoot>
                         </table>
+                        <div class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }} pt-2">
+                            @if($daysRemaining >= 0)
+                            <span>{{ $daysRemaining }} Days Remaining</span>
+                            <button class="btn btn-outline-success float-end me-2"> Pay in Advance</button>
+
+                            @else
+                                @if($extendedDays>0)
+                                <span>{{ $extendedDays }} Days Remaining</span>
+                                <button class="btn btn-outline-success float-end me-2"> Pay The DUE</button>
+
+                                @else
+                                    @if($extendedDays == null)
+                                    <span>You are Expired</span>
+                                    <a href="/extends" class="btn btn-outline-warning float-end">Extend</a>
+                                    <button class="btn btn-outline-warning float-end me-2"> Pay the DUE</button>
+                                    @else
+                                    <a class="btn btn-outline-danger disabled float-end" disabled> Extend</a>
+                                    <button class="btn btn-outline-danger float-end me-2"> Pay the DUE</button>
+                                    @endif
+                                @endif
+                            @endif
+                        </div>
                         <div class="progress mt-3" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 20%; border-radius: 0.375rem;"></div>
                         </div>
@@ -108,7 +171,7 @@
     <div class="col-12 col-xxl-4 col-xl-4  col-lg-4 col-md-4 col-sm-12 mb-4">
         <div class="card card-dark">
             <div class="card-header">
-                <h3 class="card-title">Your Bandwidth <i class="fa-solid fa-bolt"></i></h3>
+                <h3 class="card-title">Internet Bandwidth <i class="fa-solid fa-bolt"></i></h3>
                 <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
             </div><!-- /.card-header -->
             <div class="card-body">

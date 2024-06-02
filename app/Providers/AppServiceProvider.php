@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Blade::if('role', function ($role) {
-            $roles = (new UsersRolesController())->seeUserRole();
+            $roles = (new UsersRolesController())->checkRole();
             foreach($roles as $rolee)
             {
                 if(in_array($rolee->role, $role) || $rolee->role == 'admin')

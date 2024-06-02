@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\Models\User;
+
+
+use App\Http\Controllers\RoleController;
+
 
 class UserController extends Controller
 {
@@ -16,7 +21,9 @@ class UserController extends Controller
     public function viewAllSystemUsers(Request $request)
     {
         $systemUser = $this->getAllUsers();
-        return view('systemusersdetails')->with('userDetails', $systemUser);
+        $userRoles = [];
+        // $registeredRoles = (new RoleController())->seeAllRoles($request);
+        return view('systemusersdetails')->with('userDetails', $systemUser)->with('userroles', $userRoles);
     }
     public function manageUser(Request $request)
     {

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use App\Http\Controllers\UsersRolesController;
 use App\Http\Controllers\RouterSettingController;
+use App\Http\Controllers\SubscriberServiceController;
 use App\Http\Controllers\FivegRouterSettingController;
 
 
@@ -38,7 +39,8 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('routerSettingInfo', json_decode((new RouterSettingController())->getRouterSettingInfo(request()), true));  
         });
         View::composer(['dashboard'], function ($view) {
-            $view->with('routerInfo', json_decode((new RouterSettingController())->getRouterInfo($id = '00259E-EG8141A5-48575443F6E9A3A4'), true));
+            $view->with('userDetails', (new SubscriberServiceController())->viewExpiryDays(request()));
+            $view->with('routerInfo', json_decode((new RouterSettingController())->getRouterInfo(), true));
 
             // $view->with('routerBands', (new RouterSettingController())->getSupportedFrequencyBand($id = '00259E-EG8141A5-48575443F6E9A3A4'));
             // $view->with('routerBands', json_decode((new RouterSettingController())->getSupportedFrequencyBand($id = '00259E-EG8141A5-48575443F6E9A3A4'), true));

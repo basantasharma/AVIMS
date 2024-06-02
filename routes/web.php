@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubscriberRegistrationController;
+use App\Http\Controllers\SubscriberServiceController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\NasRegistrationController;
 use App\Http\Controllers\InternetPackagesController;
@@ -104,7 +105,8 @@ Route::middleware(['auth:sub'])->group(function () {
     Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting');
     
 });
-
+// Route::get('/extend', [SubscriberServiceController::class, 'extendSubscriber'])->name('extendSubscriber')->middleware('auth:sub');
+Route::get('/extends', [SubscriberServiceController::class, 'extends'])->name('extendSubscriber')->middleware('auth:sub');
 Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin');
     Route::post('/addinternetpackage', [InternetPackagesController::class, 'addInternetPackage'])->name('addInternetPackage');
@@ -114,7 +116,7 @@ Route::middleware(['auth:web', 'role:admin'])->group(function () {
     Route::get('/viewalluser', [UserController::class, 'viewAllSystemUsers'])->name('viewAllSystemusers');
     Route::get('/managesubscriber', [SubscriberController::class, 'manageSubscriber'])->name('manageSubscriber');
     Route::get('/manageuser', [UserController::class, 'manageUser'])->name('manageUser');
-    Route::get('/extendsubscriber', [UserController::class, 'manageUser'])->name('manageUser');
+    Route::get('/extendsubscriber', [SubscriberServiceController::class, 'extendSubscriber'])->name('extendSubscriber');
 
     Route::get('/rebootrouter', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter');
     Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting');

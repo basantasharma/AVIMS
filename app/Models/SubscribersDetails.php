@@ -115,29 +115,29 @@ class SubscribersDetails extends Authenticatable implements MustVerifyEmail
     }
 
 
-    public function roles()
-    {
-        return $this->belongsToMany(Roles::class, 'users_roles', 'user_id', 'role_id');
-    }
-    public function permissions()
-    {
-        return $this->hasManyThrough(Permissions::class, Roles::class);
-    }
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(Roles::class, 'users_roles', 'user_id', 'role_id');
+    // }
+    // public function permissions()
+    // {
+    //     return $this->hasManyThrough(Permissions::class, Roles::class);
+    // }
 
-    public function hasRole($role)
-    {
+    // public function hasRole($role)
+    // {
         
-        $roleid = Roles::where('role', '=', $role)->pluck('id');
-        //$userid = User::where('id', '=', auth()->user()->id)->pluck('id');
-        //dd(UsersRoles::where('role_id', '=', $roleid)->where('user_id', '=', $userid)->pluck('id'));
-        return UsersRoles::where('role_id', '=', $roleid)->where('user_id', '=', auth()->user()->id)->pluck('id');
-        //return $this->roles->contains('name', $role);
-        //return Roles::contains('name', $role);
-        //return $this->roles()->whereIn('name', $role);//->exists();
-    }
+    //     $roleid = Roles::where('role', '=', $role)->pluck('id');
+    //     //$userid = User::where('id', '=', auth()->user()->id)->pluck('id');
+    //     //dd(UsersRoles::where('role_id', '=', $roleid)->where('user_id', '=', $userid)->pluck('id'));
+    //     return UsersRoles::where('role_id', '=', $roleid)->where('user_id', '=', auth()->user()->id)->pluck('id');
+    //     //return $this->roles->contains('name', $role);
+    //     //return Roles::contains('name', $role);
+    //     //return $this->roles()->whereIn('name', $role);//->exists();
+    // }
 
-    public function hasPermission($permission)
-    {
-        return $this->permissions()->where('name', $permission)->exists();
-    }
+    // public function hasPermission($permission)
+    // {
+    //     return $this->permissions()->where('name', $permission)->exists();
+    // }
 }
