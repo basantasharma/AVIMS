@@ -14,10 +14,10 @@ class SubscriberController extends Controller
     {
         $organization = auth()->user()->organization;
         if($organization == 'astavision'){
-            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ?;', ['internet_packages']);
+            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ss.extended_till, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ?;', ['internet_packages']);
         }
         else{
-            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username,sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ? AND sd.lead_organization = ?;', ['internet_packages', $organization]);
+            $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ss.extended_till, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ? AND sd.lead_organization = ?;', ['internet_packages', $organization]);
         }
         // dd($packageId);
         // dd($this->getAllSubscribers());
@@ -56,8 +56,37 @@ class SubscriberController extends Controller
         return $alluser;
     }
 
-    public function rechargeUser(Request $request)
+    public function getSubscriberById($id)
     {
-        
+        $leadorg = \Auth::user()->organization;
+        if($leadorg == 'astavision')
+        {
+            $user = SubscribersDetails::select('id','subscriber_username', 'phone_number')->where('id', $id)->get();
+        }
+        else{
+
+            $user = SubscribersDetails::select('id','subscriber_username', 'phone_number')->where('lead_organization', $leadorg)->where('id', $id)->get();
+        }
+        if($user->isNotEmpty()){
+            return $user;
+        }
+        else{
+            return false;
+        }
     }
+
+    public function getSubscriberByIdwithoutLogin($id)
+    {
+            $user = SubscribersDetails::select('id','subscriber_username', 'phone_number')->where('id', $id)->get();
+
+            // $user = SubscribersDetails::select('id','subscriber_username', 'phone_number')->where('lead_organization', $leadorg)->where('id', $id)->get();
+        if($user->isNotEmpty()){
+            return $user;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }

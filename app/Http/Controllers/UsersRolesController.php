@@ -56,8 +56,9 @@ class UsersRolesController extends Controller
         return User::select()->where('id', $id)->get()->first();
     }
 
-    public function seeUserRole()
+    public function seeUserRole(Request $request)
     {
+        dd($request->id);
         $data = [];
         $datas = [];
         $userId = \Auth::id();
@@ -143,6 +144,23 @@ class UsersRolesController extends Controller
         {
             return true;
         }
+    }
+    public function checkRole()
+    {
+        $data = [];
+        $datas = [];
+        $userId = \Auth::id();
+        $results = UsersRoles::select('role_id')->where('user_id', $userId)->get();
+        foreach($results as $result=>$key)
+        {
+            array_push($data, $key->role_id);
+        }
+        $roles = Roles::select('role', 'id')->whereIn('id', $data)->get();
+        foreach($roles as $role=>$key)
+        {
+            array_push($datas, $key->role);
+        }
+        return $roles;
     }
 
 }

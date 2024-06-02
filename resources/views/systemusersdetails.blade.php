@@ -42,7 +42,7 @@
                                 <th>{{ $user->department }}</th>
 
                                 <th>
-                                    <button class="btn btn-outline-dark">Roles</button>
+                                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#manageRole{{ $user->id }}">Roles</button>
                                     <button class="btn btn-outline-dark">Permissions</button>
                                     
                                 </th>
@@ -64,6 +64,64 @@
         </div><!-- /.card -->                
     </div>
 </div>
+@foreach ($userDetails as $user)
+<form class="needs-validation" novalidate action="/addinternetpackage" method="post">
+    <div class="modal modal-lg" id="manageRole{{ $user->id }}">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header bg-dark text-light">
+            <h5 class="modal-title">Manage Role</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+  
+          <!-- Modal body -->
+          <div class="modal-body">
+            @csrf
+            @method('post')
+            <div class="serviceform">
+                <div class="row justify-content-start">
+                    {{-- <h3 class="mb-1 text-center">Internet Package</h3> --}}
+                    <h4 class="text-center">Roles</h4><hr>
+            
+                    <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                      <div class="form-floating">
+                        <input type="text" class="form-control" id="username" name="Username" placeholder="User Name" value="{{ old('username')? old('username') : $user->username }}">
+                        <label for="username">Username</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-xxl-6 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-3">
+                        {{-- <div class="form-floating"> --}}
+                                {{-- @foreach($userroles as $roles) --}}
+                                {{-- <input type="checkbox" name="role" id="role" value="{{ $roles->name }}">
+                                <input type="checkbox" name="role" id="role" value="{{ $roles->name }}">
+                                <input type="checkbox" name="role" id="role" value="{{ $roles->name }}">
+                                <input type="checkbox" name="role" id="role" value="{{ $roles->name }}">
+                                <input type="checkbox" name="role" id="role" value="{{ $roles->name }}"> --}}
+                                {{-- @endforeach --}}
+                                <input type="checkbox" name="role" id="role1" value="hello">
+                                <label for="role1">Technician</label>
+                                <input type="checkbox" name="role" id="role2" value="hello">
+                                <label for="role2">Admin</label>
+                                <input type="checkbox" name="role" id="role3" value="hello">
+                                <label for="role3">manager</label>
+                        {{-- </div> --}}
+                      </div>
+
+                  </div>
+                  <div class="modal-footer">
+                  <button type="submit" class="btn btn-outline-dark">Submit</button>
+                  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+@endforeach
+
 
 @endsection
 
