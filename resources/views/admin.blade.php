@@ -24,7 +24,7 @@
                   @foreach($registeredsubscribers as $subscriber)
                     <li class="dropdown-item">{{ $subscriber->subscriber_username }}</li>
                   @endforeach
-                  <li class="dropdown-item"><a class="" href="/viewalluser">View all users</a></li>
+                  <li class="dropdown-item"><a class="" href="/viewallsubscribers">View all users</a></li>
                   </ol>
               </div>
               <h3>{{ count($registeredsubscribers) }}</h3>
