@@ -5,6 +5,7 @@
 
 
 @section('body')
+{{-- @dd($userDetails) --}}
 <!--begin::Row-->
 <div class="row mb-4 "><!-- Start col -->
     <div class="col">
@@ -84,34 +85,32 @@
                             <tbody>
                                 @foreach($userDetails as $user)
                                     @php
+                                        $totalDays = (\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->updated_at)->format("d M Y")))->diffInDays((\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->expires_at))->format("d M Y")), true);
+                                        // var_dump($totalDays);
                                         $extendedDays = null;
                                         $daysRemaining = (\Carbon\Carbon::parse(\Carbon\Carbon::now()->format("d M Y")))->diffInDays((\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->expires_at))->format("d M Y")), false);
+                                        $percentages = (int)(($daysRemaining/$totalDays)*100);
                                         // $daysRemaining = (\Carbon\Carbon::now())->diffInDays(\Carbon\Carbon::parse($user->expires_at), false);
-                                        // var_dump($daysRemaining);
                                         if($daysRemaining < 0)
                                         {
                                             if(!is_Null($user->extended_till)){
-
+                                                $totalDays = (\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->updated_at)->format("d M Y")))->diffInDays((\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->extended_till))->format("d M Y")), true);
                                                 $extendedDays = (\Carbon\Carbon::parse(\Carbon\Carbon::now()->format("d M Y")))->diffInDays(\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->extended_till)->format("d M Y")), false);
+                                                $percentages = (int)(($extendedDays/$totalDays)*100);
                                                 // $extendedDays = (\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->expires_at)->format("d M Y")))->diffInDays(\Carbon\Carbon::parse(\Carbon\Carbon::parse($user->extended_till)->format("d M Y")), false);
                                             }
-                                            // $daysRemaining = $extendedDays;
-                                            // if($daysRemaining<0)
                                         }
-                                        // if($daysRemaining < 0 & is_Null($user->extended_till)$daysRemaining < 0 & is_Null($user->extended_till))
-                                        // {
-
-                                        // }
                                         // dd($daysRemaining);
+                                        var_dump($extendedDays);
                                     @endphp
                                 <tr>
-                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }}">
-                                        {{-- <div class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0? 'text-warning' : 'text-danger' ) }}"> --}}
+                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-info' : 'text-danger' ) }}">
+                                        {{-- <div class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0? 'text-info' : 'text-danger' ) }}"> --}}
                                             {{ $user->service_table_name }}
                                         {{-- </div> --}}
                                     </td>
-                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }}">{{ \Carbon\Carbon::parse($user->updated_at)->format('Y M d') }}</td>
-                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }}">{{ \Carbon\Carbon::parse($user->expires_at)->format('Y M d') }}</td>
+                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-info' : 'text-danger' ) }}">{{ \Carbon\Carbon::parse($user->updated_at)->format('Y M d') }}</td>
+                                    <td class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-info' : 'text-danger' ) }}">{{ \Carbon\Carbon::parse($user->expires_at)->format('Y M d') }}</td>
                                 </tr>
                                 @endforeach
                                 {{-- <td><button class="btn btn-danger float-end">Pay Advance</button></td> --}}
@@ -124,32 +123,36 @@
                                 
                             </tfoot>
                         </table>
-                        <div class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-warning' : 'text-danger' ) }} pt-2">
+                        <div class="{{ $daysRemaining>=0 ? 'text-success':($extendedDays>0 ? 'text-info' : 'text-danger' ) }} pt-2">
                             @if($daysRemaining >= 0)
-                            <span>{{ $daysRemaining }} Days Remaining</span>
-                            <button class="btn btn-outline-success float-end me-2"> Pay in Advance</button>
-
+                                <span>{{ $daysRemaining }} Days Remaining</span>
+                                <button class="btn btn-outline-success float-end me-2"> Pay in Advance</button>
+                                <div class="progress mt-3" role="progressbar" aria-label="Success striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: {{ $percentages }}%; border-radius: 0.375rem;"></div>
+                                </div>
                             @else
                                 @if($extendedDays>0)
                                 <span>{{ $extendedDays }} Days Remaining</span>
                                 <button class="btn btn-outline-success float-end me-2"> Pay The DUE</button>
-
+                                <div class="progress mt-3" role="progressbar" aria-label="Success striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{ $percentages>50 ? 'success': ($percentages>32 ? 'warning' : 'danger') }}" style="width: {{ $percentages }}%; border-radius: 0.375rem;"></div>
+                                </div>
                                 @else
-                                    @if($extendedDays == null)
-                                    <span>You are Expired</span>
-                                    <a href="/extends" class="btn btn-outline-warning float-end">Extend</a>
-                                    <button class="btn btn-outline-warning float-end me-2"> Pay the DUE</button>
+                                    @if($extendedDays === null)
+                                        <span>Your package is Expired</span>
+                                        <a href="/extends" class="btn btn-outline-warning float-end">Extend</a>
+                                        <button class="btn btn-outline-warning float-end me-2"> Pay the DUE</button>
+                                        {{-- <div class="progress mt-3" role="progressbar" aria-label="Success striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{ $percentages>50 ? 'success': ($percentages>32 ? 'warning' : 'danger') }}" style="width: {{ $percentages }}%; border-radius: 0.375rem;"></div>
+                                        </div> --}}
                                     @else
+                                    <span>Your extended period is Expired</span>
                                     <a class="btn btn-outline-danger disabled float-end" disabled> Extend</a>
                                     <button class="btn btn-outline-danger float-end me-2"> Pay the DUE</button>
                                     @endif
                                 @endif
                             @endif
-                        </div>
-                        <div class="progress mt-3" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 20%; border-radius: 0.375rem;"></div>
-                        </div>
-                        
+                        </div>                        
                     </div><!-- /.card-body -->
                 </div><!-- /.card -->                
             </div>

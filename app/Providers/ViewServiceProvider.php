@@ -39,7 +39,7 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('routerSettingInfo', json_decode((new RouterSettingController())->getRouterSettingInfo(request()), true));  
         });
         View::composer(['dashboard'], function ($view) {
-            $view->with('userDetails', (new SubscriberServiceController())->viewExpiryDays(request()));
+            $view->with('userDetails', (new SubscriberServiceController())->getExpiredUserDetails(request()));
             $view->with('routerInfo', json_decode((new RouterSettingController())->getRouterInfo(), true));
 
             // $view->with('routerBands', (new RouterSettingController())->getSupportedFrequencyBand($id = '00259E-EG8141A5-48575443F6E9A3A4'));

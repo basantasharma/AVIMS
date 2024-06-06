@@ -13,17 +13,18 @@ use App\Models\SubscriberService;
 use App\Models\OrganizationPolicy;
 use App\Models\Organizations;
 
+use Carbon\Carbon;
 
 class SubscriberServiceController extends Controller
 {
-    public function viewExpiryDays(Request $request){
+    public function getExpiredUserDetails(Request $request){
         if(\Auth::guard('web')->check()){
             $organization = auth()->user()->organization;
             if($organization == 'astavision'){
-                $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ss.extended_till, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ? OR ss.service_table_name = ?;', ['internet_packages', 'iptv_packages']);
+                $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ss.extended_till, ip.service_upload_bandwidth, ip.service_download_bandwidth, org.orgname, org.branch, op.extend_days FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id INNER JOIN organizations org ON sd.lead_organization = org.orgname INNER JOIN organization_policy op ON org.id = op.org_id WHERE ss.service_table_name = ? OR ss.service_table_name = ?;', ['internet_packages', 'iptv_packages']);
             }
             else{
-                $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ss.extended_till, ip.service_upload_bandwidth, ip.service_download_bandwidth FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id WHERE ss.service_table_name = ? OR ss.service_table_name = ? AND sd.lead_organization = ?;', ['internet_packages', 'iptv_packages', $organization]);
+                $userDetails = \DB::select('SELECT sd.id, sd.subscriber_username, sd.cpe_serial_number, sd.phone_number, sd.lead_organization, ss.service_table_name, ss.expires_at, ss.extended_till, ip.service_upload_bandwidth, ip.service_download_bandwidth, org.orgname, org.branch, op.extend_days FROM subscribers_details sd INNER JOIN subscriber_service ss ON sd.id = ss.user_id INNER JOIN internet_packages ip ON ss.service_id = ip.id INNER JOIN organizations org ON sd.lead_organization = org.orgname INNER JOIN organization_policy op ON org.id = op.org_id WHERE ss.service_table_name = ? OR ss.service_table_name = ? AND sd.lead_organization = ?;', ['internet_packages', 'iptv_packages', $organization]);
             }
         }
         if(\Auth::guard('sub')->check()){
@@ -35,11 +36,37 @@ class SubscriberServiceController extends Controller
     }
 
     public function extends(Request $request){
-        $organizationId = Organizations::select()->where('orgname', $request->user()->lead_organization)->get();
-        $extendDays = OrganizationPolicy::select()->where('org_id', $organizationId[0]->id)->get();
-        $subscriberService = SubscriberService::select()->where('user_id', $request->user()->id)->get();
-        dd($subscriberService);
-        dd($extendDays[0]->extend_days);
+        if(\Auth::guard('sub')->check()){
+            $organizations = Organizations::select()->where('orgname', $request->user()->lead_organization)->get();
+        $organizationPolicy = OrganizationPolicy::select()->where('org_id', $organizations[0]->id)->get();
+        $subscriberServices = SubscriberService::select()->where('user_id', $request->user()->id)->get();
+        $extended_till = Carbon::now()->addDays($organizationPolicy[0]->extend_days);
+        foreach($subscriberServices as $subscriberService){
+            if($subscriberService->extended_till == null)
+            {
+                $result = SubscriberService::where('id', $subscriberService->id)->update([
+                    'extended_till' => $extended_till
+                ]);
+                // if($result & $subscriberService->service_table_name == 'internet_packages'){
+                //     $result = RadCheck::where('attribute', 'Expiration')->where('username', $request->user()->subscriber_username)->update(['value' => $extended_till->format('d M Y')]);
+                //     if($result)
+                //     {
+                //         // return redirect()->back()->with('success', 'Successfully edtended');
+                //     }
+                //     else{
+                //         // return redirect()->back()->with('failed', 'Failed to extend in radius table');
+                //     }
+                // }
+                // else{
+                //     // return redirect()->back()->with('failed', 'Failed to extend user');
+                // }
+            }
+            else{
+                // return redirect()->back()->with('failed', 'You are already extended');
+            }
+        }
+        dd('sakyo ta');
+        }
 
     }
 
