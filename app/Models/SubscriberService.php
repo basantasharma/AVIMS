@@ -9,9 +9,18 @@ class SubscriberService extends Model
 {
     use HasFactory;
     protected $table = 'subscriber_service';
+    public $timestamps = true;
 
     protected $fillable = [
-        'user_id', 'service_table_name', 'service_id', 'created_by', 'updated_by', 'created_at', 'updated_at', 'expires_at', 'extended_till'
+        'user_id', 
+        'service_table_name', '
+        service_id', '
+        created_by', 
+        'updated_by', 
+        // 'created_at', 
+        // 'updated_at', 
+        'expires_at', 
+        'extended_till'
     ];
 
     protected $dates = [
